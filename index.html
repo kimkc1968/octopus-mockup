@@ -749,6 +749,8 @@
 #v-penalty .rcpf .p b{color:var(--faint);font-weight:400;font-size:10.5px}
 #v-penalty .rcr{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:12px;color:var(--muted)}
 #v-penalty .rcr b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+#v-penalty .rcr.mid{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
+#v-penalty .rcr.mid b{color:var(--sales);font-weight:700}
 #v-penalty .rcr.sum{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
 #v-penalty .rcr.sum b{font-size:14.5px;font-weight:800;color:var(--sales)}
 #v-penalty .rclock{font-size:10px;color:var(--faint);margin-left:6px;font-weight:400}
@@ -1155,6 +1157,17 @@
 #v-settle .dperr{flex:1 0 100%;font-size:11px;color:var(--red)}
 #v-settle .dperr[hidden]{display:none}
 #v-settle .wdnone{padding:26px;text-align:center;font-size:12px;color:var(--faint)}
+#v-settle .wblock{border:1px solid rgba(229,84,75,.35);background:rgba(229,84,75,.08);
+    border-radius:10px;padding:12px 14px}
+#v-settle .wblock[hidden]{display:none}
+#v-settle .wblock .t{font-size:12.5px;font-weight:800;color:var(--red)}
+#v-settle .wblock .t b{color:var(--red)}
+#v-settle .wblock .d{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:4px}
+#v-settle .wbgo{margin-top:9px;display:inline-flex;align-items:center;gap:5px;padding:6px 11px;
+    border-radius:8px;border:1px solid rgba(229,84,75,.45);background:none;color:var(--red);
+    font:inherit;font-size:11.5px;font-weight:700;cursor:pointer}
+#v-settle .wbgo:hover{background:rgba(229,84,75,.14)}
+#v-settle .wbgo .ar{font-size:10px}
 #v-settle .maxin{flex:none;font-size:10.5px;color:var(--faint);font-weight:400;white-space:nowrap}
 #v-settle .amtin{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);
     border-radius:9px;padding:0 10px}
@@ -1681,13 +1694,13 @@
       <div class="rev">
         <div class="rc"><div class="l">이번 주</div><div class="v">642,000원</div><div class="d"><span class="up">▲ 5.2%</span> 전주 대비</div></div>
         <div class="rc"><div class="l">이번 달</div><div class="v">2,775,000원</div><div class="d"><span class="up">▲ 8.1%</span> 전월 대비</div></div>
-        <div class="rc deduct"><div class="l">패널티 차감 (월)</div><div class="v">− 120,000원</div><div class="d">사고·보상 6건</div></div>
-        <div class="rc net"><div class="l">월 순수익</div><div class="v">2,655,000원</div><div class="d">수익 − 패널티 차감</div></div>
+        <div class="rc deduct"><div class="l">패널티 차감 (월)</div><div class="v">− 132,000원</div><div class="d">미배차 취소 6건 · 부가세 포함</div></div>
+        <div class="rc net"><div class="l">월 순수익</div><div class="v">2,643,000원</div><div class="d">수익 − 패널티 차감</div></div>
       </div>
 
       <!-- 수익 추이 -->
       <div class="card">
-        <h3>주간 수익 추이</h3><div class="cs">이번 주(수~화) 요일별 · 수익 vs 패널티 차감</div>
+        <h3>주간 수익 추이</h3><div class="cs">이번 주(수~화) 요일별 · 수익 vs 패널티 차감(부가세 포함)</div>
         <div class="lcwrap">
           <svg class="linechart" viewBox="0 0 900 230" role="img" aria-label="요일별 수익과 패널티 차감 2선 라인 차트">
             <defs><linearGradient id="revgrad" x1="0" y1="0" x2="0" y2="1">
@@ -1709,13 +1722,13 @@
             <text class="lc-axis" x="590" y="216">일</text>
             <text class="lc-axis" x="730" y="216">월</text>
             <text class="lc-axis" x="870" y="216">화</text>
-            <rect class="hz" x="0" y="0" width="100" height="230" data-d="수" data-r="82000" data-e="5000"/>
-            <rect class="hz" x="100" y="0" width="140" height="230" data-d="목" data-r="90000" data-e="12000"/>
-            <rect class="hz" x="240" y="0" width="140" height="230" data-d="금" data-r="78000" data-e="3000"/>
-            <rect class="hz" x="380" y="0" width="140" height="230" data-d="토" data-r="95000" data-e="18000"/>
-            <rect class="hz" x="520" y="0" width="140" height="230" data-d="일" data-r="112000" data-e="22000"/>
-            <rect class="hz" x="660" y="0" width="140" height="230" data-d="월" data-r="108000" data-e="10000"/>
-            <rect class="hz" x="800" y="0" width="100" height="230" data-d="화" data-r="77000" data-e="8000"/>
+            <rect class="hz" x="0" y="0" width="100" height="230" data-d="수" data-r="82000" data-e="5500"/>
+            <rect class="hz" x="100" y="0" width="140" height="230" data-d="목" data-r="90000" data-e="13200"/>
+            <rect class="hz" x="240" y="0" width="140" height="230" data-d="금" data-r="78000" data-e="3300"/>
+            <rect class="hz" x="380" y="0" width="140" height="230" data-d="토" data-r="95000" data-e="19800"/>
+            <rect class="hz" x="520" y="0" width="140" height="230" data-d="일" data-r="112000" data-e="24200"/>
+            <rect class="hz" x="660" y="0" width="140" height="230" data-d="월" data-r="108000" data-e="11000"/>
+            <rect class="hz" x="800" y="0" width="100" height="230" data-d="화" data-r="77000" data-e="8800"/>
           </svg>
           <div class="lctip" id="lctip"></div>
         </div>
@@ -1840,17 +1853,17 @@
       <!-- KPI -->
       <div class="kpis">
         <div class="kpi"><div class="l">이번 달</div><div class="v">6건</div><div class="sub">발생 건수</div></div>
-        <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 84,000원</div><div class="sub">고머니 반영 완료</div></div>
+        <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 92,400원</div><div class="sub">공급가액 84,000원 + 부가세 8,400원</div></div>
         <div class="kpi"><div class="l">차감완료</div><div class="v a">4건</div><div class="sub">고머니 자동 차감</div></div>
         <div class="kpi"><div class="l">차감실패</div><div class="v g">2건</div><div class="sub">잔액 부족 · 재시도 예정</div></div>
       </div>
 
       <!-- table -->
-      <div class="sec-t"><h2>패널티 발생 이력</h2><span class="s">미배차 취소 · 접수 → 취소 시각 · 패널티 비율은 고컨 부여</span></div>
+      <div class="sec-t"><h2>패널티 발생 이력</h2><span class="s">최신순 · 미배차 취소 · 차감액 = 공급가액 + 부가세 10%</span></div>
       <div class="card">
         <div class="otab">
           <table>
-            <thead><tr><th>발생일</th><th>배달 아이디</th><th>브랜드</th><th>상점</th><th class="c">접수</th><th class="c">취소</th><th>사유</th><th class="r">금액</th><th>상태</th></tr></thead>
+            <thead><tr><th>발생일</th><th>배달 아이디</th><th>브랜드</th><th>상점</th><th class="c">접수</th><th class="c">취소</th><th>사유</th><th class="r">차감액</th><th>상태</th></tr></thead>
             <tbody id="rcBody"></tbody>
           </table>
         </div>
@@ -1912,7 +1925,7 @@
         <div class="ih">발행 금액</div>
         <div class="amt"><span>공급가액</span><b id="a1">—</b></div>
         <div class="amt"><span>부가세 (10%)</span><b id="a2">—</b></div>
-        <div class="amt"><span class="lbl">패널티 차감<span class="tip" tabindex="0" aria-label="패널티 설명">?<span class="tipbox"><b>패널티는 용역 대가가 아닙니다.</b><span class="p">배차되지 못해 취소된 주문의 손해를 본사가 먼저 보전하고, 그 금액을 책임권역 마스터에게 부과하는 것입니다.</span><span class="p">상품이나 서비스를 제공한 대가가 아니므로 <b>세금계산서 금액에는 포함되지 않습니다.</b> 관리비 전액으로 발행하고, 패널티는 출금할 때 차감되어 지급됩니다.</span></span></span></span></span></span><b id="a3">—</b></div>
+        <div class="amt"><span class="lbl">패널티 차감<span class="tip" tabindex="0" aria-label="패널티 설명">?<span class="tipbox"><b>패널티는 용역 대가가 아닙니다.</b><span class="p">배차되지 못해 취소된 주문의 손해를 본사가 먼저 보전하고, 그 금액을 책임권역 마스터에게 부과하는 것입니다.</span><span class="p">패널티도 <b>과세거래</b>라 공급가액에 <b>부가세 10%</b>가 붙으며, 표시 금액은 그 합계입니다.</span><span class="p">다만 이 세금계산서는 <b>관리비 수익</b>에 대한 것이라 패널티는 금액에 포함되지 않습니다. 관리비 전액으로 발행하고, 패널티는 출금할 때 차감되어 지급됩니다.</span></span></span></span></span></span><b id="a3">—</b></div>
         <div class="amt total"><span>합계</span><b id="a4">—</b></div>
       </div>
       <div class="side">
@@ -2034,6 +2047,11 @@
         <div class="card">
           <div class="ch">출금 요청</div>
           <div class="form">
+            <div class="wblock" id="wBlock" hidden>
+              <div class="t">패널티 차감 실패 <b id="wbCnt">—</b> · <b id="wbAmt">—</b></div>
+              <div class="d">차감이 완료되어야 출금할 수 있습니다. 고머니를 충전하면 자동으로 재시도합니다.</div>
+              <button type="button" class="wbgo" id="wbGo">패널티 보러 가기 <span class="ar">→</span></button>
+            </div>
             <div class="fld">
               <label>출금 금액</label>
               <div class="amtin">
@@ -2181,12 +2199,12 @@
             <tbody>
               <tr><td><span class="bchip"><i><img src="store_logo/starbucks.jpg" alt=""></i>스타벅스</span></td><td class="shop">스타벅스 역삼2호점</td><td><span class="seg b">B2B</span></td><td class="r num">420</td><td class="r num done">407</td><td class="r num cancel">13</td><td class="r amt">101,750원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:97%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">97%</div></div></td></tr>
               <tr><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">380</td><td class="r num done">365</td><td class="r num cancel">15</td><td class="r amt">91,250원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:96%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">96%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">210</td><td class="r num done">197</td><td class="r num cancel">13</td><td class="r amt">49,250원</td><td class="r ded on">− 14,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:94%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">94%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">210</td><td class="r num done">197</td><td class="r num cancel">13</td><td class="r amt">49,250원</td><td class="r ded on">− 15,400원</td><td><div class="perf"><div class="track"><div class="fill" style="width:94%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">94%</div></div></td></tr>
               <tr><td><span class="bchip"><i><img src="store_logo/oliveyoung.png" alt=""></i>올리브영</span></td><td class="shop">올리브영 역삼3호점</td><td><span class="seg b">B2B</span></td><td class="r num">150</td><td class="r num done">134</td><td class="r num cancel">16</td><td class="r amt">33,500원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:89%;background:var(--sales)"></div></div><div class="pct" style="color:var(--sales)">89%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">역삼 정가네 김치찌개</td><td><span class="seg b">B2B</span></td><td class="r num">88</td><td class="r num done">84</td><td class="r num cancel">4</td><td class="r amt">21,000원</td><td class="r ded on">− 12,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:95%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">95%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">삼성동 포케보울</td><td><span class="seg c">B2C</span></td><td class="r num">76</td><td class="r num done">71</td><td class="r num cancel">5</td><td class="r amt">17,750원</td><td class="r ded on">− 18,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:93%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">93%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">대치 손만두집</td><td><span class="seg c">B2C</span></td><td class="r num">64</td><td class="r num done">58</td><td class="r num cancel">6</td><td class="r amt">14,500원</td><td class="r ded on">− 30,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:91%;background:var(--gold)"></div></div><div class="pct" style="color:var(--gold)">91%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">논현 돈까스하우스</td><td><span class="seg c">B2C</span></td><td class="r num">59</td><td class="r num done">51</td><td class="r num cancel">8</td><td class="r amt">12,750원</td><td class="r ded on">− 24,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:86%;background:var(--sales)"></div></div><div class="pct" style="color:var(--sales)">86%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">역삼 정가네 김치찌개</td><td><span class="seg b">B2B</span></td><td class="r num">88</td><td class="r num done">84</td><td class="r num cancel">4</td><td class="r amt">21,000원</td><td class="r ded on">− 13,200원</td><td><div class="perf"><div class="track"><div class="fill" style="width:95%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">95%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">삼성동 포케보울</td><td><span class="seg c">B2C</span></td><td class="r num">76</td><td class="r num done">71</td><td class="r num cancel">5</td><td class="r amt">17,750원</td><td class="r ded on">− 19,800원</td><td><div class="perf"><div class="track"><div class="fill" style="width:93%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">93%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">대치 손만두집</td><td><span class="seg c">B2C</span></td><td class="r num">64</td><td class="r num done">58</td><td class="r num cancel">6</td><td class="r amt">14,500원</td><td class="r ded on">− 33,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:91%;background:var(--gold)"></div></div><div class="pct" style="color:var(--gold)">91%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">논현 돈까스하우스</td><td><span class="seg c">B2C</span></td><td class="r num">59</td><td class="r num done">51</td><td class="r num cancel">8</td><td class="r amt">12,750원</td><td class="r ded on">− 26,400원</td><td><div class="perf"><div class="track"><div class="fill" style="width:86%;background:var(--sales)"></div></div><div class="pct" style="color:var(--sales)">86%</div></div></td></tr>
             </tbody>
           </table>
         </div>
@@ -3490,9 +3508,12 @@
     document.getElementById('k1v').textContent = t.orders.toLocaleString() + '건';
     document.getElementById('k1s').textContent = '완료 ' + t.done.toLocaleString() + ' · 취소 ' + t.cancel.toLocaleString();
     document.getElementById('k2v').textContent = won(t.fee);
-    document.getElementById('k3v').textContent = '\u2212 ' + won(t.ded);
-    document.getElementById('k3s').textContent = t.ded ? '사고·보상 차감' : '해당 기간 없음';
-    document.getElementById('k4v').textContent = won(t.fee - t.ded);
+    var dedTot = t.ded + Math.round(t.ded * 0.1);   /* 패널티는 과세거래 — 부가세 포함 차감 */
+    document.getElementById('k3v').textContent = '\u2212 ' + won(dedTot);
+    document.getElementById('k3s').textContent = t.ded
+      ? '공급가액 ' + won(t.ded) + ' + 부가세 ' + won(Math.round(t.ded * 0.1))
+      : '해당 기간 없음';
+    document.getElementById('k4v').textContent = won(t.fee - dedTot);
     document.getElementById('revCap').textContent =
       ymd(r.from).replace(/-/g,'.') + ' ~ ' + ymd(r.to).replace(/-/g,'.') + ' · 관리비 250원 / 완료건';
     document.getElementById('revRange').textContent =
@@ -3551,30 +3572,33 @@
   var THRESHOLD = 20;                       /* 미배차 임계(분) — 고컨 설정값 */
 
   var R = [
+    {dt:'10-06', did:'261006073021038', logo:'starbucks.jpg',   br:'스타벅스', shop:'스타벅스 대치2호점',
+     dong:'대치동', cxl:'07:52', wait:22, order:31500, loss:44000, rate:50, amt:22000,
+     st:'fail', at:'2026-10-06 07:53:07', retry:'2026-10-08 09:00'},
+    {dt:'10-06', did:'261006072408036', logo:'oliveyoung.png',  br:'올리브영', shop:'올리브영 역삼3호점',
+     dong:'역삼동', cxl:'07:50', wait:26, order:24800, loss:28000, rate:50, amt:14000,
+     st:'fail', at:'2026-10-06 07:51:33', retry:'2026-10-08 09:00'},
     {dt:'10-05', did:'261005071233041', logo:'burgerking.webp', br:'버거킹',   shop:'버거킹 역삼1호점',
      dong:'역삼동', cxl:'07:33', wait:21, order:52000, loss:40000, rate:60, amt:24000,
      st:'done', at:'2026-10-05 07:34:12'},
-    {dt:'10-04', did:'261004064517033', logo:'yogibaedal.png', br:'요기배달', shop:'삼성동 포케보울',
+    {dt:'10-04', did:'261004064517033', logo:'yogibaedal.png',  br:'요기배달', shop:'삼성동 포케보울',
      dong:'삼성동', cxl:'07:04', wait:19, order:28000, loss:30000, rate:60, amt:18000,
      st:'done', at:'2026-10-04 07:05:41'},
-    {dt:'10-03', did:'261003055902027', logo:'mcdonalds.webp', br:'맥도날드', shop:'맥도날드 대치3호점',
+    {dt:'10-03', did:'261003055902027', logo:'mcdonalds.webp',  br:'맥도날드', shop:'맥도날드 대치3호점',
      dong:'대치동', cxl:'06:23', wait:24, order:38500, loss:50000, rate:60, amt:30000,
      st:'done', at:'2026-10-03 06:24:55'},
-    {dt:'10-02', did:'261002051346019', logo:'yogibaedal.png', br:'요기배달', shop:'역삼 정가네 김치찌개',
+    {dt:'10-02', did:'261002051346019', logo:'yogibaedal.png',  br:'요기배달', shop:'역삼 정가네 김치찌개',
      dong:'역삼동', cxl:'05:31', wait:18, order:21000, loss:20000, rate:60, amt:12000,
-     st:'done', at:'2026-10-02 05:32:18'},
-    {dt:'10-06', did:'261006073021038', logo:'starbucks.jpg', br:'스타벅스', shop:'스타벅스 대치2호점',
-     dong:'대치동', cxl:'07:52', wait:22, order:31500, loss:44000, rate:50, amt:22000,
-     st:'fail', at:'2026-10-06 07:53:07', retry:'2026-10-08 09:00'},
-    {dt:'10-06', did:'261006072408036', logo:'oliveyoung.png', br:'올리브영', shop:'올리브영 역삼3호점',
-     dong:'역삼동', cxl:'07:50', wait:26, order:24800, loss:28000, rate:50, amt:14000,
-     st:'fail', at:'2026-10-06 07:51:33', retry:'2026-10-08 09:00'}
+     st:'done', at:'2026-10-02 05:32:18'}
   ];
   var PF = [{nm:'바로고', logo:'logo/barogo.png'},
             {nm:'모아라인', logo:'logo/moaline.png'},
             {nm:'딜버', logo:'logo/dilver.png'}];
 
   function won(v){ return Math.round(v).toLocaleString() + '원'; }
+  /* 패널티는 과세거래다 — 공급가액(amt)에 부가세 10%가 붙고 합계가 차감된다 */
+  function vat(v){ return Math.round(v * 0.1); }
+  function tot(r){ return r.amt + vat(r.amt); }
   function rcv(r){ return r.did.slice(6, 8) + ':' + r.did.slice(8, 10); }   /* 접수 시각 */
 
   var body = document.getElementById('rcBody'), openId = null;
@@ -3603,17 +3627,19 @@
     var calc =
         '<div class="rcr"><span>상점 손해액</span><b>' + won(r.loss) + '</b></div>'
       + '<div class="rcr"><span>패널티 비율<span class="rclock">조회 전용</span></span><b>' + r.rate + '%</b></div>'
-      + '<div class="rcr sum"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>';
+      + '<div class="rcr mid"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>'
+      + '<div class="rcr"><span>부가세 (10%)</span><b>' + won(vat(r.amt)) + '</b></div>'
+      + '<div class="rcr sum"><span>합계</span><b>' + won(tot(r)) + '</b></div>';
 
     /* ③ 차감 처리 */
     var deduct = done
       ? '<div class="rcr"><span>차감 일시</span><b>' + r.at + '</b></div>'
-        + '<div class="rcr"><span>차감 금액</span><b>' + won(r.amt) + '</b></div>'
+        + '<div class="rcr"><span>차감 금액</span><b>' + won(tot(r)) + '</b></div>'
         + '<div class="rcr"><span>귀속월</span><b>2026-10</b></div>'
       : '<div class="rcr"><span>시도 일시</span><b>' + r.at + '</b></div>'
         + '<div class="rcr"><span>실패 사유</span><b>고머니 잔액 부족</b></div>'
         + '<div class="rcr"><span>재시도 예정</span><b>' + r.retry + '</b></div>'
-        + '<div class="rcnote bad">아직 차감되지 않았지만 <b>' + won(r.amt) + '</b>은 '
+        + '<div class="rcnote bad">아직 차감되지 않았지만 <b>' + won(tot(r)) + '</b>은 '
         + '출금 가능액에서 <b>미리 제외</b>됩니다.</div>';
 
     return '<tr class="rcd"><td colspan="9"><div class="rcbox">'
@@ -3641,7 +3667,7 @@
         + '<td class="c tm">' + rcv(r) + '</td>'
         + '<td class="c tm cx">' + r.cxl + '</td>'
         + '<td class="reason">미배차 취소</td>'
-        + '<td class="r amt">\u2212 ' + won(r.amt) + '</td>'
+        + '<td class="r amt">\u2212 ' + won(tot(r)) + '</td>'
         + '<td><span class="st ' + (r.st === 'done' ? 'done' : 'pend') + '">'
         +   (r.st === 'done' ? '차감완료' : '차감실패') + '</span></td></tr>';
       return row + (open ? detail(r) : '');
@@ -3810,7 +3836,7 @@
     document.getElementById('a0s').textContent = '(' + span(cur) + ')';
     document.getElementById('a1').textContent = won(d.supply);
     document.getElementById('a2').textContent = won(vat(d.supply));
-    document.getElementById('a3').textContent = '− ' + won(d.ded);
+    document.getElementById('a3').textContent = '− ' + won(d.ded + vat(d.ded));
     document.getElementById('a4').textContent = won(d.supply + vat(d.supply));
     document.getElementById('stlCap').textContent =
       d.yl + ' (' + span(cur) + ') · 공급자 = 딜리버리 마스터 · 공급받는 자 = 본사';
@@ -3955,7 +3981,7 @@
           : '<div class="b1">아직 발행되지 않은 문서입니다.</div>'
             + '<div class="b2">발행 시 승인번호가 부여되고 국세청으로 즉시 전송됩니다.</div>')
       + '</div></div>'
-      + '<div class="txcp">패널티 차감 ' + num(d.ded) + '원은 공급가액에 포함되지 않습니다 \u2014 지급 단계에서 상계</div>';
+      + '<div class="txcp">패널티 차감 ' + num(d.ded + vat(d.ded)) + '원(공급가액 ' + num(d.ded) + ' + 부가세 ' + num(vat(d.ded)) + ')은 이 세금계산서에 포함되지 않습니다 \u2014 지급 단계에서 상계</div>';
   }
 
   var mask = document.getElementById('txMask');
@@ -4093,6 +4119,9 @@
   var BANK = '신한은행', ACC = '110-432-889301', HOLDER = '(주)강남딜리버리';
   var LOGO = 'bank_logo/shinhan.png';
   var FEE = 300;                       /* 건당 출금 수수료 */
+  /* 패널티 차감 실패 — 한 건이라도 있으면 출금을 막는다 (금액은 부가세 포함 합계) */
+  var PENFAIL = {cnt:2, amt:39600};
+  function penBlocked(){ return PENFAIL.cnt > 0; }
   var ST = {cash:1273750, hold:575025, paid:2000000};   /* 보류 = 미발행 2주차(공급+부가세) */
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
@@ -4149,6 +4178,15 @@
 
   function val(){ return parseInt((amtIn.value || '').replace(/[^0-9]/g, ''), 10) || 0; }
   function check(){
+    if(penBlocked()){                      /* 차감 실패 건이 있으면 출금 자체를 막는다 */
+      errEl.hidden = true;
+      amtIn.disabled = true;
+      document.getElementById('wfAll').disabled = true;
+      document.getElementById('wfA').textContent = won(0);
+      document.getElementById('wfN').textContent = won(0);
+      go.disabled = true;
+      return;
+    }
     var n = val(), max = maxAmt();
     var msg = n > max ? ('수수료 ' + won(FEE) + '을 포함하면 출금 가능액을 넘습니다 · 최대 ' + won(max)) : '';
     errEl.textContent = msg;
@@ -4213,6 +4251,7 @@
   }
 
   go.addEventListener('click', function(){
+    if(penBlocked()) return;
     var n = val();
     if(n <= 0 || n > maxAmt()) return;
     askDlg(n);
@@ -4253,6 +4292,20 @@
     var nav = document.querySelector('.nav[data-view="settlement"]');
     if(nav) nav.click();
   });
+
+  /* 패널티 차감 실패 차단 배너 */
+  (function(){
+    var box = document.getElementById('wBlock');
+    box.hidden = !penBlocked();
+    if(!penBlocked()) return;
+    document.getElementById('wbCnt').textContent = PENFAIL.cnt + '건';
+    document.getElementById('wbAmt').textContent = won(PENFAIL.amt);
+    document.getElementById('wbGo').addEventListener('click', function(){
+      if(window.__go) return window.__go('penalty', true);
+      var nav = document.querySelector('.nav[data-view="penalty"]');
+      if(nav) nav.click();
+    });
+  })();
 
   drawKpi();
   check();
@@ -4653,17 +4706,20 @@
           '<p><b>발생 사유는 미배차 취소 하나다.</b> 접수된 주문이 임계 시간 안에 배차되지 못해 취소되면 본사가 상점 손해를 먼저 보전하고 그 금액을 책임권역 마스터에게 부과한다. 즉 패널티는 <b>마스터가 배차 책임을 다하지 못한 결과</b>지, 배달 중 사고 배상이 아니다.</p>'+
           '<p>총 차감액 KPI는 <b>차감완료 건만</b> 합산한다 — 실제 통합머니에서 빠져나간 금액과 일치해야 한다.</p>'+
           '<p><b>패널티는 용역 대가가 아니다.</b> 배차되지 못해 취소된 주문의 손해를 '+
-          '본사가 먼저 보전하고, 그 금액을 <b>책임권역 마스터에게 부과</b>하는 제재금이다. '+
-          '물건이나 서비스를 제공한 대가가 아니므로 세금계산서 공급가액에 포함되지 않고 '+
-          '<b>지급 단계에서 상계</b>된다.</p>'],
+          '본사가 먼저 보전하고, 그 금액을 <b>책임권역 마스터에게 부과</b>하는 제재금이다.</p>'+
+          '<p><b>금액 구조 \u2014 패널티도 과세거래다.</b> '+
+          '<code>상점 손해액 × 패널티 비율 = 공급가액</code>, 여기에 <b>부가세 10%</b>가 붙는다. '+
+          '실제로 통합머니에서 빠지는 <b>차감액은 공급가액 + 부가세</b>이고, 목록·KPI·출금 가용액 계산은 모두 이 합계를 쓴다.</p>'+
+          '<p>마스터가 본사에 발행하는 <b>관리비 세금계산서에는 포함되지 않는다</b> \u2014 방향이 반대인 별개 거래이기 때문이다. 관리비는 전액으로 발행하고 패널티는 <b>지급 단계에서 상계</b>한다.</p>'+
+          '<p><b>미결정</b>: 패널티 부가세를 마스터가 매입세액으로 공제받으려면 <b>본사가 마스터에게 세금계산서를 발행</b>해야 한다. 발행 주체·시점·단위(건별/주차별) \u2014 Q-2</p>'],
         ['2','패널티 내역', '<ul>'+
-          '<li><code>발생일 · 배달 아이디 · 브랜드 · 상점 · 접수 · 취소 · 사유 · 금액 · 상태</code> 9열. <b>발생일을 첫 컬럼</b>으로 둬 날짜 → 시각 순으로 읽히게 한다</li>'+
+          '<li><code>발생일 · 배달 아이디 · 브랜드 · 상점 · 접수 · 취소 · 사유 · 차감액 · 상태</code> 9열. <b>발생일을 첫 컬럼</b>으로 두고 <b>최신순</b>(취소 시각 내림차순)으로 정렬한다. 차감액은 <b>부가세를 포함한 합계</b>이며, 공급가액·부가세 분해는 상세에서 본다</li>'+
           '<li><b>접수 → 취소</b> 시각을 나란히 둬 <b>몇 분 만에 취소됐는지</b>가 바로 읽히게 한다. 미배차 임계값은 고컨 설정값이므로 화면에 하드코딩하지 않는다 — 주문현황의 지연 임계와 같은 값을 쓴다</li>'+
           '<li>접수 시각은 <b>배달 아이디에 인코딩된 값</b>과 일치해야 한다 (<code>YYMMDD + HHMMSS + 일련번호</code>). 발생일 = 취소일</li>'+
           '<li>사유는 현재 <b>미배차 취소</b> 단일값이다. 값이 하나라도 컬럼은 유지한다 — 사유가 늘어날 때 화면을 다시 바꾸지 않기 위함이다</li>'+
           '<li><b>브랜드</b>는 상점의 소속 브랜드. 로고 + 브랜드명으로 표기하며 비브랜드 상점은 수주 플랫폼 브랜드(요기배달 등)로 묶는다 — 주문현황·완료주문·통계와 같은 규칙</li>'+
           '<li>상태는 <b>차감완료 / 차감실패</b> 2종. 차감완료는 통합머니 반영이 끝난 건, 차감실패는 차감을 시도했으나 잔액 부족 등으로 반영되지 못한 건이다</li>'+
-          '<li>차감실패분은 아직 빠지지 않았지만 <b>출금 가용액에서는 미리 제외</b>한다 (가용 = 보유 캐시 − 미발행 보류 − 차감실패 패널티)</li>'+
+          '<li><b>차감실패 건이 하나라도 있으면 출금 자체가 막힌다.</b> 가용액에서 빼는 방식이 아니라 출금 요청을 차단한다 \u2014 차감되지 못한 돈이 남은 채로 출금이 나가면 회수 수단이 없기 때문이다. 고머니가 충전되면 재시도되고 차감이 끝나면 풀린다</li>'+
           '<li><b>미결정</b>: 패널티 비율 산정 기준(비율 vs 정액)·확정 시점·기준금액·차감 재시도 주기 — Q-2</li></ul>'],
         ['3','패널티 상세 (행 클릭)', '<p>행을 누르면 아래로 펼쳐진다. 이 화면은 <b>조회 전용</b>이므로 '+
           '상세는 조치 수단이 아니라 <b>“왜 이 금액이 나에게 청구됐는지”</b>에 답하는 자리다. '+
@@ -4675,7 +4731,7 @@
           '<td>패널티는 마스터 귀책을 전제로 한다. <b>그 전제를 확인할 근거</b>를 같이 줘야 '+
           '이의제기 경로가 성립한다 — “배차를 안 한 것”과 “아무도 받지 않은 것”은 다르다</td></tr>'+
           '<tr><td><b>패널티 산정</b></td>'+
-          '<td><code>상점 손해액 × 패널티 비율 = 패널티 금액</code>. 비율은 <b>조회 전용</b>으로 명시</td>'+
+          '<td><code>상점 손해액 × 패널티 비율 = 공급가액</code> → <code>+ 부가세 10%</code> → <b>차감액</b>. 비율은 <b>조회 전용</b>으로 명시</td>'+
           '<td>산정식을 드러내야 Q-2(비율 vs 정액·기준금액) 결정이 어디에 꽂히는지 보인다</td></tr>'+
           '<tr><td><b>차감 처리</b></td>'+
           '<td>차감완료 = 차감 일시·금액·귀속월 / 차감실패 = 시도 일시·실패 사유·<b>재시도 예정</b></td>'+
@@ -4685,8 +4741,7 @@
           '<td>귀속 판정 근거(법정동)와 손해액 규모감</td></tr></table>'+
           '<ul>'+
           '<li>취소 건이므로 <b>지도·라이더 정보는 넣지 않는다</b> — 경로도 수행자도 없다</li>'+
-          '<li>차감실패 건의 금액은 아직 빠지지 않았지만 <b>출금 가용액에서는 미리 제외</b>된다. '+
-          '상세에서 이 사실을 분명히 적는다</li>'+
+          '<li>차감실패 건이 있으면 <b>출금이 막힌다</b>. 상세에 차감액·실패 사유·재시도 예정을 적어 무엇을 해야 풀리는지 알 수 있게 한다</li>'+
           '<li><b>미결정</b>: 차감 재시도 주기·재시도 횟수 상한, 이의제기 기능 제공 여부 — Q-2</li></ul>']
       ]
     },
@@ -4839,7 +4894,7 @@
           '<ul>'+
           '<li><b>패널티 차감은 공급가액에서 빼지 않는다.</b> 패널티는 용역 대가가 아니라 '+
           '배차 책임을 다하지 못한 데 대한 <b>제재금</b>이므로, '+
-          '재화·용역의 공급 대가가 아니고 부가세 과세대상도 아니다</li>'+
+          '재화·용역의 공급 대가가 아니다. 다만 <b>패널티 자체는 과세거래</b>라 공급가액에 부가세 10%가 붙으며, 이는 <b>방향이 반대인 별개 거래</b>다</li>'+
           '<li>관리비 수익 <b>전액</b>으로 발행하고 패널티는 지급 단계에서 <b>상계</b>한다 — '+
           '<b>세금계산서 합계 ≠ 실지급액</b>이므로 화면에 툴팁으로 근거를 밝힌다</li>'+
           '<li>공급자·공급받는 자 정보를 좌우 2단으로 나란히 보여준다</li>'+
@@ -4895,7 +4950,8 @@
           '<b>발행 전에는 출금할 수 없다</b>. 카드 우하단 <b>「발행 하러 가기」</b>로 정산 화면으로 바로 보낸다 — '+
           '막힌 이유와 푸는 수단을 같은 자리에 둔다. 보류액이 0이면 버튼을 숨긴다</td></tr>'+
           '<tr><td>기출금</td><td>이번 달 누적 출금액. <b>보유 캐시에서 이미 빠진 값</b>이라 출금 가능액 계산에 다시 쓰지 않는다</td></tr>'+
-          '<tr><td>출금 가능액</td><td><code>보유 캐시 − 세금계산서 미발행 보류</code> (차감실패 패널티가 있으면 함께 제외)</td></tr></table>'+
+          '<tr><td>출금 가능액</td><td><code>보유 캐시 − 세금계산서 미발행 보류</code></td></tr></table>'+
+          '<p><b>패널티 차감 실패 건이 하나라도 있으면 출금 자체가 막힌다.</b> 금액 입력·전액·출금 요청을 모두 비활성화하고, 실패 건수와 차감액을 적은 뒤 패널티 화면으로 보내는 버튼을 둔다. 가용액에서 빼는 이중 처리는 하지 않는다.</p>'+
           '<p>정산 계정(웰컴 월렛) 미연동 마스터는 <b>정산 대상에서 제외</b>된다. 대사 불일치 지갑은 출금 보류 (MNY-002).</p>'],
         ['2','세금계산서 ↔ 출금 전환', '<p><b>세금계산서 발행이 출금의 선행 조건</b>이다. '+
           '세금계산서 없이 지급하면 매입세액 공제 근거가 없으므로, 귀속월 정산액은 발행 전까지 묶어둔다.</p>'+
@@ -5044,6 +5100,8 @@
     ['팝빌 연동 계정 체계 (허브별 vs 본사 단일)', '허브별 계정으로 가정'],
     ['세금계산서 발행 수수료 부담 주체', '정과금 — 공급자(허브) 부담'],
     ['패널티 상계 시 수정세금계산서 발행 여부', '발행하지 않음 (지급단계 상계)'],
+    ['패널티 세금계산서 발행 주체 (본사 → 마스터 역발행) · 시점 · 단위', '미정 (Q-2)'],
+    ['패널티 차감 실패 시 출금 차단 해제 조건 (자동 재시도 주기)', '미정 (Q-2)'],
     ['공동인증서 발급 비용 부담 주체', '딜리버리 마스터 부담 (확정) · 전자세금용 3년형 40,000원 권장'],
     ['법인 마스터 인증서 신청 시점 (대면 발급 2~5일)', '미정 (Q-3)'],
     ['미발행 가산세율 3% — 고컨 설정값 / 고정값', '미정 (Q-3)'],
