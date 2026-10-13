@@ -1902,7 +1902,7 @@
       <div class="kpis">
         <div class="kpi"><div class="l">이번 달</div><div class="v">6건</div><div class="sub">발생 건수</div></div>
         <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 84,000원</div><div class="sub">공급가액 기준 · 부가세는 주차 상계</div></div>
-        <div class="kpi"><div class="l">차감완료</div><div class="v a">4건</div><div class="sub">고머니 자동 차감</div></div>
+        <div class="kpi"><div class="l">차감완료</div><div class="v a">4건</div><div class="sub">보유금액 자동 차감</div></div>
         <div class="kpi"><div class="l">차감실패</div><div class="v g">2건</div><div class="sub">잔액 부족 · 재시도 예정</div></div>
       </div>
 
@@ -2103,7 +2103,7 @@
           <div class="form">
             <div class="wblock" id="wBlock" hidden>
               <div class="t">패널티 차감 실패 <b id="wbCnt">—</b> · <b id="wbAmt">—</b></div>
-              <div class="d">차감이 완료되어야 출금할 수 있습니다. 고머니를 충전하면 자동으로 재시도합니다.</div>
+              <div class="d">차감이 완료되어야 출금할 수 있습니다. 보유금액을 충전하면 자동으로 재시도합니다.</div>
               <button type="button" class="wbgo" id="wbGo">패널티 보러 가기 <span class="ar">→</span></button>
             </div>
             <div class="fld">
@@ -3688,10 +3688,10 @@
         + '<div class="rcr"><span>차감 금액</span><b>' + won(r.amt) + '</b></div>'
         + '<div class="rcr"><span>귀속월</span><b>2026-10</b></div>'
       : '<div class="rcr"><span>시도 일시</span><b>' + r.at + '</b></div>'
-        + '<div class="rcr"><span>실패 사유</span><b>고머니 잔액 부족</b></div>'
+        + '<div class="rcr"><span>실패 사유</span><b>보유금액 잔액 부족</b></div>'
         + '<div class="rcr"><span>재시도 예정</span><b>' + r.retry + '</b></div>'
         + '<div class="rcnote bad">차감이 끝날 때까지 <b>출금이 막힙니다.</b> '
-        + '고머니를 충전하면 자동으로 재시도합니다.</div>';
+        + '보유금액을 충전하면 자동으로 재시도합니다.</div>';
 
     return '<tr class="rcd"><td colspan="9"><div class="rcbox">'
       + '<div class="rcsec"><div class="h">배차 시도 이력</div>'
@@ -4033,28 +4033,20 @@
       +   '<td class="r" colspan="3">' + num(net) + '</td>'
       +   '<td class="r" colspan="2">' + num(v) + '</td></tr>'
       + '<tr><td class="h" colspan="2">비고</td><td colspan="8">'
-      +   d.yl + ' (' + d.s + ' ~ ' + m + ') 배달 관리비'
-      +   (d.ded ? ' \u2014 미배차 취소 패널티 ' + num(d.ded) + '원 상계 후' : '') + '</td></tr>'
+      +   d.yl + ' (' + d.s + ' ~ ' + m + ') \u00b7 완료 ' + num(d.orders) + '건 \u00d7 250원 = ' + num(d.supply) + '원'
+      +   (d.ded ? ' \u00b7 미배차 취소 패널티 ' + num(d.ded) + '원 상계' : '')
+      +   (cm.carry ? ' \u00b7 전기 이월 ' + num(Math.abs(cm.carry)) + '원 상계' : '')
+      +   '</td></tr>'
 
       + '<tr><td class="h">월</td><td class="h">일</td><td class="h">품목</td><td class="h">규격</td>'
       +   '<td class="h">수량</td><td class="h">단가</td><td class="h" colspan="2">공급가액</td>'
       +   '<td class="h">세액</td><td class="h">비고</td></tr>'
       + '<tr><td class="c">' + mm + '</td><td class="c">' + dd2 + '</td>'
-      +   '<td>배달 관리비 (' + d.yl + ')</td><td class="c">건</td>'
-      +   '<td class="r">' + num(d.orders) + '</td><td class="r">250</td>'
-      +   '<td class="r" colspan="2">' + num(d.supply) + '</td><td></td><td></td></tr>'
-      + (d.ded
-          ? '<tr><td class="c">' + mm + '</td><td class="c">' + dd2 + '</td>'
-            + '<td>미배차 취소 패널티 상계</td><td class="c mute">\u2014</td>'
-            + '<td class="r mute">\u2014</td><td class="r mute">\u2014</td>'
-            + '<td class="r" colspan="2">\u2212 ' + num(d.ded) + '</td><td></td><td></td></tr>'
-          : '')
-      + (cm.carry
-          ? '<tr><td class="c">' + mm + '</td><td class="c">' + dd2 + '</td>'
-            + '<td>전기 이월 (' + W[prevKey(m)].yl + ')</td><td class="c mute">\u2014</td>'
-            + '<td class="r mute">\u2014</td><td class="r mute">\u2014</td>'
-            + '<td class="r" colspan="2">\u2212 ' + num(Math.abs(cm.carry)) + '</td><td></td><td></td></tr>'
-          : '<tr><td class="c">&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td></tr>')
+      +   '<td>배달 관리비 (' + d.yl + ')</td><td class="c mute">\u2014</td>'
+      +   '<td class="r mute">\u2014</td><td class="r mute">\u2014</td>'
+      +   '<td class="r" colspan="2">' + num(net) + '</td>'
+      +   '<td class="r">' + num(v) + '</td><td></td></tr>'
+      + '<tr><td class="c">&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td></tr>'
       + '<tr><td class="c">&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td></tr>'
 
       + '<tr><td class="h" colspan="2">현금</td><td class="h" colspan="2">수표</td>'
@@ -4833,7 +4825,7 @@
           '<li>사유는 현재 <b>미배차 취소</b> 단일값이다. 값이 하나라도 컬럼은 유지한다 — 사유가 늘어날 때 화면을 다시 바꾸지 않기 위함이다</li>'+
           '<li><b>브랜드</b>는 상점의 소속 브랜드. 로고 + 브랜드명으로 표기하며 비브랜드 상점은 수주 플랫폼 브랜드(요기배달 등)로 묶는다 — 주문현황·완료주문·통계와 같은 규칙</li>'+
           '<li>상태는 <b>차감완료 / 차감실패</b> 2종. 차감완료는 통합머니 반영이 끝난 건, 차감실패는 차감을 시도했으나 잔액 부족 등으로 반영되지 못한 건이다</li>'+
-          '<li><b>차감실패 건이 하나라도 있으면 출금 자체가 막힌다.</b> 가용액에서 빼는 방식이 아니라 출금 요청을 차단한다 \u2014 차감되지 못한 돈이 남은 채로 출금이 나가면 회수 수단이 없기 때문이다. 고머니가 충전되면 재시도되고 차감이 끝나면 풀린다</li>'+
+          '<li><b>차감실패 건이 하나라도 있으면 출금 자체가 막힌다.</b> 가용액에서 빼는 방식이 아니라 출금 요청을 차단한다 \u2014 차감되지 못한 돈이 남은 채로 출금이 나가면 회수 수단이 없기 때문이다. 보유금액이 충전되면 재시도되고 차감이 끝나면 풀린다</li>'+
           '<li><b>미결정</b>: 패널티 비율 산정 기준(비율 vs 정액)·확정 시점·기준금액·차감 재시도 주기 — Q-2</li></ul>'],
         ['3','패널티 상세 (행 클릭)', '<p>행을 누르면 아래로 펼쳐진다. 이 화면은 <b>조회 전용</b>이므로 '+
           '상세는 조치 수단이 아니라 <b>“왜 이 금액이 나에게 청구됐는지”</b>에 답하는 자리다. '+
