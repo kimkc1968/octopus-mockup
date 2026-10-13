@@ -689,98 +689,98 @@
 #v-revenue ::-webkit-scrollbar-thumb:hover{
     background:#4a5866;background-clip:content-box}
 @media(max-width:980px){#v-revenue{overflow:visible}}
-/* ===== recourse (구상권) ===== */
-#v-recourse{display:flex;flex-direction:column;min-width:0}
-#v-recourse .content{padding:16px 18px 22px;display:flex;flex-direction:column;gap:16px}
-#v-recourse .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media(max-width:640px){#v-recourse .kpis{grid-template-columns:repeat(2,1fr)}}
-#v-recourse .kpi{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--panel-2)}
-#v-recourse .kpi .l{font-size:11px;color:var(--faint);font-family:var(--mono)}
-#v-recourse .kpi .v{font-size:22px;font-weight:800;margin-top:5px;letter-spacing:-.02em}
-#v-recourse .kpi .v.a{color:var(--accent)}
-#v-recourse .kpi .v.o{color:var(--sales)}
-#v-recourse .kpi .v.g{color:var(--gold)}
-#v-recourse .kpi .sub{font-size:10.5px;color:var(--faint);margin-top:3px}
-#v-recourse .kpi.deduct{background:radial-gradient(200px 120px at 20% 0%,rgba(224,138,60,.1),var(--panel-2));border-color:rgba(224,138,60,.35)}
-#v-recourse .sec-t{display:flex;align-items:baseline;gap:9px;margin:2px 0 -4px}
-#v-recourse .sec-t h2{font-size:14px;font-weight:800;margin:0}
-#v-recourse .sec-t .s{font-size:11px;color:var(--faint);font-family:var(--mono)}
-#v-recourse .card{border:1px solid var(--line);border-radius:13px;background:var(--panel-2);overflow:hidden}
-#v-recourse .otab{overflow-x:auto}
-#v-recourse table{border-collapse:collapse;width:100%;min-width:600px;font-size:12.5px}
-#v-recourse thead th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--faint);text-transform:uppercase;
+/* ===== penalty (패널티) ===== */
+#v-penalty{display:flex;flex-direction:column;min-width:0}
+#v-penalty .content{padding:16px 18px 22px;display:flex;flex-direction:column;gap:16px}
+#v-penalty .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:640px){#v-penalty .kpis{grid-template-columns:repeat(2,1fr)}}
+#v-penalty .kpi{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--panel-2)}
+#v-penalty .kpi .l{font-size:11px;color:var(--faint);font-family:var(--mono)}
+#v-penalty .kpi .v{font-size:22px;font-weight:800;margin-top:5px;letter-spacing:-.02em}
+#v-penalty .kpi .v.a{color:var(--accent)}
+#v-penalty .kpi .v.o{color:var(--sales)}
+#v-penalty .kpi .v.g{color:var(--gold)}
+#v-penalty .kpi .sub{font-size:10.5px;color:var(--faint);margin-top:3px}
+#v-penalty .kpi.deduct{background:radial-gradient(200px 120px at 20% 0%,rgba(224,138,60,.1),var(--panel-2));border-color:rgba(224,138,60,.35)}
+#v-penalty .sec-t{display:flex;align-items:baseline;gap:9px;margin:2px 0 -4px}
+#v-penalty .sec-t h2{font-size:14px;font-weight:800;margin:0}
+#v-penalty .sec-t .s{font-size:11px;color:var(--faint);font-family:var(--mono)}
+#v-penalty .card{border:1px solid var(--line);border-radius:13px;background:var(--panel-2);overflow:hidden}
+#v-penalty .otab{overflow-x:auto}
+#v-penalty table{border-collapse:collapse;width:100%;min-width:600px;font-size:12.5px}
+#v-penalty thead th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--faint);text-transform:uppercase;
     padding:9px 14px;border-bottom:1px solid var(--line);white-space:nowrap;font-weight:600}
-#v-recourse thead th.r,#v-recourse tbody td.r{text-align:right}
-#v-recourse tbody td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:middle;white-space:nowrap}
-#v-recourse tbody tr:last-child td{border-bottom:none}
-#v-recourse tbody tr:hover td{background:rgba(255,255,255,.02)}
-#v-recourse .oid{color:var(--faint);font-size:11.5px;letter-spacing:.03em}
-#v-recourse .shop{color:var(--text);font-weight:600}
-#v-recourse .reason{color:var(--muted)}
-#v-recourse .amt{font-family:var(--mono);color:var(--sales);font-weight:600}
-#v-recourse th.c,#v-recourse td.c{text-align:center}
-#v-recourse tbody tr.rc{cursor:pointer}
-#v-recourse tbody tr.rc:hover td{background:rgba(255,255,255,.03)}
-#v-recourse tbody tr.rc.open td{background:rgba(224,138,60,.07)}
-#v-recourse .rcx{display:inline-block;width:10px;font-size:9px;color:var(--faint);margin-right:7px}
-#v-recourse tbody tr.rc.open .rcx{color:var(--sales)}
-#v-recourse tr.rcd>td{padding:0;border-bottom:1px solid var(--line);white-space:normal}
-#v-recourse .rcbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;
+#v-penalty thead th.r,#v-penalty tbody td.r{text-align:right}
+#v-penalty tbody td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:middle;white-space:nowrap}
+#v-penalty tbody tr:last-child td{border-bottom:none}
+#v-penalty tbody tr:hover td{background:rgba(255,255,255,.02)}
+#v-penalty .oid{color:var(--faint);font-size:11.5px;letter-spacing:.03em}
+#v-penalty .shop{color:var(--text);font-weight:600}
+#v-penalty .reason{color:var(--muted)}
+#v-penalty .amt{font-family:var(--mono);color:var(--sales);font-weight:600}
+#v-penalty th.c,#v-penalty td.c{text-align:center}
+#v-penalty tbody tr.rc{cursor:pointer}
+#v-penalty tbody tr.rc:hover td{background:rgba(255,255,255,.03)}
+#v-penalty tbody tr.rc.open td{background:rgba(224,138,60,.07)}
+#v-penalty .rcx{display:inline-block;width:10px;font-size:9px;color:var(--faint);margin-right:7px}
+#v-penalty tbody tr.rc.open .rcx{color:var(--sales)}
+#v-penalty tr.rcd>td{padding:0;border-bottom:1px solid var(--line);white-space:normal}
+#v-penalty .rcbox{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px;
     padding:15px 16px;background:var(--panel)}
-@media(max-width:900px){#v-recourse .rcbox{grid-template-columns:minmax(0,1fr)}}
-#v-recourse .rcsec{min-width:0;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel-2)}
-#v-recourse .rcsec .h{font-size:10.5px;font-weight:700;color:var(--faint);margin-bottom:10px}
-#v-recourse .rcline{display:flex;align-items:stretch;gap:0}
-#v-recourse .rcstep{flex:1;min-width:0;position:relative;padding-left:25px}
-#v-recourse .rcstep::before{content:'';position:absolute;left:3px;top:4px;width:8px;height:8px;border-radius:50%;
+@media(max-width:900px){#v-penalty .rcbox{grid-template-columns:minmax(0,1fr)}}
+#v-penalty .rcsec{min-width:0;border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--panel-2)}
+#v-penalty .rcsec .h{font-size:10.5px;font-weight:700;color:var(--faint);margin-bottom:10px}
+#v-penalty .rcline{display:flex;align-items:stretch;gap:0}
+#v-penalty .rcstep{flex:1;min-width:0;position:relative;padding-left:25px}
+#v-penalty .rcstep::before{content:'';position:absolute;left:3px;top:4px;width:8px;height:8px;border-radius:50%;
     background:var(--panel-2);border:2px solid var(--line-2)}
-#v-recourse .rcstep.hit::before{border-color:var(--sales);background:var(--sales)}
-#v-recourse .rcstep::after{content:'';position:absolute;left:7px;top:14px;bottom:-2px;width:1px;background:var(--line)}
-#v-recourse .rcstep:last-child::after{display:none}
-#v-recourse .rcline{flex-direction:column;gap:11px}
-#v-recourse .rcstep .t{font-size:12px;color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
-#v-recourse .rcstep .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.6}
-#v-recourse .rcstep.hit .t{color:var(--sales)}
-#v-recourse .rcpf{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
-#v-recourse .rcpf .p{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:7px;
+#v-penalty .rcstep.hit::before{border-color:var(--sales);background:var(--sales)}
+#v-penalty .rcstep::after{content:'';position:absolute;left:7px;top:14px;bottom:-2px;width:1px;background:var(--line)}
+#v-penalty .rcstep:last-child::after{display:none}
+#v-penalty .rcline{flex-direction:column;gap:11px}
+#v-penalty .rcstep .t{font-size:12px;color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+#v-penalty .rcstep .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.6}
+#v-penalty .rcstep.hit .t{color:var(--sales)}
+#v-penalty .rcpf{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+#v-penalty .rcpf .p{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:7px;
     border:1px solid var(--line);font-size:11px;color:var(--muted);white-space:nowrap}
-#v-recourse .rcpf .p i{width:15px;height:15px;border-radius:4px;overflow:hidden;background:#fff;flex:none}
-#v-recourse .rcpf .p i img{width:100%;height:100%;object-fit:contain;display:block}
-#v-recourse .rcpf .p b{color:var(--faint);font-weight:400;font-size:10.5px}
-#v-recourse .rcr{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:12px;color:var(--muted)}
-#v-recourse .rcr b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
-#v-recourse .rcr.sum{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
-#v-recourse .rcr.sum b{font-size:14.5px;font-weight:800;color:var(--sales)}
-#v-recourse .rclock{font-size:10px;color:var(--faint);margin-left:6px;font-weight:400}
-#v-recourse .rcnote{margin-top:10px;padding:9px 11px;border-radius:8px;font-size:11px;line-height:1.7;
+#v-penalty .rcpf .p i{width:15px;height:15px;border-radius:4px;overflow:hidden;background:#fff;flex:none}
+#v-penalty .rcpf .p i img{width:100%;height:100%;object-fit:contain;display:block}
+#v-penalty .rcpf .p b{color:var(--faint);font-weight:400;font-size:10.5px}
+#v-penalty .rcr{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:12px;color:var(--muted)}
+#v-penalty .rcr b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+#v-penalty .rcr.sum{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
+#v-penalty .rcr.sum b{font-size:14.5px;font-weight:800;color:var(--sales)}
+#v-penalty .rclock{font-size:10px;color:var(--faint);margin-left:6px;font-weight:400}
+#v-penalty .rcnote{margin-top:10px;padding:9px 11px;border-radius:8px;font-size:11px;line-height:1.7;
     background:rgba(255,255,255,.03);color:var(--muted)}
-#v-recourse .rcnote.bad{background:rgba(229,84,75,.09);color:#f0a09a}
-#v-recourse .rcnote b{color:var(--text)}
-#v-recourse .rcnote.bad b{color:#ffb4ad}
-#v-recourse .rcmeta{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line)}
-#v-recourse .rcmeta span{font-size:11px;color:var(--faint)}
-#v-recourse .rcmeta b{color:var(--muted);font-weight:600;margin-left:5px}
-#v-recourse .tm{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
-#v-recourse .tm.cx{color:var(--text);font-weight:600}
-#v-recourse .dt{font-family:var(--mono);color:var(--faint);font-size:11.5px}
-#v-recourse .st{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
-#v-recourse .st.done{color:var(--accent);background:rgba(19,179,166,.13)}
-#v-recourse .st.pend{color:var(--red);background:rgba(229,84,75,.14)}
-#v-recourse .bchip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
-#v-recourse .bchip i{width:24px;height:24px;border-radius:7px;flex:none;overflow:hidden;background:#fff;
+#v-penalty .rcnote.bad{background:rgba(229,84,75,.09);color:#f0a09a}
+#v-penalty .rcnote b{color:var(--text)}
+#v-penalty .rcnote.bad b{color:#ffb4ad}
+#v-penalty .rcmeta{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:11px;padding-top:10px;border-top:1px solid var(--line)}
+#v-penalty .rcmeta span{font-size:11px;color:var(--faint)}
+#v-penalty .rcmeta b{color:var(--muted);font-weight:600;margin-left:5px}
+#v-penalty .tm{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+#v-penalty .tm.cx{color:var(--text);font-weight:600}
+#v-penalty .dt{font-family:var(--mono);color:var(--faint);font-size:11.5px}
+#v-penalty .st{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
+#v-penalty .st.done{color:var(--accent);background:rgba(19,179,166,.13)}
+#v-penalty .st.pend{color:var(--red);background:rgba(229,84,75,.14)}
+#v-penalty .bchip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+#v-penalty .bchip i{width:24px;height:24px;border-radius:7px;flex:none;overflow:hidden;background:#fff;
     display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
-#v-recourse .bchip i img{width:100%;height:100%;object-fit:cover;display:block}
-#v-recourse{min-height:0;overflow:auto}
-#v-recourse{scrollbar-width:thin;scrollbar-color:#36424f transparent}
-#v-recourse ::-webkit-scrollbar{width:10px;height:10px}
-#v-recourse ::-webkit-scrollbar-track{background:transparent}
-#v-recourse ::-webkit-scrollbar-button{display:none;width:0;height:0}
-#v-recourse ::-webkit-scrollbar-corner{background:transparent}
-#v-recourse ::-webkit-scrollbar-thumb{
+#v-penalty .bchip i img{width:100%;height:100%;object-fit:cover;display:block}
+#v-penalty{min-height:0;overflow:auto}
+#v-penalty{scrollbar-width:thin;scrollbar-color:#36424f transparent}
+#v-penalty ::-webkit-scrollbar{width:10px;height:10px}
+#v-penalty ::-webkit-scrollbar-track{background:transparent}
+#v-penalty ::-webkit-scrollbar-button{display:none;width:0;height:0}
+#v-penalty ::-webkit-scrollbar-corner{background:transparent}
+#v-penalty ::-webkit-scrollbar-thumb{
     background:#36424f;border-radius:20px;border:3px solid transparent;background-clip:content-box}
-#v-recourse ::-webkit-scrollbar-thumb:hover{
+#v-penalty ::-webkit-scrollbar-thumb:hover{
     background:#4a5866;background-clip:content-box}
-@media(max-width:980px){#v-recourse{overflow:visible}}
+@media(max-width:980px){#v-penalty{overflow:visible}}
 /* ===== settlement (정산) ===== */
 #v-settlement .content{padding:16px 18px 22px;display:flex;flex-direction:column;gap:16px}
 #v-settlement .toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -1569,7 +1569,7 @@
     <button class="nav" type="button" data-view="orders" title="주문 현황"><span class="ic">◧</span><span class="tx">주문 현황</span></button>
     <div class="navg">정산·수익</div>
     <button class="nav" type="button" data-view="revenue" title="수익"><span class="ic">₩</span><span class="tx">수익</span></button>
-    <button class="nav" type="button" data-view="recourse" title="구상권"><span class="ic">⚖</span><span class="tx">구상권</span></button>
+    <button class="nav" type="button" data-view="penalty" title="패널티"><span class="ic">⊘</span><span class="tx">패널티</span></button>
     <button class="nav" type="button" data-view="settlement" title="정산"><span class="ic">▧</span><span class="tx">정산</span><span class="cnt" id="navStlCnt" hidden></span></button>
     <button class="nav" type="button" data-view="settle" title="출금"><span class="ic">⤓</span><span class="tx">출금</span></button>
     <div class="navg">분석</div>
@@ -1681,15 +1681,15 @@
       <div class="rev">
         <div class="rc"><div class="l">이번 주</div><div class="v">642,000원</div><div class="d"><span class="up">▲ 5.2%</span> 전주 대비</div></div>
         <div class="rc"><div class="l">이번 달</div><div class="v">2,775,000원</div><div class="d"><span class="up">▲ 8.1%</span> 전월 대비</div></div>
-        <div class="rc deduct"><div class="l">구상권 차감 (월)</div><div class="v">− 120,000원</div><div class="d">사고·보상 6건</div></div>
-        <div class="rc net"><div class="l">월 순수익</div><div class="v">2,655,000원</div><div class="d">수익 − 구상권 차감</div></div>
+        <div class="rc deduct"><div class="l">패널티 차감 (월)</div><div class="v">− 120,000원</div><div class="d">사고·보상 6건</div></div>
+        <div class="rc net"><div class="l">월 순수익</div><div class="v">2,655,000원</div><div class="d">수익 − 패널티 차감</div></div>
       </div>
 
       <!-- 수익 추이 -->
       <div class="card">
-        <h3>주간 수익 추이</h3><div class="cs">이번 주(수~화) 요일별 · 수익 vs 구상권 차감</div>
+        <h3>주간 수익 추이</h3><div class="cs">이번 주(수~화) 요일별 · 수익 vs 패널티 차감</div>
         <div class="lcwrap">
-          <svg class="linechart" viewBox="0 0 900 230" role="img" aria-label="요일별 수익과 구상권 차감 2선 라인 차트">
+          <svg class="linechart" viewBox="0 0 900 230" role="img" aria-label="요일별 수익과 패널티 차감 2선 라인 차트">
             <defs><linearGradient id="revgrad" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#13B3A6" stop-opacity=".2"/>
               <stop offset="1" stop-color="#13B3A6" stop-opacity="0"/>
@@ -1719,7 +1719,7 @@
           </svg>
           <div class="lctip" id="lctip"></div>
         </div>
-        <div class="lc-lg"><span><i style="border-color:var(--accent)"></i>수익</span><span><i style="border-color:var(--sales)"></i>구상권 차감</span></div>
+        <div class="lc-lg"><span><i style="border-color:var(--accent)"></i>수익</span><span><i style="border-color:var(--sales)"></i>패널티 차감</span></div>
       </div>
 
       <!-- 완료율 -->
@@ -1816,8 +1816,8 @@
       <div class="kpis">
         <div class="kpi"><div class="l" id="k1l">주문건수</div><div class="v" id="k1v">—</div><div class="sub" id="k1s">—</div></div>
         <div class="kpi"><div class="l">관리비 수익</div><div class="v" id="k2v">—</div><div class="sub">250원 / 완료건</div></div>
-        <div class="kpi"><div class="l">구상권 차감</div><div class="v o" id="k3v">—</div><div class="sub" id="k3s">—</div></div>
-        <div class="kpi net"><div class="l">순수익</div><div class="v a" id="k4v">—</div><div class="sub">수익 − 구상권 차감</div></div>
+        <div class="kpi"><div class="l">패널티 차감</div><div class="v o" id="k3v">—</div><div class="sub" id="k3s">—</div></div>
+        <div class="kpi net"><div class="l">순수익</div><div class="v a" id="k4v">—</div><div class="sub">수익 − 패널티 차감</div></div>
       </div>
 
       <!-- table -->
@@ -1834,7 +1834,7 @@
     </div>
 </section>
 
-<section class="view" id="v-recourse" hidden>
+<section class="view" id="v-penalty" hidden>
 <div class="content">
 
       <!-- KPI -->
@@ -1846,7 +1846,7 @@
       </div>
 
       <!-- table -->
-      <div class="sec-t"><h2>구상권 발생 이력</h2><span class="s">미배차 취소 · 접수 → 취소 시각 · 구상비율은 고컨 부여</span></div>
+      <div class="sec-t"><h2>패널티 발생 이력</h2><span class="s">미배차 취소 · 접수 → 취소 시각 · 패널티 비율은 고컨 부여</span></div>
       <div class="card">
         <div class="otab">
           <table>
@@ -1912,7 +1912,7 @@
         <div class="ih">발행 금액</div>
         <div class="amt"><span>공급가액</span><b id="a1">—</b></div>
         <div class="amt"><span>부가세 (10%)</span><b id="a2">—</b></div>
-        <div class="amt"><span class="lbl">구상권 차감<span class="tip" tabindex="0" aria-label="구상권 설명">?<span class="tipbox"><b>구상금은 배상금이 아닙니다.</b><span class="p">사고나 분실이 발생하면 본사가 상점·고객에게 먼저 보상하고, 그 금액을 책임 있는 수행 주체에게서 돌려받는 것입니다.</span><span class="p">물건이나 서비스를 제공한 대가가 아니므로 <b>세금계산서 금액에는 포함되지 않습니다.</b> 관리비 전액으로 발행하고, 구상금은 출금할 때 차감되어 지급됩니다.</span></span></span></span></span></span><b id="a3">—</b></div>
+        <div class="amt"><span class="lbl">패널티 차감<span class="tip" tabindex="0" aria-label="패널티 설명">?<span class="tipbox"><b>패널티는 용역 대가가 아닙니다.</b><span class="p">배차되지 못해 취소된 주문의 손해를 본사가 먼저 보전하고, 그 금액을 책임권역 마스터에게 부과하는 것입니다.</span><span class="p">상품이나 서비스를 제공한 대가가 아니므로 <b>세금계산서 금액에는 포함되지 않습니다.</b> 관리비 전액으로 발행하고, 패널티는 출금할 때 차감되어 지급됩니다.</span></span></span></span></span></span><b id="a3">—</b></div>
         <div class="amt total"><span>합계</span><b id="a4">—</b></div>
       </div>
       <div class="side">
@@ -2177,7 +2177,7 @@
       <div class="card">
         <div class="otab">
           <table>
-            <thead><tr><th>브랜드</th><th>상점</th><th>세그먼트</th><th class="r">주문건수</th><th class="r">완료건수</th><th class="r">취소건수</th><th class="r">관리비 수익</th><th class="r">구상권</th><th>완료율</th></tr></thead>
+            <thead><tr><th>브랜드</th><th>상점</th><th>세그먼트</th><th class="r">주문건수</th><th class="r">완료건수</th><th class="r">취소건수</th><th class="r">관리비 수익</th><th class="r">패널티</th><th>완료율</th></tr></thead>
             <tbody>
               <tr><td><span class="bchip"><i><img src="store_logo/starbucks.jpg" alt=""></i>스타벅스</span></td><td class="shop">스타벅스 역삼2호점</td><td><span class="seg b">B2B</span></td><td class="r num">420</td><td class="r num done">407</td><td class="r num cancel">13</td><td class="r amt">101,750원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:97%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">97%</div></div></td></tr>
               <tr><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">380</td><td class="r num done">365</td><td class="r num cancel">15</td><td class="r amt">91,250원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:96%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">96%</div></div></td></tr>
@@ -2439,7 +2439,7 @@
             <tbody>
               <tr><td class="nowrap"><div class="who"><div class="av">박</div><div class="nm">박운영</div></div></td><td class="role">운영자</td><td class="perm">주문·관제 조회, 오픈 처리</td><td><span class="st act">활성</span></td></tr>
               <tr><td class="nowrap"><div class="who"><div class="av">이</div><div class="nm">이허브</div></div></td><td class="role">허브장(역삼)</td><td class="perm">주문·관제 조회</td><td><span class="st act">활성</span></td></tr>
-              <tr><td class="nowrap"><div class="who"><div class="av">최</div><div class="nm">최정산</div></div></td><td class="role">정산담당</td><td class="perm">수익·구상 조회</td><td><span class="st act">활성</span></td></tr>
+              <tr><td class="nowrap"><div class="who"><div class="av">최</div><div class="nm">최정산</div></div></td><td class="role">정산담당</td><td class="perm">수익·패널티 조회</td><td><span class="st act">활성</span></td></tr>
               <tr class="off"><td class="nowrap"><div class="who"><div class="av off">김</div><div class="nm">김대기</div></div></td><td class="role">운영자</td><td class="perm none">—</td><td><span class="st stop">정지</span></td></tr>
             </tbody>
           </table>
@@ -3542,12 +3542,12 @@
 })();
 
 })();
-/* recourse */
+/* penalty */
 (function(){
 
 (function(){
   /* 배달 아이디 = YYMMDD + HHMMSS + 일련번호 → 접수 시각이 아이디에 들어 있다.
-     cxl = 취소 시각, wait = 미배차 경과(분), loss = 상점 손해액, rate = 고컨 부여 구상비율(%) */
+     cxl = 취소 시각, wait = 미배차 경과(분), loss = 상점 손해액, rate = 고컨 부여 패널티 비율(%) */
   var THRESHOLD = 20;                       /* 미배차 임계(분) — 고컨 설정값 */
 
   var R = [
@@ -3602,8 +3602,8 @@
     /* ② 산정 */
     var calc =
         '<div class="rcr"><span>상점 손해액</span><b>' + won(r.loss) + '</b></div>'
-      + '<div class="rcr"><span>구상비율<span class="rclock">조회 전용</span></span><b>' + r.rate + '%</b></div>'
-      + '<div class="rcr sum"><span>구상금</span><b>' + won(r.amt) + '</b></div>';
+      + '<div class="rcr"><span>패널티 비율<span class="rclock">조회 전용</span></span><b>' + r.rate + '%</b></div>'
+      + '<div class="rcr sum"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>';
 
     /* ③ 차감 처리 */
     var deduct = done
@@ -3620,7 +3620,7 @@
       + '<div class="rcsec"><div class="h">배차 시도 이력</div>'
       +   '<div class="rcline">' + line + '</div>'
       +   '<div class="rcpf">' + pf + '</div></div>'
-      + '<div><div class="rcsec"><div class="h">구상금 산정</div>' + calc
+      + '<div><div class="rcsec"><div class="h">패널티 산정</div>' + calc
       +   '<div class="rcmeta">'
       +     '<span>배달 아이디<b>' + r.did + '</b></span>'
       +     '<span>법정동<b>' + r.dong + '</b></span></div></div>'
@@ -3955,7 +3955,7 @@
           : '<div class="b1">아직 발행되지 않은 문서입니다.</div>'
             + '<div class="b2">발행 시 승인번호가 부여되고 국세청으로 즉시 전송됩니다.</div>')
       + '</div></div>'
-      + '<div class="txcp">구상권 차감 ' + num(d.ded) + '원은 공급가액에 포함되지 않습니다 \u2014 지급 단계에서 상계</div>';
+      + '<div class="txcp">패널티 차감 ' + num(d.ded) + '원은 공급가액에 포함되지 않습니다 \u2014 지급 단계에서 상계</div>';
   }
 
   var mask = document.getElementById('txMask');
@@ -4476,7 +4476,7 @@
 
 /* ───────── 뷰 라우터 ───────── */
 (function(){
-  var TITLE = {'dashboard':'대시보드','zone':'책임 권역','orders':'주문 현황','revenue':'수익','recourse':'구상권','settlement':'정산','settle':'출금','completed':'완료 주문','stats':'통계','register':'상점 등록','shops':'담당 상점·오픈','subaccount':'서브계정'};
+  var TITLE = {'dashboard':'대시보드','zone':'책임 권역','orders':'주문 현황','revenue':'수익','penalty':'패널티','settlement':'정산','settle':'출금','completed':'완료 주문','stats':'통계','register':'상점 등록','shops':'담당 상점·오픈','subaccount':'서브계정'};
   var navs = Array.prototype.slice.call(document.querySelectorAll('.nav[data-view]'));
   var titleEl = document.getElementById('ptitle');
 
@@ -4534,7 +4534,7 @@
     zone:   [['1','.mapwrap'],['2','#zdongs'],['3','.sum'],['4','.filt'],['5','#zlist']],
     dashboard: [['1','.kpis'],['2','.rev'],['3','.lcwrap'],['4','.two']],
     completed: [['1','.toolbar'],['2','.otab']],
-    recourse:  [['1','.kpis'],['2','.otab'],['3','.rcd']],
+    penalty:   [['1','.kpis'],['2','.otab'],['3','.rcd']],
     revenue:    [['1','.filters'],['2','.kpis'],['3','.card']],
     settle:     [['1','.kpis'],['2','.grid'],['3','.card']],
     settlement: [['1','.toolbar'],['2','.kpis'],['3','.halfbar'],['4','.certbar'],['5','.issue'],['6','.otab'],['7','.iact']],
@@ -4614,17 +4614,17 @@
     },
     dashboard: {
       title:'대시보드', url:'/dashboard',
-      goal:'딜리버리 마스터 첫 화면. <b>내 권역의 수익과 구상권 차감, 브랜드·상점별 완료율</b>을 한눈에 본다.',
+      goal:'딜리버리 마스터 첫 화면. <b>내 권역의 수익과 패널티 차감, 브랜드·상점별 완료율</b>을 한눈에 본다.',
       ref:'기능요건정의서 AGT-012(수익통계·격리) · STO-011',
       items:[
         ['1','상단 지표', '<p>진행중 오더 · 미배차/지연 · 오늘 완료 · 담당 상점. 주문 현황 화면의 지표와 <b>같은 산식</b>을 써야 한다.</p>'],
         ['2','수익 카드', '<ul>'+
           '<li>관리비 귀속 기준 · <b>정산 확정분</b>. 완료 시점에 확정되므로 확정 전/후를 나누지 않는다</li>'+
-          '<li>월 순수익 = 관리비 수익 − 구상권 차감</li>'+
+          '<li>월 순수익 = 관리비 수익 − 패널티 차감</li>'+
           '<li>타 마스터 데이터는 행 단위로 격리된다 — 내 권역 귀속분만</li></ul>'],
         ['3','주간 수익 추이', '<ul>'+
           '<li>주간 기준은 <b>수요일 ~ 화요일</b></li>'+
-          '<li>수익선과 구상권 차감선 2종. 마우스 호버 시 요일별 금액을 만원 단위로 표시</li></ul>'],
+          '<li>수익선과 패널티 차감선 2종. 마우스 호버 시 요일별 금액을 만원 단위로 표시</li></ul>'],
         ['4','완료율', '<ul>'+
           '<li>완료율 = <code>완료 / 접수</code>. 90% 미만은 주황으로 경고</li>'+
           '<li>브랜드별(B2B) / 상점별(B2C 포함) 두 축으로 나눠 본다</li>'+
@@ -4644,37 +4644,38 @@
           '<li><b>미결정</b>: 마감 후 취소 발생 시 이 목록에서 어떻게 보일지 — 차주기 역분개 (C-13)</li></ul>']
       ]
     },
-    recourse: {
-      title:'구상권', url:'/recourse',
-      goal:'<b>미배차 취소</b>로 발생한 구상 차감을 확인한다.',
+    penalty:  {
+      title:'패널티', url:'/penalty',
+      goal:'<b>미배차 취소</b>로 발생한 패널티 차감을 확인한다.',
       ref:'기능요건정의서 AGT-011 · 의사결정로그 Q-2',
       items:[
-        ['1','구상 요약', '<p><b>차감완료 / 차감실패</b>를 나눠 집계. 구상금액은 확정 즉시 통합머니에서 자동 차감되고, 잔액 부족 등으로 차감이 실패하면 <b>차감실패</b>로 남아 재시도 대상이 된다 (AGT-011).</p>'+
-          '<p><b>발생 사유는 미배차 취소 하나다.</b> 접수된 주문이 임계 시간 안에 배차되지 못해 취소되면 본사가 상점 손해를 먼저 보전하고 그 금액을 책임권역 마스터에게서 회수한다. 즉 구상권은 <b>마스터가 배차 책임을 다하지 못한 결과</b>지, 배달 중 사고 배상이 아니다.</p>'+
+        ['1','패널티 요약', '<p><b>차감완료 / 차감실패</b>를 나눠 집계. 패널티 금액은 확정 즉시 통합머니에서 자동 차감되고, 잔액 부족 등으로 차감이 실패하면 <b>차감실패</b>로 남아 재시도 대상이 된다 (AGT-011).</p>'+
+          '<p><b>발생 사유는 미배차 취소 하나다.</b> 접수된 주문이 임계 시간 안에 배차되지 못해 취소되면 본사가 상점 손해를 먼저 보전하고 그 금액을 책임권역 마스터에게 부과한다. 즉 패널티는 <b>마스터가 배차 책임을 다하지 못한 결과</b>지, 배달 중 사고 배상이 아니다.</p>'+
           '<p>총 차감액 KPI는 <b>차감완료 건만</b> 합산한다 — 실제 통합머니에서 빠져나간 금액과 일치해야 한다.</p>'+
-          '<p><b>구상권은 손해배상금이 아니다.</b> 본사가 상점·소비자에게 먼저 보상하고 귀책이 있는 '+
-          '수행 주체에게서 그 <b>대위변제분을 회수</b>하는 권리다. 용역 대가가 아니므로 '+
-          '세금계산서 공급가액에 포함되지 않고 지급 단계에서 상계된다.</p>'],
-        ['2','구상 내역', '<ul>'+
+          '<p><b>패널티는 용역 대가가 아니다.</b> 배차되지 못해 취소된 주문의 손해를 '+
+          '본사가 먼저 보전하고, 그 금액을 <b>책임권역 마스터에게 부과</b>하는 제재금이다. '+
+          '물건이나 서비스를 제공한 대가가 아니므로 세금계산서 공급가액에 포함되지 않고 '+
+          '<b>지급 단계에서 상계</b>된다.</p>'],
+        ['2','패널티 내역', '<ul>'+
           '<li><code>발생일 · 배달 아이디 · 브랜드 · 상점 · 접수 · 취소 · 사유 · 금액 · 상태</code> 9열. <b>발생일을 첫 컬럼</b>으로 둬 날짜 → 시각 순으로 읽히게 한다</li>'+
           '<li><b>접수 → 취소</b> 시각을 나란히 둬 <b>몇 분 만에 취소됐는지</b>가 바로 읽히게 한다. 미배차 임계값은 고컨 설정값이므로 화면에 하드코딩하지 않는다 — 주문현황의 지연 임계와 같은 값을 쓴다</li>'+
           '<li>접수 시각은 <b>배달 아이디에 인코딩된 값</b>과 일치해야 한다 (<code>YYMMDD + HHMMSS + 일련번호</code>). 발생일 = 취소일</li>'+
           '<li>사유는 현재 <b>미배차 취소</b> 단일값이다. 값이 하나라도 컬럼은 유지한다 — 사유가 늘어날 때 화면을 다시 바꾸지 않기 위함이다</li>'+
           '<li><b>브랜드</b>는 상점의 소속 브랜드. 로고 + 브랜드명으로 표기하며 비브랜드 상점은 수주 플랫폼 브랜드(요기배달 등)로 묶는다 — 주문현황·완료주문·통계와 같은 규칙</li>'+
           '<li>상태는 <b>차감완료 / 차감실패</b> 2종. 차감완료는 통합머니 반영이 끝난 건, 차감실패는 차감을 시도했으나 잔액 부족 등으로 반영되지 못한 건이다</li>'+
-          '<li>차감실패분은 아직 빠지지 않았지만 <b>출금 가용액에서는 미리 제외</b>한다 (가용 = 보유 캐시 − 미발행 보류 − 차감실패 구상금)</li>'+
-          '<li><b>미결정</b>: 구상비율 산정 기준(비율 vs 정액)·확정 시점·기준금액·차감 재시도 주기 — Q-2</li></ul>'],
-        ['3','구상 상세 (행 클릭)', '<p>행을 누르면 아래로 펼쳐진다. 이 화면은 <b>조회 전용</b>이므로 '+
+          '<li>차감실패분은 아직 빠지지 않았지만 <b>출금 가용액에서는 미리 제외</b>한다 (가용 = 보유 캐시 − 미발행 보류 − 차감실패 패널티)</li>'+
+          '<li><b>미결정</b>: 패널티 비율 산정 기준(비율 vs 정액)·확정 시점·기준금액·차감 재시도 주기 — Q-2</li></ul>'],
+        ['3','패널티 상세 (행 클릭)', '<p>행을 누르면 아래로 펼쳐진다. 이 화면은 <b>조회 전용</b>이므로 '+
           '상세는 조치 수단이 아니라 <b>“왜 이 금액이 나에게 청구됐는지”</b>에 답하는 자리다. '+
           '모달이 아니라 인라인 확장으로 두어 건끼리 비교하며 볼 수 있게 한다.</p>'+
           '<table class="sp-tbl"><tr><th>블록</th><th>내용</th><th>왜 필요한가</th></tr>'+
           '<tr><td><b>배차 시도 이력</b></td>'+
           '<td>접수 → 3사 동시 공유 → N분 미배차 → 자동 취소 타임라인 + '+
           '배대사별 <b>노출 시간·수락 건수</b></td>'+
-          '<td>구상권은 마스터 귀책을 전제로 한다. <b>그 전제를 확인할 근거</b>를 같이 줘야 '+
+          '<td>패널티는 마스터 귀책을 전제로 한다. <b>그 전제를 확인할 근거</b>를 같이 줘야 '+
           '이의제기 경로가 성립한다 — “배차를 안 한 것”과 “아무도 받지 않은 것”은 다르다</td></tr>'+
-          '<tr><td><b>구상금 산정</b></td>'+
-          '<td><code>상점 손해액 × 구상비율 = 구상금</code>. 비율은 <b>조회 전용</b>으로 명시</td>'+
+          '<tr><td><b>패널티 산정</b></td>'+
+          '<td><code>상점 손해액 × 패널티 비율 = 패널티 금액</code>. 비율은 <b>조회 전용</b>으로 명시</td>'+
           '<td>산정식을 드러내야 Q-2(비율 vs 정액·기준금액) 결정이 어디에 꽂히는지 보인다</td></tr>'+
           '<tr><td><b>차감 처리</b></td>'+
           '<td>차감완료 = 차감 일시·금액·귀속월 / 차감실패 = 시도 일시·실패 사유·<b>재시도 예정</b></td>'+
@@ -4691,7 +4692,7 @@
     },
     revenue: {
       title:'수익', url:'/revenue',
-      goal:'내 권역에 귀속된 <b>관리비 수익과 구상권 차감</b>을 기간별로 확인한다.',
+      goal:'내 권역에 귀속된 <b>관리비 수익과 패널티 차감</b>을 기간별로 확인한다.',
       ref:'기능요건정의서 AGT-012(수익통계·격리) · AGT-008(수수료 설정·선차감)',
       items:[
         ['1','조회 기간', '<ul>'+
@@ -4706,8 +4707,8 @@
           '<table class="sp-tbl"><tr><th>항목</th><th>정의</th></tr>'+
           '<tr><td>주문건수</td><td>기간 내 접수 건수. 보조로 완료·취소 건수를 함께 표기</td></tr>'+
           '<tr><td>관리비 수익</td><td><code>건당 관리비 × 귀속 완료 건수</code>. 타 배대사가 수행해도 <b>픽업지 법정동이 내 권역이면 귀속</b></td></tr>'+
-          '<tr><td>구상권 차감</td><td>확정된 구상금액. 통합머니에서 자동 차감된다 (AGT-011)</td></tr>'+
-          '<tr><td>월 순수익</td><td><code>관리비 수익 − 구상권 차감</code></td></tr></table>'+
+          '<tr><td>패널티 차감</td><td>확정된 패널티 금액. 통합머니에서 자동 차감된다 (AGT-011)</td></tr>'+
+          '<tr><td>월 순수익</td><td><code>관리비 수익 − 패널티 차감</code></td></tr></table>'+
           '<p>단가는 <code>상점 &gt; 권역 &gt; 전역 기본값</code> 우선순위이고 <b>발생 시점 스냅샷</b>으로 고정된다. 요율을 바꿔도 과거 건은 재계산하지 않는다 (AGT-008).</p>'],
         ['3','수익 이력', '<ul>'+
           '<li><code>일자 · 주문건수 · 완료건수 · 취소건수 · 관리비 수익</code> 5열. 전부 확정분이라 상태 컬럼을 두지 않는다</li>'+
@@ -4836,10 +4837,10 @@
           '<b>재전송 큐</b>를 두고 운영자 알림을 띄운다</li>'+
           '<li><code>sendToNTS</code>는 <b>재호출해도 안전</b>해야 한다 — 재시도 로직을 전제로 설계</li></ul>'+
           '<ul>'+
-          '<li><b>구상권 차감은 공급가액에서 빼지 않는다.</b> 구상권은 손해배상금이 아니라 '+
-          '본사가 먼저 보상한 뒤 귀책 주체에게서 <b>대위변제분을 회수</b>하는 권리이므로, '+
+          '<li><b>패널티 차감은 공급가액에서 빼지 않는다.</b> 패널티는 용역 대가가 아니라 '+
+          '배차 책임을 다하지 못한 데 대한 <b>제재금</b>이므로, '+
           '재화·용역의 공급 대가가 아니고 부가세 과세대상도 아니다</li>'+
-          '<li>관리비 수익 <b>전액</b>으로 발행하고 구상금은 지급 단계에서 <b>상계</b>한다 — '+
+          '<li>관리비 수익 <b>전액</b>으로 발행하고 패널티는 지급 단계에서 <b>상계</b>한다 — '+
           '<b>세금계산서 합계 ≠ 실지급액</b>이므로 화면에 툴팁으로 근거를 밝힌다</li>'+
           '<li>공급자·공급받는 자 정보를 좌우 2단으로 나란히 보여준다</li>'+
           '<li><b>세금계산서 미리보기</b>로 발행 전 국세청 서식 그대로 확인한다</li>'+
@@ -4889,12 +4890,12 @@
       ref:'기능요건정의서 MNY-005(출금·환급) · AGT-011(지갑 연동·정산 귀속)',
       items:[
         ['1','정산 요약', '<table class="sp-tbl"><tr><th>항목</th><th>정의</th></tr>'+
-          '<tr><td>보유 캐시</td><td><b>현재 지갑 잔액</b>. 주문 완료 시마다 관리비가 실시간 적립되고 구상권 차감과 기출금은 이미 반영돼 있다 (선차감 정산)<br><code>보유 캐시 = 출금 가능액 + 세금계산서 미발행 보류</code></td></tr>'+
+          '<tr><td>보유 캐시</td><td><b>현재 지갑 잔액</b>. 주문 완료 시마다 관리비가 실시간 적립되고 패널티 차감과 기출금은 이미 반영돼 있다 (선차감 정산)<br><code>보유 캐시 = 출금 가능액 + 세금계산서 미발행 보류</code></td></tr>'+
           '<tr><td><b>세금계산서 미발행 보류</b></td><td>세금계산서를 아직 발행하지 않은 <b>주차</b>의 정산액(공급가액 + 부가세) 합계. '+
           '<b>발행 전에는 출금할 수 없다</b>. 카드 우하단 <b>「발행 하러 가기」</b>로 정산 화면으로 바로 보낸다 — '+
           '막힌 이유와 푸는 수단을 같은 자리에 둔다. 보류액이 0이면 버튼을 숨긴다</td></tr>'+
           '<tr><td>기출금</td><td>이번 달 누적 출금액. <b>보유 캐시에서 이미 빠진 값</b>이라 출금 가능액 계산에 다시 쓰지 않는다</td></tr>'+
-          '<tr><td>출금 가능액</td><td><code>보유 캐시 − 세금계산서 미발행 보류</code> (차감실패 구상금이 있으면 함께 제외)</td></tr></table>'+
+          '<tr><td>출금 가능액</td><td><code>보유 캐시 − 세금계산서 미발행 보류</code> (차감실패 패널티가 있으면 함께 제외)</td></tr></table>'+
           '<p>정산 계정(웰컴 월렛) 미연동 마스터는 <b>정산 대상에서 제외</b>된다. 대사 불일치 지갑은 출금 보류 (MNY-002).</p>'],
         ['2','세금계산서 ↔ 출금 전환', '<p><b>세금계산서 발행이 출금의 선행 조건</b>이다. '+
           '세금계산서 없이 지급하면 매입세액 공제 근거가 없으므로, 귀속월 정산액은 발행 전까지 묶어둔다.</p>'+
@@ -4932,7 +4933,7 @@
           '<li>완료율 90% 미만은 주황 경고</li>'+
           '<li>세그먼트(B2B/B2C)를 분리해 제공한다 (STO-011)</li></ul>'],
         ['3','상점별 통계', '<ul>'+
-          '<li><code>브랜드 · 상점 · 세그먼트 · 주문건수 · 완료건수 · 취소건수 · 관리비 수익 · 구상권 · 완료율</code></li>'+
+          '<li><code>브랜드 · 상점 · 세그먼트 · 주문건수 · 완료건수 · 취소건수 · 관리비 수익 · 패널티 · 완료율</code></li>'+
           '<li>브랜드는 로고 + 브랜드명. 브랜드 미가맹 개별상점은 <b>유입 채널</b>로 묶어 표기 (주문 현황·완료 주문과 동일 규칙)</li>'+
           '<li><b>주문건수 = 완료건수 + 취소건수</b>, <b>완료율 = 완료건수 ÷ 주문건수</b> — 표의 숫자끼리 반드시 맞아떨어져야 한다</li>'+
           '<li>관리비 수익 = <code>완료건수 × 250원</code></li>'+
@@ -5033,16 +5034,16 @@
     ['라이더 개인 연락처 노출 범위', '전체 노출 (마스킹 여부 G-3에서 확정)'],
     ['법정동 경계 데이터 출처·갱신 주기', '시안은 통계청 2013 병합 근사치'],
     ['책임권역 유니크 키 = 법정동 단독? (법정동 × 브랜드)?', '법정동 단독 (C-5 대기)'],
-    ['구상비율 산정 기준 (비율 / 정액), 확정 시점', '미정 (Q-2)'],
-    ['구상금 차감 실패 시 재시도 주기·횟수 상한', '미정 (Q-2)'],
-    ['구상권 이의제기 기능 제공 여부', '미정 — 현재 범위는 조회 전용 (Q-2)'],
+    ['패널티 비율 산정 기준 (비율 / 정액), 확정 시점', '미정 (Q-2)'],
+    ['패널티 차감 실패 시 재시도 주기·횟수 상한', '미정 (Q-2)'],
+    ['패널티 이의제기 기능 제공 여부', '미정 — 현재 범위는 조회 전용 (Q-2)'],
     ['완료율 분모에 취소·반려 포함 여부', '미포함으로 가정'],
     ['주간 집계 기준 요일', '수요일 ~ 화요일'],
     ['할증 종류와 적용 우선순위 (우천·과적·심야·재이동)', '상점 등록 시 설정값, 중복 적용'],
     ['CSV 다운로드 기간 제한', '제한 없음으로 가정'],
     ['팝빌 연동 계정 체계 (허브별 vs 본사 단일)', '허브별 계정으로 가정'],
     ['세금계산서 발행 수수료 부담 주체', '정과금 — 공급자(허브) 부담'],
-    ['구상금 상계 시 수정세금계산서 발행 여부', '발행하지 않음 (지급단계 상계)'],
+    ['패널티 상계 시 수정세금계산서 발행 여부', '발행하지 않음 (지급단계 상계)'],
     ['공동인증서 발급 비용 부담 주체', '딜리버리 마스터 부담 (확정) · 전자세금용 3년형 40,000원 권장'],
     ['법인 마스터 인증서 신청 시점 (대면 발급 2~5일)', '미정 (Q-3)'],
     ['미발행 가산세율 3% — 고컨 설정값 / 고정값', '미정 (Q-3)'],
