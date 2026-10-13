@@ -1074,8 +1074,9 @@
 /* ===== settle (출금) ===== */
 #v-settle{display:flex;flex-direction:column;min-width:0}
 #v-settle .content{padding:16px 18px 22px;display:flex;flex-direction:column;gap:16px}
-#v-settle .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media(max-width:640px){#v-settle .kpis{grid-template-columns:repeat(2,1fr)}}
+#v-settle .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){#v-settle .kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){#v-settle .kpis{grid-template-columns:1fr}}
 #v-settle .kpi{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--panel-2)}
 #v-settle .kpi .l{font-size:11px;color:var(--faint);font-family:var(--mono)}
 #v-settle .kpi .v{font-size:21px;font-weight:800;margin-top:5px;letter-spacing:-.02em}
@@ -2095,7 +2096,6 @@
       <div class="kpis">
         <div class="kpi"><div class="l">보유금<span class="tip" tabindex="0" aria-label="보유금 설명">?<span class="tipbox"><b>지금 지갑에 있는 금액입니다.</b><span class="p">주문이 완료될 때마다 관리비가 바로 적립되며, 이미 출금한 금액은 빠져 있습니다.</span></span></span></span></span></div><div class="v" id="kCash">1,273,750원</div></div>
         <div class="kpi"><div class="l">세금계산서 미발행 보류<span class="tip" tabindex="0" aria-label="세금계산서 미발행 보류 설명">?<span class="tipbox"><b>세금계산서를 아직 발행하지 않은 주차의 금액입니다.</b><span class="p">관리비에서 패널티를 상계한 <b>공급가액</b> 기준입니다. 세금계산서를 발행하고 국세청 전송이 완료되면 이 금액이 풀리고 <b>부가세가 함께 지급</b>됩니다.</span><span class="p">현재 <b>2026년 9월 5주차</b>와 <b>10월 1주차</b>가 남아 있으며, 정산 메뉴에서 발행할 수 있습니다.</span><span class="p">반기 마감신고일까지 발행하지 않으면 공급가액의 <b>3%</b>가 미발행 가산세로 차감되고 <b>부가세는 지급되지 않은 채</b> 나머지만 풀립니다.</span></span></span></span></span></div><div class="v o" id="kHold">402,750원</div><div class="kact"><button class="gobtn" type="button" id="goIssue">발행 하러 가기 <span class="ar">→</span></button></div></div>
-        <div class="kpi"><div class="l">기출금<span class="tip" tabindex="0" aria-label="기출금 설명">?<span class="tipbox"><b>이번 달에 이미 출금한 금액입니다.</b><span class="p">아래 출금 내역에서 날짜와 입금 계좌를 확인할 수 있습니다.</span></span></span></span></span></div><div class="v" id="kPaid">2,000,000원</div></div>
         <div class="kpi avail"><div class="l">출금 가능액<span class="tip" tabindex="0" aria-label="출금 가능액 설명">?<span class="tipbox"><b>지금 출금 신청할 수 있는 금액입니다.</b><span class="p">보유금에서 세금계산서를 아직 발행하지 않은 주차의 공급가액을 뺀 금액입니다.</span><span class="p">패널티 차감 실패 건이 있으면 금액과 무관하게 출금이 막힙니다.</span></span></span></span></span></div><div class="v a" id="kAvail">871,000원</div></div>
       </div>
 
@@ -4226,7 +4226,7 @@
   /* 패널티 차감 실패 — 한 건이라도 있으면 출금을 막는다 (금액은 부가세 포함 합계) */
   var PENFAIL = {cnt:2, amt:36000};   /* 공급가액 기준 */
   function penBlocked(){ return PENFAIL.cnt > 0; }
-  var ST = {cash:1273750, hold:402750, paid:2000000};   /* 보류 = 미발행 2주차 상계 후 공급가액 */
+  var ST = {cash:1273750, hold:402750};   /* 보류 = 미발행 2주차 상계 후 공급가액 */
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function ymd(d){ return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); }
@@ -4249,7 +4249,6 @@
     document.getElementById('kCash').textContent  = won(ST.cash);
     document.getElementById('kHold').textContent  = won(ST.hold);
     document.getElementById('goIssue').hidden = !ST.hold;
-    document.getElementById('kPaid').textContent  = won(ST.paid);
     document.getElementById('kAvail').textContent = won(avail());
     document.getElementById('wfMax').textContent  = '최대 ' + won(maxAmt());
   }
@@ -4339,7 +4338,6 @@
     var n = pending;
     if(n <= 0 || n > maxAmt()) return closeDlg();
     ST.cash -= (n + FEE);          /* 출금금액 + 수수료가 함께 차감된다 */
-    ST.paid += n;
     WD.unshift({t:'2026-10-07 ' + new Date().toTimeString().slice(0, 8), amt:n, bal:ST.cash});
     amtIn.value = '';
     check(); drawKpi(); draw();
@@ -5069,11 +5067,10 @@
       ref:'기능요건정의서 MNY-005(출금·환급) · AGT-011(지갑 연동·정산 귀속)',
       items:[
         ['1','정산 요약', '<table class="sp-tbl"><tr><th>항목</th><th>정의</th></tr>'+
-          '<tr><td>보유금</td><td><b>현재 지갑 잔액</b>. 주문 완료 시마다 관리비 <b>공급가액</b>이 실시간 적립되고, 패널티 공급가액 차감과 기출금은 이미 반영돼 있다 (선차감 정산). 발행이 끝난 주차의 <b>부가세도 여기 들어온다</b><br><code>보유금 = 출금 가능액 + 세금계산서 미발행 보류</code></td></tr>'+
+          '<tr><td>보유금</td><td><b>현재 지갑 잔액</b>. 주문 완료 시마다 관리비 <b>공급가액</b>이 실시간 적립되고, 패널티 공급가액 차감과 지금까지의 출금은 이미 반영돼 있다 (선차감 정산). 발행이 끝난 주차의 <b>부가세도 여기 들어온다</b><br><code>보유금 = 출금 가능액 + 세금계산서 미발행 보류</code></td></tr>'+
           '<tr><td><b>세금계산서 미발행 보류</b></td><td>세금계산서를 아직 발행하지 않은 <b>주차</b>의 <b>상계 후 공급가액</b> 합계. 부가세는 아직 발생하지 않았으므로 포함되지 않는다. '+
           '<b>발행 전에는 출금할 수 없다</b>. 카드 우하단 <b>「발행 하러 가기」</b>로 정산 화면으로 바로 보낸다 — '+
           '막힌 이유와 푸는 수단을 같은 자리에 둔다. 보류액이 0이면 버튼을 숨긴다</td></tr>'+
-          '<tr><td>기출금</td><td>이번 달 누적 출금액. <b>보유금에서 이미 빠진 값</b>이라 출금 가능액 계산에 다시 쓰지 않는다</td></tr>'+
           '<tr><td>출금 가능액</td><td><code>보유금 − 세금계산서 미발행 보류</code></td></tr></table>'+
           '<p><b>패널티 차감 실패 건이 하나라도 있으면 출금 자체가 막힌다.</b> 금액 입력·전액·출금 요청을 모두 비활성화하고, 실패 건수와 차감액을 적은 뒤 패널티 화면으로 보내는 버튼을 둔다. 가용액에서 빼는 이중 처리는 하지 않는다.</p>'+
           '<p>정산 계정(웰컴 월렛) 미연동 마스터는 <b>정산 대상에서 제외</b>된다. 대사 불일치 지갑은 출금 보류 (MNY-002).</p>'],
