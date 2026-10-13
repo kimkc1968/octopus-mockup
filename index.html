@@ -4498,7 +4498,7 @@
       var stl = c.st === 'done' ? 'paid' : c.st === 'lapsed' ? 'lap'
               : c.st === 'carry' ? 'cry' : 'wait';
       var stt = c.st === 'done' ? '발행완료' : c.st === 'lapsed' ? '기한경과'
-              : c.st === 'carry' ? '미발행' : '미발행';
+              : c.st === 'carry' ? '발행 불필요' : '미발행';
       var rel = c.st === 'done' ? '출금 가능 전환'
               : c.st === 'lapsed' ? '가산세 차감 후 해제'
               : c.st === 'carry' ? '다음 주차 합산' : '출금 보류';
