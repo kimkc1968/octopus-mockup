@@ -63,9 +63,7 @@
   .live{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--accent)}
   .live .d{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.6s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(19,179,166,.5)}50%{opacity:.5;box-shadow:0 0 0 5px rgba(19,179,166,0)}}
-  .search{flex:1 1 160px;min-width:120px;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;
-    padding:8px 12px;color:var(--faint);font-size:12.5px}
-  .tbtn{width:34px;height:34px;border:1px solid var(--line);border-radius:9px;background:var(--panel-2);
+  .tbtn{margin-left:auto;width:34px;height:34px;border:1px solid var(--line);border-radius:9px;background:var(--panel-2);
     display:flex;align-items:center;justify-content:center;color:var(--muted);position:relative;flex:none}
   .tbtn .dot{position:absolute;top:7px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--sales)}
   .acctwrap{position:relative;flex:none}
@@ -749,8 +747,6 @@
 #v-penalty .rcpf .p b{color:var(--faint);font-weight:400;font-size:10.5px}
 #v-penalty .rcr{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:12px;color:var(--muted)}
 #v-penalty .rcr b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
-#v-penalty .rcr.mid{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
-#v-penalty .rcr.mid b{color:var(--sales);font-weight:700}
 #v-penalty .rcr.sum{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
 #v-penalty .rcr.sum b{font-size:14.5px;font-weight:800;color:var(--sales)}
 #v-penalty .rclock{font-size:10px;color:var(--faint);margin-left:6px;font-weight:400}
@@ -766,6 +762,53 @@
 #v-penalty .tm.cx{color:var(--text);font-weight:600}
 #v-penalty .dt{font-family:var(--mono);color:var(--faint);font-size:11.5px}
 #v-penalty .st{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
+#v-penalty .st.issued{color:var(--green);background:rgba(63,185,138,.13)}
+#v-penalty .st.notyet{color:var(--gold);background:rgba(231,178,76,.13)}
+#v-penalty .wk{font-weight:700;color:var(--text)}
+#v-penalty .wkp{font-size:11.5px;color:var(--faint);font-variant-numeric:tabular-nums}
+#v-penalty .num2{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em}
+#v-penalty .lnk{color:var(--accent);cursor:pointer}
+#v-penalty .lnk:hover{text-decoration:underline}
+#v-penalty .sep{color:var(--faint);margin:0 2px}
+#v-penalty .ptmask{position:fixed;inset:0;z-index:70;background:rgba(6,9,13,.74);
+    display:flex;align-items:flex-start;justify-content:center;padding:26px 16px;overflow:auto}
+#v-penalty .ptmask[hidden]{display:none}
+#v-penalty .ptwrap{width:860px;max-width:100%;min-width:0;background:var(--panel);
+    border:1px solid var(--line-2);border-radius:13px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6)}
+#v-penalty .ptbar{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid var(--line)}
+#v-penalty .ptbar b{font-size:13.5px}
+#v-penalty .ptbar .nt{font-size:11px;color:var(--faint);margin-right:auto}
+#v-penalty .ptx{width:28px;height:28px;flex:none;border:1px solid var(--line);border-radius:8px;background:none;
+    color:var(--muted);cursor:pointer;font:inherit}
+#v-penalty .ptx:hover{color:var(--text);border-color:var(--line-2)}
+#v-penalty .ptdoc{background:#fff;color:#1b2430;padding:18px}
+#v-penalty .pthd{display:flex;align-items:center;background:#2f5fa8;color:#fff;padding:11px 16px;margin:-18px -18px 14px}
+#v-penalty .pthd b{font-size:15px;font-weight:800}
+#v-penalty .pthd .brand{margin-left:auto;font-size:14px;font-weight:800;letter-spacing:-.02em}
+#v-penalty .ptparty{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:700px){#v-penalty .ptparty{grid-template-columns:minmax(0,1fr)}}
+#v-penalty .ptcol{min-width:0;border:1px solid #d7dce3;border-radius:8px;padding:11px 13px}
+#v-penalty .ptcol.sup{background:#fdf4f4}
+#v-penalty .ptcol.buy{background:#f4f7fd}
+#v-penalty .ptcol .tg{font-size:10.5px;font-weight:800;margin-bottom:8px}
+#v-penalty .ptcol.sup .tg{color:#c0392b}
+#v-penalty .ptcol.buy .tg{color:#1f4fa8}
+#v-penalty .ptr{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:11.5px;color:#5a6673}
+#v-penalty .ptr b{color:#1b2430;font-weight:700;text-align:right}
+#v-penalty .ptsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+#v-penalty .ptsum div{border:1px solid #d7dce3;border-radius:8px;padding:10px 12px;text-align:center}
+#v-penalty .ptsum .k{font-size:10.5px;color:#6b7787}
+#v-penalty .ptsum .v{font-size:15px;font-weight:800;color:#1b2430;margin-top:3px}
+#v-penalty .ptsum .tot .v{color:#c0392b}
+#v-penalty .ptitem{margin-top:12px;border:1px solid #d7dce3;border-radius:8px;overflow:hidden;font-size:11.5px}
+#v-penalty .ptitem .h{display:grid;grid-template-columns:1fr 90px 110px 110px;background:#eef1f5;
+    font-weight:700;color:#48566a}
+#v-penalty .ptitem .r{display:grid;grid-template-columns:1fr 90px 110px 110px}
+#v-penalty .ptitem span{padding:7px 10px}
+#v-penalty .ptitem .r span:not(:first-child),#v-penalty .ptitem .h span:not(:first-child){text-align:right}
+#v-penalty .ptfoot{margin-top:11px;padding:10px 12px;background:#eef4fb;border:1px solid #c9d9ee;
+    border-radius:6px;font-size:11.5px;color:#48566a;line-height:1.75}
+#v-penalty .ptfoot b{color:#c0392b}
 #v-penalty .st.done{color:var(--accent);background:rgba(19,179,166,.13)}
 #v-penalty .st.pend{color:var(--red);background:rgba(229,84,75,.14)}
 #v-penalty .bchip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
@@ -822,6 +865,11 @@
 #v-settlement .ih{font-size:12px;color:var(--faint);margin-bottom:10px}
 #v-settlement .amt{display:flex;justify-content:space-between;gap:12px;padding:7px 0;font-size:12.5px;color:var(--muted)}
 #v-settlement .amt b{color:var(--text);font-weight:600}
+#v-settlement .amt.net{border-top:1px solid var(--line);margin-top:5px;padding-top:9px}
+#v-settlement .amt.net b{color:var(--text);font-weight:700}
+#v-settlement .amt.net b.minus{color:var(--red)}
+#v-settlement .amt[hidden]{display:none}
+#v-settlement .st.carry{color:var(--hq);background:rgba(91,141,239,.14)}
 #v-settlement .amt.total{border-top:1px solid var(--line);margin-top:6px;padding-top:11px;font-size:14px}
 #v-settlement .amt.total b{font-size:17px;font-weight:800;color:var(--accent)}
 #v-settlement .lbl{display:inline-flex;align-items:center;gap:6px}
@@ -1120,6 +1168,7 @@
 #v-settle .cvr b.bad{color:var(--red)}
 #v-settle .cvsp{margin-left:8px;font-size:10.5px;color:var(--faint);font-weight:400;font-variant-numeric:tabular-nums}
 #v-settle .st.lap{color:var(--red);background:rgba(229,84,75,.13)}
+#v-settle .st.cry{color:var(--hq);background:rgba(91,141,239,.14)}
 #v-settle .cvdelta b{color:var(--green);font-weight:800}
 #v-settle .blogo{width:42px;height:42px;border-radius:9px;flex:none;overflow:hidden;background:#fff;
     display:flex;align-items:center;justify-content:center;padding:3px;
@@ -1600,7 +1649,6 @@
       <div class="ptitle" id="ptitle">주문 현황</div>
       <div class="region">강남구 책임권역 <span class="chev">▾</span></div>
       <div class="live"><span class="d"></span>LIVE</div>
-      <div class="search">상점·오더번호·라이더 검색…</div>
       <div class="tbtn">🔔<span class="dot"></span></div>
       <div class="acctwrap">
         <button class="acct" id="acctBtn" type="button" aria-expanded="false" aria-haspopup="true">
@@ -1694,13 +1742,13 @@
       <div class="rev">
         <div class="rc"><div class="l">이번 주</div><div class="v">642,000원</div><div class="d"><span class="up">▲ 5.2%</span> 전주 대비</div></div>
         <div class="rc"><div class="l">이번 달</div><div class="v">2,775,000원</div><div class="d"><span class="up">▲ 8.1%</span> 전월 대비</div></div>
-        <div class="rc deduct"><div class="l">패널티 차감 (월)</div><div class="v">− 132,000원</div><div class="d">미배차 취소 6건 · 부가세 포함</div></div>
-        <div class="rc net"><div class="l">월 순수익</div><div class="v">2,643,000원</div><div class="d">수익 − 패널티 차감</div></div>
+        <div class="rc deduct"><div class="l">패널티 차감 (월)</div><div class="v">− 120,000원</div><div class="d">미배차 취소 6건 · 공급가액</div></div>
+        <div class="rc net"><div class="l">월 순수익</div><div class="v">2,655,000원</div><div class="d">수익 − 패널티 차감</div></div>
       </div>
 
       <!-- 수익 추이 -->
       <div class="card">
-        <h3>주간 수익 추이</h3><div class="cs">이번 주(수~화) 요일별 · 수익 vs 패널티 차감(부가세 포함)</div>
+        <h3>주간 수익 추이</h3><div class="cs">이번 주(수~화) 요일별 · 수익 vs 패널티 차감 · 공급가액 기준</div>
         <div class="lcwrap">
           <svg class="linechart" viewBox="0 0 900 230" role="img" aria-label="요일별 수익과 패널티 차감 2선 라인 차트">
             <defs><linearGradient id="revgrad" x1="0" y1="0" x2="0" y2="1">
@@ -1722,13 +1770,13 @@
             <text class="lc-axis" x="590" y="216">일</text>
             <text class="lc-axis" x="730" y="216">월</text>
             <text class="lc-axis" x="870" y="216">화</text>
-            <rect class="hz" x="0" y="0" width="100" height="230" data-d="수" data-r="82000" data-e="5500"/>
-            <rect class="hz" x="100" y="0" width="140" height="230" data-d="목" data-r="90000" data-e="13200"/>
-            <rect class="hz" x="240" y="0" width="140" height="230" data-d="금" data-r="78000" data-e="3300"/>
-            <rect class="hz" x="380" y="0" width="140" height="230" data-d="토" data-r="95000" data-e="19800"/>
-            <rect class="hz" x="520" y="0" width="140" height="230" data-d="일" data-r="112000" data-e="24200"/>
-            <rect class="hz" x="660" y="0" width="140" height="230" data-d="월" data-r="108000" data-e="11000"/>
-            <rect class="hz" x="800" y="0" width="100" height="230" data-d="화" data-r="77000" data-e="8800"/>
+            <rect class="hz" x="0" y="0" width="100" height="230" data-d="수" data-r="82000" data-e="5000"/>
+            <rect class="hz" x="100" y="0" width="140" height="230" data-d="목" data-r="90000" data-e="12000"/>
+            <rect class="hz" x="240" y="0" width="140" height="230" data-d="금" data-r="78000" data-e="3000"/>
+            <rect class="hz" x="380" y="0" width="140" height="230" data-d="토" data-r="95000" data-e="18000"/>
+            <rect class="hz" x="520" y="0" width="140" height="230" data-d="일" data-r="112000" data-e="22000"/>
+            <rect class="hz" x="660" y="0" width="140" height="230" data-d="월" data-r="108000" data-e="10000"/>
+            <rect class="hz" x="800" y="0" width="100" height="230" data-d="화" data-r="77000" data-e="8000"/>
           </svg>
           <div class="lctip" id="lctip"></div>
         </div>
@@ -1830,7 +1878,7 @@
         <div class="kpi"><div class="l" id="k1l">주문건수</div><div class="v" id="k1v">—</div><div class="sub" id="k1s">—</div></div>
         <div class="kpi"><div class="l">관리비 수익</div><div class="v" id="k2v">—</div><div class="sub">250원 / 완료건</div></div>
         <div class="kpi"><div class="l">패널티 차감</div><div class="v o" id="k3v">—</div><div class="sub" id="k3s">—</div></div>
-        <div class="kpi net"><div class="l">순수익</div><div class="v a" id="k4v">—</div><div class="sub">수익 − 패널티 차감</div></div>
+        <div class="kpi net"><div class="l">순수익</div><div class="v a" id="k4v">—</div><div class="sub">관리비 − 패널티 (공급가액)</div></div>
       </div>
 
       <!-- table -->
@@ -1853,13 +1901,13 @@
       <!-- KPI -->
       <div class="kpis">
         <div class="kpi"><div class="l">이번 달</div><div class="v">6건</div><div class="sub">발생 건수</div></div>
-        <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 92,400원</div><div class="sub">공급가액 84,000원 + 부가세 8,400원</div></div>
+        <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 84,000원</div><div class="sub">공급가액 기준 · 부가세는 주차 상계</div></div>
         <div class="kpi"><div class="l">차감완료</div><div class="v a">4건</div><div class="sub">고머니 자동 차감</div></div>
         <div class="kpi"><div class="l">차감실패</div><div class="v g">2건</div><div class="sub">잔액 부족 · 재시도 예정</div></div>
       </div>
 
       <!-- table -->
-      <div class="sec-t"><h2>패널티 발생 이력</h2><span class="s">최신순 · 미배차 취소 · 차감액 = 공급가액 + 부가세 10%</span></div>
+      <div class="sec-t"><h2>패널티 발생 이력</h2><span class="s">최신순 · 미배차 취소 · 차감액은 공급가액 기준</span></div>
       <div class="card">
         <div class="otab">
           <table>
@@ -1868,6 +1916,9 @@
           </table>
         </div>
       </div>
+
+
+
 
     </div>
 </section>
@@ -1884,8 +1935,8 @@
 
   <div class="kpis">
     <div class="kpi"><div class="l">정산 대상 금액</div><div class="v" id="s1">—</div><div class="sub" id="s1s">—</div></div>
-    <div class="kpi"><div class="l">공급가액</div><div class="v" id="s2">—</div><div class="sub">관리비 수익 합계</div></div>
-    <div class="kpi"><div class="l">부가세 (10%)</div><div class="v g" id="s3">—</div><div class="sub">공급가액 × 10%</div></div>
+    <div class="kpi"><div class="l">공급가액</div><div class="v" id="s2">—</div><div class="sub">관리비 − 패널티 상계</div></div>
+    <div class="kpi"><div class="l">부가세 (10%)</div><div class="v g" id="s3">—</div><div class="sub">상계 후 공급가액 × 10%</div></div>
     <div class="kpi"><div class="l">발행 상태</div><div class="v a" id="s4">—</div><div class="sub" id="s4s">—</div></div>
   </div>
 
@@ -1923,9 +1974,12 @@
       <div class="side">
         <div class="ihm"><b id="a0">—</b><span id="a0s">—</span></div>
         <div class="ih">발행 금액</div>
-        <div class="amt"><span>공급가액</span><b id="a1">—</b></div>
+        <div class="amt"><span>관리비 공급가액</span><b id="a1">—</b></div>
+        <div class="amt"><span class="lbl">패널티 상계<span class="tip" tabindex="0" aria-label="패널티 설명">?<span class="tipbox"><b>패널티는 용역 대가가 아닙니다.</b><span class="p">배차되지 못해 취소된 주문의 손해를 본사가 먼저 보전하고, 그 금액을 책임권역 마스터에게 부과하는 것입니다.</span><span class="p">패널티는 발생할 때 <b>공급가액만</b> 차감됩니다. 부가세는 건별로 다루지 않고, 이 주차의 관리비 수익과 <b>상계</b>한 뒤 남은 공급가액에 대해서만 계산해 세금계산서 발행 시 지급됩니다.</span></span></span></span><b id="a3">—</b></div>
+        <div class="amt" id="r6" hidden><span>전기 이월</span><b id="a6">—</b></div>
+        <div class="amt net"><span>상계 후 공급가액</span><b id="a5">—</b></div>
+        <div class="amt" id="r7" hidden><span>다음 주차 이월</span><b id="a7">—</b></div>
         <div class="amt"><span>부가세 (10%)</span><b id="a2">—</b></div>
-        <div class="amt"><span class="lbl">패널티 차감<span class="tip" tabindex="0" aria-label="패널티 설명">?<span class="tipbox"><b>패널티는 용역 대가가 아닙니다.</b><span class="p">배차되지 못해 취소된 주문의 손해를 본사가 먼저 보전하고, 그 금액을 책임권역 마스터에게 부과하는 것입니다.</span><span class="p">패널티도 <b>과세거래</b>라 공급가액에 <b>부가세 10%</b>가 붙으며, 표시 금액은 그 합계입니다.</span><span class="p">다만 이 세금계산서는 <b>관리비 수익</b>에 대한 것이라 패널티는 금액에 포함되지 않습니다. 관리비 전액으로 발행하고, 패널티는 출금할 때 차감되어 지급됩니다.</span></span></span></span></span></span><b id="a3">—</b></div>
         <div class="amt total"><span>합계</span><b id="a4">—</b></div>
       </div>
       <div class="side">
@@ -2036,9 +2090,9 @@
       <div class="sec-t"><h2>정산 요약</h2><span class="s">정산 확정 기준 · 이번 달</span></div>
       <div class="kpis">
         <div class="kpi"><div class="l">보유 캐시<span class="tip" tabindex="0" aria-label="보유 캐시 설명">?<span class="tipbox"><b>지금 지갑에 있는 금액입니다.</b><span class="p">주문이 완료될 때마다 관리비가 바로 적립되며, 이미 출금한 금액은 빠져 있습니다.</span></span></span></span></span></div><div class="v" id="kCash">1,273,750원</div></div>
-        <div class="kpi"><div class="l">세금계산서 미발행 보류<span class="tip" tabindex="0" aria-label="세금계산서 미발행 보류 설명">?<span class="tipbox"><b>세금계산서를 아직 발행하지 않은 주차의 금액입니다.</b><span class="p">세금계산서를 발행하고 국세청 전송이 완료되면 출금할 수 있습니다.</span><span class="p">현재 <b>2026년 9월 5주차</b>와 <b>10월 1주차</b>가 남아 있으며, 정산 메뉴에서 발행할 수 있습니다.</span><span class="p">반기 마감신고일까지 발행하지 않으면 공급가액의 <b>3%</b>가 미발행 가산세로 차감되고 부가세는 회수된 뒤 나머지만 출금 가능액으로 풀립니다.</span></span></span></span></span></div><div class="v o" id="kHold">575,025원</div><div class="kact"><button class="gobtn" type="button" id="goIssue">발행 하러 가기 <span class="ar">→</span></button></div></div>
+        <div class="kpi"><div class="l">세금계산서 미발행 보류<span class="tip" tabindex="0" aria-label="세금계산서 미발행 보류 설명">?<span class="tipbox"><b>세금계산서를 아직 발행하지 않은 주차의 금액입니다.</b><span class="p">관리비에서 패널티를 상계한 <b>공급가액</b> 기준입니다. 세금계산서를 발행하고 국세청 전송이 완료되면 이 금액이 풀리고 <b>부가세가 함께 지급</b>됩니다.</span><span class="p">현재 <b>2026년 9월 5주차</b>와 <b>10월 1주차</b>가 남아 있으며, 정산 메뉴에서 발행할 수 있습니다.</span><span class="p">반기 마감신고일까지 발행하지 않으면 공급가액의 <b>3%</b>가 미발행 가산세로 차감되고 <b>부가세는 지급되지 않은 채</b> 나머지만 풀립니다.</span></span></span></span></span></div><div class="v o" id="kHold">402,750원</div><div class="kact"><button class="gobtn" type="button" id="goIssue">발행 하러 가기 <span class="ar">→</span></button></div></div>
         <div class="kpi"><div class="l">기출금<span class="tip" tabindex="0" aria-label="기출금 설명">?<span class="tipbox"><b>이번 달에 이미 출금한 금액입니다.</b><span class="p">아래 출금 내역에서 날짜와 입금 계좌를 확인할 수 있습니다.</span></span></span></span></span></div><div class="v" id="kPaid">2,000,000원</div></div>
-        <div class="kpi avail"><div class="l">출금 가능액<span class="tip" tabindex="0" aria-label="출금 가능액 설명">?<span class="tipbox"><b>지금 출금 신청할 수 있는 금액입니다.</b><span class="p">보유 캐시에서 세금계산서를 아직 발행하지 않은 주차의 금액을 뺀 금액입니다.</span></span></span></span></span></div><div class="v a" id="kAvail">698,725원</div></div>
+        <div class="kpi avail"><div class="l">출금 가능액<span class="tip" tabindex="0" aria-label="출금 가능액 설명">?<span class="tipbox"><b>지금 출금 신청할 수 있는 금액입니다.</b><span class="p">보유 캐시에서 세금계산서를 아직 발행하지 않은 주차의 공급가액을 뺀 금액입니다.</span><span class="p">패널티 차감 실패 건이 있으면 금액과 무관하게 출금이 막힙니다.</span></span></span></span></span></div><div class="v a" id="kAvail">871,000원</div></div>
       </div>
 
       <!-- request + history -->
@@ -2115,7 +2169,7 @@
       <div class="card">
         <div class="otab">
           <table>
-            <thead><tr><th>주차</th><th class="r">정산액</th><th>세금계산서</th>
+            <thead><tr><th>주차</th><th class="r">상계 후 공급가액</th><th>세금계산서</th>
               <th>발행일</th><th>전환일</th><th>상태</th></tr></thead>
             <tbody id="convBody"></tbody>
           </table>
@@ -2199,12 +2253,12 @@
             <tbody>
               <tr><td><span class="bchip"><i><img src="store_logo/starbucks.jpg" alt=""></i>스타벅스</span></td><td class="shop">스타벅스 역삼2호점</td><td><span class="seg b">B2B</span></td><td class="r num">420</td><td class="r num done">407</td><td class="r num cancel">13</td><td class="r amt">101,750원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:97%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">97%</div></div></td></tr>
               <tr><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">380</td><td class="r num done">365</td><td class="r num cancel">15</td><td class="r amt">91,250원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:96%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">96%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">210</td><td class="r num done">197</td><td class="r num cancel">13</td><td class="r amt">49,250원</td><td class="r ded on">− 15,400원</td><td><div class="perf"><div class="track"><div class="fill" style="width:94%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">94%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 역삼1호점</td><td><span class="seg b">B2B</span></td><td class="r num">210</td><td class="r num done">197</td><td class="r num cancel">13</td><td class="r amt">49,250원</td><td class="r ded on">− 14,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:94%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">94%</div></div></td></tr>
               <tr><td><span class="bchip"><i><img src="store_logo/oliveyoung.png" alt=""></i>올리브영</span></td><td class="shop">올리브영 역삼3호점</td><td><span class="seg b">B2B</span></td><td class="r num">150</td><td class="r num done">134</td><td class="r num cancel">16</td><td class="r amt">33,500원</td><td class="r ded">− 0원</td><td><div class="perf"><div class="track"><div class="fill" style="width:89%;background:var(--sales)"></div></div><div class="pct" style="color:var(--sales)">89%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">역삼 정가네 김치찌개</td><td><span class="seg b">B2B</span></td><td class="r num">88</td><td class="r num done">84</td><td class="r num cancel">4</td><td class="r amt">21,000원</td><td class="r ded on">− 13,200원</td><td><div class="perf"><div class="track"><div class="fill" style="width:95%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">95%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">삼성동 포케보울</td><td><span class="seg c">B2C</span></td><td class="r num">76</td><td class="r num done">71</td><td class="r num cancel">5</td><td class="r amt">17,750원</td><td class="r ded on">− 19,800원</td><td><div class="perf"><div class="track"><div class="fill" style="width:93%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">93%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">대치 손만두집</td><td><span class="seg c">B2C</span></td><td class="r num">64</td><td class="r num done">58</td><td class="r num cancel">6</td><td class="r amt">14,500원</td><td class="r ded on">− 33,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:91%;background:var(--gold)"></div></div><div class="pct" style="color:var(--gold)">91%</div></div></td></tr>
-              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">논현 돈까스하우스</td><td><span class="seg c">B2C</span></td><td class="r num">59</td><td class="r num done">51</td><td class="r num cancel">8</td><td class="r amt">12,750원</td><td class="r ded on">− 26,400원</td><td><div class="perf"><div class="track"><div class="fill" style="width:86%;background:var(--sales)"></div></div><div class="pct" style="color:var(--sales)">86%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">역삼 정가네 김치찌개</td><td><span class="seg b">B2B</span></td><td class="r num">88</td><td class="r num done">84</td><td class="r num cancel">4</td><td class="r amt">21,000원</td><td class="r ded on">− 12,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:95%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">95%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">삼성동 포케보울</td><td><span class="seg c">B2C</span></td><td class="r num">76</td><td class="r num done">71</td><td class="r num cancel">5</td><td class="r amt">17,750원</td><td class="r ded on">− 18,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:93%;background:var(--accent)"></div></div><div class="pct" style="color:var(--accent)">93%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">대치 손만두집</td><td><span class="seg c">B2C</span></td><td class="r num">64</td><td class="r num done">58</td><td class="r num cancel">6</td><td class="r amt">14,500원</td><td class="r ded on">− 30,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:91%;background:var(--gold)"></div></div><div class="pct" style="color:var(--gold)">91%</div></div></td></tr>
+              <tr><td><span class="bchip"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="shop">논현 돈까스하우스</td><td><span class="seg c">B2C</span></td><td class="r num">59</td><td class="r num done">51</td><td class="r num cancel">8</td><td class="r amt">12,750원</td><td class="r ded on">− 24,000원</td><td><div class="perf"><div class="track"><div class="fill" style="width:86%;background:var(--sales)"></div></div><div class="pct" style="color:var(--sales)">86%</div></div></td></tr>
             </tbody>
           </table>
         </div>
@@ -3508,12 +3562,9 @@
     document.getElementById('k1v').textContent = t.orders.toLocaleString() + '건';
     document.getElementById('k1s').textContent = '완료 ' + t.done.toLocaleString() + ' · 취소 ' + t.cancel.toLocaleString();
     document.getElementById('k2v').textContent = won(t.fee);
-    var dedTot = t.ded + Math.round(t.ded * 0.1);   /* 패널티는 과세거래 — 부가세 포함 차감 */
-    document.getElementById('k3v').textContent = '\u2212 ' + won(dedTot);
-    document.getElementById('k3s').textContent = t.ded
-      ? '공급가액 ' + won(t.ded) + ' + 부가세 ' + won(Math.round(t.ded * 0.1))
-      : '해당 기간 없음';
-    document.getElementById('k4v').textContent = won(t.fee - dedTot);
+    document.getElementById('k3v').textContent = '\u2212 ' + won(t.ded);
+    document.getElementById('k3s').textContent = t.ded ? '미배차 취소 패널티 · 공급가액' : '해당 기간 없음';
+    document.getElementById('k4v').textContent = won(t.fee - t.ded);
     document.getElementById('revCap').textContent =
       ymd(r.from).replace(/-/g,'.') + ' ~ ' + ymd(r.to).replace(/-/g,'.') + ' · 관리비 250원 / 완료건';
     document.getElementById('revRange').textContent =
@@ -3596,9 +3647,8 @@
             {nm:'딜버', logo:'logo/dilver.png'}];
 
   function won(v){ return Math.round(v).toLocaleString() + '원'; }
-  /* 패널티는 과세거래다 — 공급가액(amt)에 부가세 10%가 붙고 합계가 차감된다 */
-  function vat(v){ return Math.round(v * 0.1); }
-  function tot(r){ return r.amt + vat(r.amt); }
+  /* 건별로는 공급가액(amt)만 차감한다.
+     부가세는 주차 단위로 수익과 상계한 뒤 세금계산서 발행 시 한 번에 정산된다. */
   function rcv(r){ return r.did.slice(6, 8) + ':' + r.did.slice(8, 10); }   /* 접수 시각 */
 
   var body = document.getElementById('rcBody'), openId = null;
@@ -3627,20 +3677,21 @@
     var calc =
         '<div class="rcr"><span>상점 손해액</span><b>' + won(r.loss) + '</b></div>'
       + '<div class="rcr"><span>패널티 비율<span class="rclock">조회 전용</span></span><b>' + r.rate + '%</b></div>'
-      + '<div class="rcr mid"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>'
-      + '<div class="rcr"><span>부가세 (10%)</span><b>' + won(vat(r.amt)) + '</b></div>'
-      + '<div class="rcr sum"><span>합계</span><b>' + won(tot(r)) + '</b></div>';
+      + '<div class="rcr sum"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>'
+      + '<div class="rcnote">부가세는 건별로 차감하지 않습니다. '
+      + '주차 단위로 <b>관리비 수익 공급가액과 상계</b>한 뒤, '
+      + '세금계산서를 발행할 때 상계된 공급가액에 대한 부가세가 한 번에 지급됩니다.</div>';
 
     /* ③ 차감 처리 */
     var deduct = done
       ? '<div class="rcr"><span>차감 일시</span><b>' + r.at + '</b></div>'
-        + '<div class="rcr"><span>차감 금액</span><b>' + won(tot(r)) + '</b></div>'
+        + '<div class="rcr"><span>차감 금액</span><b>' + won(r.amt) + '</b></div>'
         + '<div class="rcr"><span>귀속월</span><b>2026-10</b></div>'
       : '<div class="rcr"><span>시도 일시</span><b>' + r.at + '</b></div>'
         + '<div class="rcr"><span>실패 사유</span><b>고머니 잔액 부족</b></div>'
         + '<div class="rcr"><span>재시도 예정</span><b>' + r.retry + '</b></div>'
-        + '<div class="rcnote bad">아직 차감되지 않았지만 <b>' + won(tot(r)) + '</b>은 '
-        + '출금 가능액에서 <b>미리 제외</b>됩니다.</div>';
+        + '<div class="rcnote bad">차감이 끝날 때까지 <b>출금이 막힙니다.</b> '
+        + '고머니를 충전하면 자동으로 재시도합니다.</div>';
 
     return '<tr class="rcd"><td colspan="9"><div class="rcbox">'
       + '<div class="rcsec"><div class="h">배차 시도 이력</div>'
@@ -3667,7 +3718,7 @@
         + '<td class="c tm">' + rcv(r) + '</td>'
         + '<td class="c tm cx">' + r.cxl + '</td>'
         + '<td class="reason">미배차 취소</td>'
-        + '<td class="r amt">\u2212 ' + won(tot(r)) + '</td>'
+        + '<td class="r amt">\u2212 ' + won(r.amt) + '</td>'
         + '<td><span class="st ' + (r.st === 'done' ? 'done' : 'pend') + '">'
         +   (r.st === 'done' ? '차감완료' : '차감실패') + '</span></td></tr>';
       return row + (open ? detail(r) : '');
@@ -3692,7 +3743,7 @@
   /* 주차 정산 — 수요일 시작 ~ 화요일 종료(7일). 키 = 주차 종료일(화) = 세금계산서 작성일자.
      정산 확정·발행 가능일 = 종료 이틀 뒤 목요일. 공급가액 = 완료건 x 관리비 250원. */
   var W = {
-    '2026-10-06': {s:'2026-09-30', lb:'10월 1주차', yl:'2026년 10월 1주차', pub:'2026-10-08', half:'후반기', dl:'2027-01-10', orders:1043, supply:260750, ded:0, status:'wait', issued:null, no:null},
+    '2026-10-06': {s:'2026-09-30', lb:'10월 1주차', yl:'2026년 10월 1주차', pub:'2026-10-08', half:'후반기', dl:'2027-01-10', orders:1043, supply:260750, ded:120000, status:'wait', issued:null, no:null},
     '2026-09-29': {s:'2026-09-23', lb:'9월 5주차', yl:'2026년 9월 5주차', pub:'2026-10-01', half:'후반기', dl:'2027-01-10', orders:1048, supply:262000, ded:0, status:'wait', issued:null, no:null},
     '2026-09-22': {s:'2026-09-16', lb:'9월 4주차', yl:'2026년 9월 4주차', pub:'2026-09-24', half:'후반기', dl:'2027-01-10', orders:1021, supply:255250, ded:18000, status:'done', issued:'2026-09-24', no:'20260924-41007001-11112233'},
     '2026-09-15': {s:'2026-09-09', lb:'9월 3주차', yl:'2026년 9월 3주차', pub:'2026-09-17', half:'후반기', dl:'2027-01-10', orders:1096, supply:274000, ded:0, status:'done', issued:'2026-09-17', no:'20260917-41007001-11224466'},
@@ -3704,14 +3755,14 @@
     '2026-08-04': {s:'2026-07-29', lb:'8월 1주차', yl:'2026년 8월 1주차', pub:'2026-08-06', half:'후반기', dl:'2027-01-10', orders:1081, supply:270250, ded:22000, status:'done', issued:'2026-08-06', no:'20260806-41007001-11897864'},
     '2026-07-28': {s:'2026-07-22', lb:'7월 4주차', yl:'2026년 7월 4주차', pub:'2026-07-30', half:'후반기', dl:'2027-01-10', orders:1026, supply:256500, ded:0, status:'done', issued:'2026-07-30', no:'20260730-41007001-12010097'},
     '2026-07-21': {s:'2026-07-15', lb:'7월 3주차', yl:'2026년 7월 3주차', pub:'2026-07-23', half:'후반기', dl:'2027-01-10', orders:1072, supply:268000, ded:14000, status:'done', issued:'2026-07-23', no:'20260723-41007001-12122330'},
-    '2026-07-14': {s:'2026-07-08', lb:'7월 2주차', yl:'2026년 7월 2주차', pub:'2026-07-16', half:'후반기', dl:'2027-01-10', orders:1039, supply:259750, ded:0, status:'done', issued:'2026-07-16', no:'20260716-41007001-12234563'},
+    '2026-07-14': {s:'2026-07-08', lb:'7월 2주차', yl:'2026년 7월 2주차', pub:'2026-07-16', half:'후반기', dl:'2027-01-10', orders:182, supply:45500, ded:62000, status:'carry', issued:null, no:null},
     '2026-07-07': {s:'2026-07-01', lb:'7월 1주차', yl:'2026년 7월 1주차', pub:'2026-07-09', half:'후반기', dl:'2027-01-10', orders:1005, supply:251250, ded:26000, status:'done', issued:'2026-07-09', no:'20260709-41007001-12346796'},
     '2026-06-30': {s:'2026-06-24', lb:'6월 5주차', yl:'2026년 6월 5주차', pub:'2026-07-02', half:'전반기', dl:'2026-07-10', orders:992, supply:248000, ded:0, status:'lapsed', issued:null, no:null, penalty:7440, released:240560, lapsedAt:'2026-07-10'}
   };
   var ORDER = ['2026-10-06', '2026-09-29', '2026-09-22', '2026-09-15', '2026-09-08', '2026-09-01', '2026-08-25', '2026-08-18', '2026-08-11', '2026-08-04', '2026-07-28', '2026-07-21', '2026-07-14', '2026-07-07', '2026-06-30'];
   /* 팝빌 문서상태 + 기한경과(반기 마감신고일까지 미발행 → 가산세 차감 후 해제) */
   var LBL = {wait:'미발행', issuing:'발행중', sending:'전송중', done:'전송완료',
-             failed:'전송실패', lapsed:'기한경과'};
+             failed:'전송실패', lapsed:'기한경과', carry:'다음 주차 이월'};
   var SENT = {done:1};                       /* 문서 열람 가능 상태 */
   var BUSY = {issuing:1, sending:1};
   var PENALTY = 0.03;                        /* 미발행 가산세율 — 공급가액 기준 */
@@ -3737,13 +3788,28 @@
 
   /* 순차 발행 — 주차는 오래된 순서대로만 발행한다. 이전 주차가 미발행이면 막는다.
      ORDER 는 최신순이므로 뒤쪽이 과거. 기한경과분은 이미 발행 대상이 아니라 막지 않는다. */
+  /* 상계 후 공급가액이 0 이하인 주차는 발행하지 않고 다음 주차로 넘긴다.
+     다음 주차는 자기 금액에 이월분을 더해(= 음수를 뺀) 합산 발행한다.
+     ORDER 는 최신순이라 과거부터 훑어 누적한다. */
+  function buildCarry(){
+    var m = {}, c = 0;
+    for(var i = ORDER.length - 1; i >= 0; i--){
+      var k = ORDER[i], base = W[k].supply - W[k].ded, net = base + c;
+      m[k] = {base:base, carry:c, net:net, issue:(net > 0 ? net : 0)};
+      c = (net > 0) ? 0 : net;
+    }
+    return m;
+  }
+  var CM = buildCarry();
+  function isCarry(k){ return CM[k].issue === 0; }
+
   /* 발행 가능일(주차 종료 이틀 뒤 목요일)이 아직 오지 않은 주차 = 정산 확정 전 */
   function beforePub(k){ return W[k].pub > TODAY_S; }
 
   function blockedBy(k){
     var i = ORDER.indexOf(k);
     for(var j = ORDER.length - 1; j > i; j--){
-      if(W[ORDER[j]].status === 'wait') return ORDER[j];
+      if(W[ORDER[j]].status === 'wait' && !isCarry(ORDER[j])) return ORDER[j];
     }
     return null;
   }
@@ -3779,9 +3845,11 @@
   /* 반기 마감 — 현재 반기에서 아직 발행되지 않은 주차와 미발행 시 손실 */
   function halfState(){
     var h = W[cur].half, dl = W[cur].dl;
-    var ws = ORDER.filter(function(k){ return W[k].half === h && W[k].status === 'wait'; });
-    var supply = ws.reduce(function(a, k){ return a + W[k].supply; }, 0);
-    var tax    = ws.reduce(function(a, k){ return a + vat(W[k].supply); }, 0);
+    var ws = ORDER.filter(function(k){
+      return W[k].half === h && W[k].status === 'wait' && !isCarry(k);
+    });
+    var supply = ws.reduce(function(a, k){ return a + CM[k].issue; }, 0);
+    var tax    = ws.reduce(function(a, k){ return a + vat(CM[k].issue); }, 0);
     var pen    = Math.round(supply * PENALTY);
     return {half:h, dl:dl, left:days(TODAY_S, dl), weeks:ws,
             supply:supply, vat:tax, hold:supply + tax, penalty:pen, release:supply - pen};
@@ -3798,9 +3866,9 @@
       !h.weeks.length ? '미발행 없음' : (h.left <= 30 ? '마감 임박' : '진행 중');
     document.getElementById('hfD').innerHTML = !h.weeks.length
       ? '이 반기의 모든 주차가 발행 완료되었습니다'
-      : '미발행 <b>' + h.weeks.length + '주차</b> · 공급가액 <b>' + won(h.supply) + '</b><br>'
+      : '미발행 <b>' + h.weeks.length + '주차</b> · 상계 후 공급가액 <b>' + won(h.supply) + '</b><br>'
         + '마감신고일까지 발행하지 않으면 가산세 <b>' + (PENALTY*100) + '%</b> '
-        + won(h.penalty) + '을 차감하고 부가세 ' + won(h.vat) + '을 회수한 뒤 '
+        + won(h.penalty) + '을 차감하고 <b>부가세 ' + won(h.vat) + '은 지급되지 않은 채</b> '
         + '<b>' + won(h.release) + '</b>만 출금 가능액으로 풀립니다';
     document.getElementById('hfE').textContent  = h.dl;
     document.getElementById('hfDd').textContent = h.left < 0 ? '마감됨' : 'D-' + h.left;
@@ -3811,19 +3879,21 @@
     box.hidden = !lap.length;
     box.innerHTML = lap.map(function(k){
       var x = W[k];
+      var xn = x.supply - x.ded;
       return '<b>' + x.yl + '</b> (' + span(k) + ') — ' + x.lapsedAt + ' 마감신고일 경과<br>'
-        + '공급가액 ' + won(x.supply) + ' · 가산세 ' + (PENALTY*100) + '% <span class="hl">− '
-        + won(x.penalty) + '</span> · 부가세 <span class="hl">− ' + won(vat(x.supply))
-        + '</span> 회수 → <b>' + won(x.released) + '</b> 출금 가능액 전환 완료';
+        + '상계 후 공급가액 ' + won(xn) + ' · 가산세 ' + (PENALTY*100) + '% <span class="hl">− '
+        + won(x.penalty) + '</span> · 부가세 <span class="hl">' + won(vat(xn))
+        + ' 미지급</span> → <b>' + won(x.released) + '</b> 출금 가능액 전환 완료';
     }).join('<br><br>');
   }
 
   function draw(){
     var d = W[cur];
-    document.getElementById('s1').textContent  = won(d.supply + vat(d.supply));
+    var cm = CM[cur], net = cm.net, v = vat(cm.issue);   /* 이월을 반영한 상계 후 공급가액 */
+    document.getElementById('s1').textContent  = won(cm.issue + v);
     document.getElementById('s1s').textContent = d.yl + ' · 완료 ' + num(d.orders) + '건';
-    document.getElementById('s2').textContent  = won(d.supply);
-    document.getElementById('s3').textContent  = won(vat(d.supply));
+    document.getElementById('s2').textContent  = (net < 0 ? '− ' : '') + won(Math.abs(net));
+    document.getElementById('s3').textContent  = won(v);
     document.getElementById('s4').textContent  = LBL[d.status];
     document.getElementById('s4s').textContent =
       d.status === 'lapsed' ? d.lapsedAt + ' 마감 경과 · 가산세 차감 후 해제'
@@ -3835,24 +3905,33 @@
     document.getElementById('a0').textContent  = d.yl;
     document.getElementById('a0s').textContent = '(' + span(cur) + ')';
     document.getElementById('a1').textContent = won(d.supply);
-    document.getElementById('a2').textContent = won(vat(d.supply));
-    document.getElementById('a3').textContent = '− ' + won(d.ded + vat(d.ded));
-    document.getElementById('a4').textContent = won(d.supply + vat(d.supply));
+    document.getElementById('a3').textContent = d.ded ? '− ' + won(d.ded) : won(0);
+    document.getElementById('r6').hidden = !cm.carry;
+    document.getElementById('a6').textContent = '− ' + won(Math.abs(cm.carry));
+    var a5 = document.getElementById('a5');
+    a5.textContent = (net < 0 ? '− ' : '') + won(Math.abs(net));
+    a5.className = net < 0 ? 'minus' : '';
+    document.getElementById('r7').hidden = (net > 0);
+    document.getElementById('a7').textContent = '− ' + won(Math.abs(net));
+    document.getElementById('a2').textContent = won(v);
+    document.getElementById('a4').textContent = won(cm.issue + v);
     document.getElementById('stlCap').textContent =
       d.yl + ' (' + span(cur) + ') · 공급자 = 딜리버리 마스터 · 공급받는 자 = 본사';
     drawHalf();
 
     var lapsed = d.status === 'lapsed';
+    var carried = d.status === 'carry';            /* 상계 후 0 이하 → 다음 주차 합산 */
     var early  = d.status === 'wait' && beforePub(cur);   /* 정산 확정 전 */
     var issued = d.status !== 'wait';
     var busy = !!BUSY[d.status];
     var noCert = !certOkToIssue();                 /* 인증서 미등록·만료 → 발행 차단 */
     var wait4 = blockedBy(cur);                    /* 이전 귀속월 미발행 → 발행 차단 */
     var btn = document.getElementById('stlIssue');
-    btn.disabled = issued || noCert || early || !!wait4;
+    btn.disabled = issued || noCert || early || carried || !!wait4;
     btn.textContent = d.status === 'issuing' ? '발행 중…'
       : d.status === 'sending' ? '전송 중…'
       : lapsed ? '발행 기한 경과'
+      : carried ? '다음 주차 합산'
       : issued ? '발행 완료'
       : early ? '정산 확정 전'
       : wait4 ? '이전 주차 발행 대기' : '세금계산서 발행';
@@ -3860,6 +3939,7 @@
       d.status === 'issuing' ? '팝빌 registIssue 응답 대기 중'
       : d.status === 'sending' ? 'sendToNTS 호출됨 · 국세청 전송 결과 대기 중 (최대 30분)'
       : lapsed ? d.lapsedAt + ' 마감신고일이 지나 발행할 수 없습니다 · 가산세 차감 후 해제되었습니다'
+      : carried ? '패널티가 관리비보다 커서 발행하지 않습니다 · 부족분은 다음 주차에 합산됩니다'
       : issued ? d.issued + ' 발행 · 승인번호 ' + d.no
       : noCert ? '공동인증서를 등록해야 발행할 수 있습니다 · 문서번호 ' + mgtKey(cur)
       : early ? '정산 확정 전입니다 · ' + d.pub + ' (목)부터 발행할 수 있습니다'
@@ -3872,14 +3952,14 @@
     var nb = document.getElementById('navStlCnt');
     if(nb){
       var waits = ORDER.filter(function(k){
-        return W[k].status === 'wait' && !beforePub(k);      /* 확정 전은 아직 조치 불가 */
+        return W[k].status === 'wait' && !beforePub(k) && !isCarry(k);
       }).length;
       nb.textContent = waits;
       nb.hidden = !waits;
     }
 
     document.getElementById('stlBody').innerHTML = ORDER.map(function(k){
-      var x = W[k], v = vat(x.supply), done = !!SENT[x.status];
+      var x = W[k], cmk = CM[k], xn = cmk.issue, v = vat(xn), done = !!SENT[x.status];
       var cls = (done ? 'clk' : '') + (x.status === 'wait' ? ' nx' : '');   /* nx = 미발행 */
       var soon = (x.status === 'wait' && beforePub(k));                     /* 정산 확정 전 */
       var lock = (x.status === 'wait' && !soon && blockedBy(k)) ? ' lk' : ''; /* lk = 순서상 대기 */
@@ -3890,9 +3970,9 @@
         + '<td class="wkp">' + span(k) + '</td>'
         + '<td>' + (x.issued || '—') + '</td>'
         + '<td class="num">' + (x.no || '—') + '</td>'
-        + '<td class="r amt2">' + won(x.supply) + '</td>'
-        + '<td class="r">' + won(v) + '</td>'
-        + '<td class="r amt2">' + won(x.supply + v) + '</td>'
+        + '<td class="r amt2">' + (xn ? won(xn) : '\u2014') + '</td>'
+        + '<td class="r">' + (xn ? won(v) : '\u2014') + '</td>'
+        + '<td class="r amt2">' + (xn ? won(xn + v) : '\u2014') + '</td>'
         + '<td><span class="st ' + x.status + '">'
         +   (BUSY[x.status] ? '<i class="spin"></i>' : '') + LBL[x.status] + '</span>'
         +   (soon ? '<span class="lkt">정산 확정 전</span>'
@@ -3922,7 +4002,7 @@
       + '</div>';
   }
   function txHTML(m){
-    var d = W[m], v = vat(d.supply), p = m.split('-');
+    var d = W[m], cm = CM[m], net = cm.issue, v = vat(net), p = m.split('-');
     var mm = p[1], dd2 = p[2], issued = d.status === 'done';
     return '<table class="tx">'
       + '<tr><td class="doch" colspan="10">'
@@ -3949,11 +4029,12 @@
       + '<tr><td class="h" colspan="2">작성일자</td><td class="h" colspan="3">합계금액</td>'
       +   '<td class="h" colspan="3">공급가액</td><td class="h" colspan="2">세액</td></tr>'
       + '<tr><td class="c" colspan="2">' + m + '</td>'
-      +   '<td class="r" colspan="3">' + num(d.supply + v) + '</td>'
-      +   '<td class="r" colspan="3">' + num(d.supply) + '</td>'
+      +   '<td class="r" colspan="3">' + num(net + v) + '</td>'
+      +   '<td class="r" colspan="3">' + num(net) + '</td>'
       +   '<td class="r" colspan="2">' + num(v) + '</td></tr>'
       + '<tr><td class="h" colspan="2">비고</td><td colspan="8">'
-      +   d.yl + ' (' + d.s + ' ~ ' + m + ') 배달 관리비</td></tr>'
+      +   d.yl + ' (' + d.s + ' ~ ' + m + ') 배달 관리비'
+      +   (d.ded ? ' \u2014 미배차 취소 패널티 ' + num(d.ded) + '원 상계 후' : '') + '</td></tr>'
 
       + '<tr><td class="h">월</td><td class="h">일</td><td class="h">품목</td><td class="h">규격</td>'
       +   '<td class="h">수량</td><td class="h">단가</td><td class="h" colspan="2">공급가액</td>'
@@ -3961,15 +4042,26 @@
       + '<tr><td class="c">' + mm + '</td><td class="c">' + dd2 + '</td>'
       +   '<td>배달 관리비 (' + d.yl + ')</td><td class="c">건</td>'
       +   '<td class="r">' + num(d.orders) + '</td><td class="r">250</td>'
-      +   '<td class="r" colspan="2">' + num(d.supply) + '</td><td class="r">' + num(v) + '</td><td></td></tr>'
-      + '<tr><td class="c">&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td></tr>'
+      +   '<td class="r" colspan="2">' + num(d.supply) + '</td><td></td><td></td></tr>'
+      + (d.ded
+          ? '<tr><td class="c">' + mm + '</td><td class="c">' + dd2 + '</td>'
+            + '<td>미배차 취소 패널티 상계</td><td class="c mute">\u2014</td>'
+            + '<td class="r mute">\u2014</td><td class="r mute">\u2014</td>'
+            + '<td class="r" colspan="2">\u2212 ' + num(d.ded) + '</td><td></td><td></td></tr>'
+          : '')
+      + (cm.carry
+          ? '<tr><td class="c">' + mm + '</td><td class="c">' + dd2 + '</td>'
+            + '<td>전기 이월 (' + W[prevKey(m)].yl + ')</td><td class="c mute">\u2014</td>'
+            + '<td class="r mute">\u2014</td><td class="r mute">\u2014</td>'
+            + '<td class="r" colspan="2">\u2212 ' + num(Math.abs(cm.carry)) + '</td><td></td><td></td></tr>'
+          : '<tr><td class="c">&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td></tr>')
       + '<tr><td class="c">&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td></tr>'
 
       + '<tr><td class="h" colspan="2">현금</td><td class="h" colspan="2">수표</td>'
       +   '<td class="h" colspan="2">어음</td><td class="h" colspan="2">외상미수금</td>'
       +   '<td class="c" colspan="2" rowspan="2">이 금액을 [ <b>청구</b> ] 함</td></tr>'
       + '<tr><td colspan="2"></td><td colspan="2"></td><td colspan="2"></td>'
-      +   '<td class="r" colspan="2">' + num(d.supply + v) + '</td></tr>'
+      +   '<td class="r" colspan="2">' + num(net + v) + '</td></tr>'
       + '</table>'
 
       + '<div class="txfoot">\u203b 본 전자세금계산서는 국세청고시에 따라 전자서명하여 팝빌에서 발행 되었습니다.'
@@ -3981,7 +4073,15 @@
           : '<div class="b1">아직 발행되지 않은 문서입니다.</div>'
             + '<div class="b2">발행 시 승인번호가 부여되고 국세청으로 즉시 전송됩니다.</div>')
       + '</div></div>'
-      + '<div class="txcp">패널티 차감 ' + num(d.ded + vat(d.ded)) + '원(공급가액 ' + num(d.ded) + ' + 부가세 ' + num(vat(d.ded)) + ')은 이 세금계산서에 포함되지 않습니다 \u2014 지급 단계에서 상계</div>';
+      + '<div class="txcp">'
+      +   (cm.carry
+          ? '관리비 ' + num(d.supply) + '원에서 패널티 ' + num(d.ded) + '원과 전기 이월 '
+            + num(Math.abs(cm.carry)) + '원을 상계한 ' + num(net) + '원이 공급가액입니다'
+          : d.ded
+          ? '관리비 ' + num(d.supply) + '원에서 패널티 ' + num(d.ded)
+            + '원을 상계한 ' + num(net) + '원이 공급가액입니다 \u2014 부가세는 상계 후 금액에만 붙습니다'
+          : '이 주차에는 상계할 패널티가 없습니다')
+      + '</div>';
   }
 
   var mask = document.getElementById('txMask');
@@ -4008,7 +4108,7 @@
   (function(){
     for(var i = ORDER.length - 1; i >= 0; i--){
       var k = ORDER[i];
-      if(W[k].status === 'wait' && !beforePub(k)){ cur = k; return; }
+      if(W[k].status === 'wait' && !beforePub(k) && !isCarry(k)){ cur = k; return; }
     }
     for(var j = 0; j < ORDER.length; j++){ if(!beforePub(ORDER[j])){ cur = ORDER[j]; return; } }
   })();
@@ -4016,6 +4116,7 @@
   var sel = document.getElementById('wkSel');
   sel.innerHTML = ORDER.map(function(k){
     var x = W[k], tag = x.status === 'lapsed' ? ' · 기한경과'
+      : x.status === 'carry' ? ' · 다음 주차 이월'
       : x.status !== 'wait' ? ''
       : beforePub(k) ? ' · 정산 확정 전' : ' · 미발행';
     return '<option value="' + k + '">' + x.yl + ' (' + span(k) + ')' + tag + '</option>';
@@ -4025,6 +4126,7 @@
   document.getElementById('stlPrev').addEventListener('click', function(){ openTx(cur, 'preview'); });
   /* 문서번호 — 팝빌 MgtKey (영문·숫자·'-','_' 24자 이내, 사업자별 중복 불가) */
   function mgtKey(k){ return 'OCT-' + k.replace(/-/g, '') + '-GN01'; }
+  function prevKey(k){ var i = ORDER.indexOf(k); return ORDER[Math.min(i + 1, ORDER.length - 1)]; }
 
   /* 발행 → 전송 단계 전이 (실연동은 응답·웹훅으로 갱신) */
   function msg(html, tone){
@@ -4042,6 +4144,10 @@
     }
     if(beforePub(m)){                              /* 정산 확정 전 */
       msg('아직 정산 확정 전입니다 · <b>' + d.pub + ' (목)</b>부터 발행할 수 있습니다', 'wait');
+      return;
+    }
+    if(isCarry(m)){                                /* 상계 후 0 이하 */
+      msg('상계 후 공급가액이 0 이하라 발행하지 않습니다 · 부족분은 다음 주차에 합산됩니다', 'wait');
       return;
     }
     var prev = blockedBy(m);                       /* 순차 발행 선행 */
@@ -4120,9 +4226,9 @@
   var LOGO = 'bank_logo/shinhan.png';
   var FEE = 300;                       /* 건당 출금 수수료 */
   /* 패널티 차감 실패 — 한 건이라도 있으면 출금을 막는다 (금액은 부가세 포함 합계) */
-  var PENFAIL = {cnt:2, amt:39600};
+  var PENFAIL = {cnt:2, amt:36000};   /* 공급가액 기준 */
   function penBlocked(){ return PENFAIL.cnt > 0; }
-  var ST = {cash:1273750, hold:575025, paid:2000000};   /* 보류 = 미발행 2주차(공급+부가세) */
+  var ST = {cash:1273750, hold:402750, paid:2000000};   /* 보류 = 미발행 2주차 상계 후 공급가액 */
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function ymd(d){ return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); }
@@ -4320,18 +4426,23 @@
   /* 귀속월별 전환 기록 — cash = 전환 시점 보유 캐시, hold = 그 시점 미발행 보류 */
   /* 주차별 보류 → 출금 가능액 전환 기록. 키는 주차 종료일(화).
      lapsed = 반기 마감신고일까지 미발행 → 가산세 3% 차감 + 부가세 회수 후 강제 해제 */
+  /* 주차별 보류 → 출금 가능액 전환. supply = 관리비에서 패널티를 상계한 공급가액.
+     보유 캐시에는 공급가액만 쌓이고, 발행이 끝나면 그 부가세가 추가로 지급된다.
+     lapsed = 반기 마감신고일까지 미발행 → 가산세 3% 차감 + 부가세 미지급 */
   var CONV = [
-    {k:'2026-10-06', yl:'2026년 10월 1주차', sp:'09-30 ~ 10-06', supply:260750, vat:26075,
+    {k:'2026-10-06', yl:'2026년 10월 1주차', sp:'09-30 ~ 10-06', fee:260750, pen:120000, supply:140750, vat:14075,
      issued:null, conv:null, st:'wait'},
-    {k:'2026-09-29', yl:'2026년 9월 5주차',  sp:'09-23 ~ 09-29', supply:262000, vat:26200,
+    {k:'2026-09-29', yl:'2026년 9월 5주차',  sp:'09-23 ~ 09-29', fee:262000, pen:0,      supply:262000, vat:26200,
      issued:null, conv:null, st:'wait'},
-    {k:'2026-09-22', yl:'2026년 9월 4주차',  sp:'09-16 ~ 09-22', supply:255250, vat:25525,
+    {k:'2026-09-22', yl:'2026년 9월 4주차',  sp:'09-16 ~ 09-22', fee:255250, pen:18000,  supply:237250, vat:23725,
      issued:'2026-09-24 09:12:40', conv:'2026-09-24 09:31:08', st:'done'},
-    {k:'2026-09-15', yl:'2026년 9월 3주차',  sp:'09-09 ~ 09-15', supply:274000, vat:27400,
+    {k:'2026-09-15', yl:'2026년 9월 3주차',  sp:'09-09 ~ 09-15', fee:274000, pen:0,      supply:274000, vat:27400,
      issued:'2026-09-17 09:08:21', conv:'2026-09-17 09:22:55', st:'done'},
-    {k:'2026-09-08', yl:'2026년 9월 2주차',  sp:'09-02 ~ 09-08', supply:258500, vat:25850,
+    {k:'2026-09-08', yl:'2026년 9월 2주차',  sp:'09-02 ~ 09-08', fee:258500, pen:24000,  supply:234500, vat:23450,
      issued:'2026-09-10 09:15:03', conv:'2026-09-10 09:40:17', st:'done'},
-    {k:'2026-06-30', yl:'2026년 6월 5주차',  sp:'06-24 ~ 06-30', supply:248000, vat:24800,
+    {k:'2026-07-14', yl:'2026년 7월 2주차',  sp:'07-08 ~ 07-14', fee:45500,  pen:62000,  supply:-16500, vat:0,
+     issued:null, conv:null, st:'carry', nextWk:'2026년 7월 3주차'},
+    {k:'2026-06-30', yl:'2026년 6월 5주차',  sp:'06-24 ~ 06-30', fee:248000, pen:0,      supply:248000, vat:24800,
      issued:null, conv:'2026-07-10 00:10:00', st:'lapsed', penalty:7440, released:240560}
   ];
   var DASH = '\u2014';
@@ -4341,33 +4452,33 @@
 
   /* 전환이 끝난 건만 전/후를 보여준다 */
   function detail(c){
-    var hold = c.supply + c.vat;
-    var gain = (c.st === 'lapsed') ? c.released : hold;     /* 실제로 풀린 금액 */
+    var lapsed = (c.st === 'lapsed');
+    var gain = lapsed ? c.released : (c.supply + c.vat);   /* 실제로 풀린 금액 */
     var note;
 
-    if(c.st === 'lapsed'){
+    if(lapsed){
       note = '<div class="cvdelta">' + c.conv + ' <b class="bad">반기 마감신고일 경과</b> · '
-           + '가산세 ' + won(c.penalty) + ' 차감 · 부가세 ' + won(c.vat) + ' 회수 → '
+           + '가산세 ' + won(c.penalty) + ' 차감 · 부가세 ' + won(c.vat) + ' <b class="bad">미지급</b> → '
            + '출금 가능액 <b>+' + won(gain) + '</b><br>'
-           + '<span class="sub3">세금계산서를 발행했다면 ' + won(hold) + ' 전액이 풀렸습니다 '
-           + '\u2014 ' + won(hold - gain) + ' 손실</span></div>';
+           + '<span class="sub3">제때 발행했다면 ' + won(c.supply + c.vat) + '이 풀렸습니다 '
+           + '\u2014 ' + won(c.supply + c.vat - gain) + ' 손실</span></div>';
     } else {
-      note = '<div class="cvdelta">' + c.conv + ' 전환 · 출금 가능액 <b>+' + won(gain)
-           + '</b> 늘어났습니다 \u00b7 보유 캐시는 변하지 않습니다</div>';
+      note = '<div class="cvdelta">' + c.conv + ' 전환 · 출금 가능액 <b>+' + won(gain) + '</b> '
+           + '(공급가액 ' + won(c.supply) + ' 해제 + 부가세 ' + won(c.vat) + ' 지급)</div>';
     }
 
     function col(cls, title, rows){
       return '<div class="cvcol ' + cls + '"><div class="ct">' + title + '</div>' + rows + '</div>';
     }
-    var before = '<div class="cvr"><span>공급가액</span><b>' + won(c.supply) + '</b></div>'
-      + '<div class="cvr"><span>부가세</span><b>' + won(c.vat) + '</b></div>'
-      + '<div class="cvr hi"><span>미발행 보류</span><b>' + won(hold) + '</b></div>';
-    var after = (c.st === 'lapsed')
+    var before = '<div class="cvr"><span>관리비 공급가액</span><b>' + won(c.fee) + '</b></div>'
+      + '<div class="cvr"><span>패널티 상계</span><b>' + (c.pen ? '\u2212 ' + won(c.pen) : won(0)) + '</b></div>'
+      + '<div class="cvr hi"><span>미발행 보류</span><b>' + won(c.supply) + '</b></div>';
+    var after = lapsed
       ? '<div class="cvr"><span>가산세 (공급가액 3%)</span><b class="bad">\u2212 ' + won(c.penalty) + '</b></div>'
-        + '<div class="cvr"><span>부가세 회수</span><b class="bad">\u2212 ' + won(c.vat) + '</b></div>'
+        + '<div class="cvr"><span>부가세</span><b class="bad">미지급</b></div>'
         + '<div class="cvr hi"><span>출금 가능액 전환</span><b>' + won(gain) + '</b></div>'
-      : '<div class="cvr"><span>가산세</span><b>0원</b></div>'
-        + '<div class="cvr"><span>부가세 회수</span><b>0원</b></div>'
+      : '<div class="cvr"><span>공급가액 해제</span><b>' + won(c.supply) + '</b></div>'
+        + '<div class="cvr"><span>부가세 지급</span><b>+ ' + won(c.vat) + '</b></div>'
         + '<div class="cvr hi"><span>출금 가능액 전환</span><b>' + won(gain) + '</b></div>';
 
     return '<tr class="cvd"><td colspan="6"><div class="cvbox">'
@@ -4380,17 +4491,20 @@
 
   function draw(){
     body.innerHTML = CONV.map(function(c){
-      var open = (openK === c.k), can = (c.st !== 'wait');
+      var open = (openK === c.k), can = (c.st !== 'wait' && c.st !== 'carry');
       var mark = can
         ? '<span class="cvx">' + (open ? '\u25BE' : '\u25B8') + '</span>'
         : '<span class="cvx dim">\u00b7</span>';
-      var stl = c.st === 'done' ? 'paid' : (c.st === 'lapsed' ? 'lap' : 'wait');
-      var stt = c.st === 'done' ? '발행완료' : (c.st === 'lapsed' ? '기한경과' : '미발행');
+      var stl = c.st === 'done' ? 'paid' : c.st === 'lapsed' ? 'lap'
+              : c.st === 'carry' ? 'cry' : 'wait';
+      var stt = c.st === 'done' ? '발행완료' : c.st === 'lapsed' ? '기한경과'
+              : c.st === 'carry' ? '미발행' : '미발행';
       var rel = c.st === 'done' ? '출금 가능 전환'
-              : c.st === 'lapsed' ? '가산세 차감 후 해제' : '출금 보류';
+              : c.st === 'lapsed' ? '가산세 차감 후 해제'
+              : c.st === 'carry' ? '다음 주차 합산' : '출금 보류';
       var row = '<tr class="' + (can ? 'cv' : 'nocv') + (open ? ' open' : '') + '" data-k="' + c.k + '">'
         + '<td class="mon">' + mark + c.yl + '<span class="cvsp">' + c.sp + '</span></td>'
-        + '<td class="r amt">' + won(c.supply + c.vat) + '</td>'
+        + '<td class="r amt">' + (c.supply < 0 ? '− ' + won(-c.supply) : won(c.supply)) + '</td>'
         + '<td><span class="st ' + stl + '">' + stt + '</span></td>'
         + '<td class="tm">' + (c.issued || DASH) + '</td>'
         + '<td class="tm">' + (c.conv || DASH) + '</td>'
@@ -4611,7 +4725,7 @@
         ['2','필터', '<ul>'+
           '<li>전체 / 지연·미배차 / 수행중 / 완료 4종. 서버 필터가 아니라 <b>조회된 권역 오더 내 클라이언트 필터</b></li>'+
           '<li>기본값 = 전체. 지연·미배차는 건수 뱃지를 붙여 조치 대상이 바로 보이게 한다</li>'+
-          '<li>탑바 검색(상점·배달아이디·라이더)은 서버 조회. 본 필터와 AND 조건</li></ul>'],
+          '<li>상단바에는 전역 검색을 두지 않는다 \u2014 화면마다 찾는 대상이 달라 <b>각 화면의 툴바 검색</b>으로 둔다 (완료 주문 등)</li></ul>'],
         ['3','주문 목록', '<table class="sp-tbl"><tr><th>컬럼</th><th>정의</th></tr>'+
           '<tr><td>접수</td><td>오더 <b>접수 시각</b>(HH:MM). 목록 첫 컬럼으로 두어 접수 순서가 바로 보이게 한다. 정렬 기본값은 접수 시각 내림차순이며, 주문 상세 타임라인의 「접수」 단계 시각과 <b>동일한 값</b>이어야 한다</td></tr>'+
           '<tr><td>브랜드</td><td>B2B 가맹 브랜드는 브랜드 로고+명. 브랜드 미가맹 개별상점은 <b>유입 채널</b>(요기배달 등)로 묶어 표기</td></tr>'+
@@ -4707,13 +4821,13 @@
           '<p>총 차감액 KPI는 <b>차감완료 건만</b> 합산한다 — 실제 통합머니에서 빠져나간 금액과 일치해야 한다.</p>'+
           '<p><b>패널티는 용역 대가가 아니다.</b> 배차되지 못해 취소된 주문의 손해를 '+
           '본사가 먼저 보전하고, 그 금액을 <b>책임권역 마스터에게 부과</b>하는 제재금이다.</p>'+
-          '<p><b>금액 구조 \u2014 패널티도 과세거래다.</b> '+
-          '<code>상점 손해액 × 패널티 비율 = 공급가액</code>, 여기에 <b>부가세 10%</b>가 붙는다. '+
-          '실제로 통합머니에서 빠지는 <b>차감액은 공급가액 + 부가세</b>이고, 목록·KPI·출금 가용액 계산은 모두 이 합계를 쓴다.</p>'+
-          '<p>마스터가 본사에 발행하는 <b>관리비 세금계산서에는 포함되지 않는다</b> \u2014 방향이 반대인 별개 거래이기 때문이다. 관리비는 전액으로 발행하고 패널티는 <b>지급 단계에서 상계</b>한다.</p>'+
-          '<p><b>미결정</b>: 패널티 부가세를 마스터가 매입세액으로 공제받으려면 <b>본사가 마스터에게 세금계산서를 발행</b>해야 한다. 발행 주체·시점·단위(건별/주차별) \u2014 Q-2</p>'],
+          '<p><b>금액 구조</b> '+
+          '<code>상점 손해액 × 패널티 비율 = 패널티 공급가액</code>. 발생 시점에 통합머니에서 빠지는 것은 <b>공급가액뿐</b>이다 \u2014 <b>건별로는 부가세를 다루지 않는다.</b></p>'+
+          '<p>부가세는 <b>주차 단위로 관리비 수익과 상계</b>한 뒤 정산된다. <code>그 주차 관리비 공급가액 — 그 주차 패널티 공급가액 = 상계 후 공급가액</code>이고, 세금계산서는 이 금액으로 발행한다. 부가세는 <b>상계 후 금액의 10%</b>만 발생하며 발행이 끝나면 지급된다 (정산 ② 참조).</p>'+
+          '<p>세금계산서는 <b>마스터가 본사에 발행하는 1장뿐</b>이다. 본사가 패널티로 별도 세금계산서를 역발행하지 않고, 마스터의 관리비 세금계산서 <b>공급가액에서 직접 차감</b>한다.</p>'+
+          '<p><b>왜 건별로 부가세를 주고받지 않는가</b> \u2014 패널티는 주당 여러 건 발생한다. 건마다 부가세를 차감·환급하면 증빙할 세금계산서가 건수만큼 필요해진다. 주차로 묶어 상계하면 <b>주당 1장</b>으로 끝나고, 관리비 발행 주기와도 맞는다.</p>'],
         ['2','패널티 내역', '<ul>'+
-          '<li><code>발생일 · 배달 아이디 · 브랜드 · 상점 · 접수 · 취소 · 사유 · 차감액 · 상태</code> 9열. <b>발생일을 첫 컬럼</b>으로 두고 <b>최신순</b>(취소 시각 내림차순)으로 정렬한다. 차감액은 <b>부가세를 포함한 합계</b>이며, 공급가액·부가세 분해는 상세에서 본다</li>'+
+          '<li><code>발생일 · 배달 아이디 · 브랜드 · 상점 · 접수 · 취소 · 사유 · 차감액 · 상태</code> 9열. <b>발생일을 첫 컬럼</b>으로 두고 <b>최신순</b>(취소 시각 내림차순)으로 정렬한다. 차감액은 <b>공급가액</b>이다 \u2014 부가세가 섞이지 않는다</li>'+
           '<li><b>접수 → 취소</b> 시각을 나란히 둬 <b>몇 분 만에 취소됐는지</b>가 바로 읽히게 한다. 미배차 임계값은 고컨 설정값이므로 화면에 하드코딩하지 않는다 — 주문현황의 지연 임계와 같은 값을 쓴다</li>'+
           '<li>접수 시각은 <b>배달 아이디에 인코딩된 값</b>과 일치해야 한다 (<code>YYMMDD + HHMMSS + 일련번호</code>). 발생일 = 취소일</li>'+
           '<li>사유는 현재 <b>미배차 취소</b> 단일값이다. 값이 하나라도 컬럼은 유지한다 — 사유가 늘어날 때 화면을 다시 바꾸지 않기 위함이다</li>'+
@@ -4731,7 +4845,7 @@
           '<td>패널티는 마스터 귀책을 전제로 한다. <b>그 전제를 확인할 근거</b>를 같이 줘야 '+
           '이의제기 경로가 성립한다 — “배차를 안 한 것”과 “아무도 받지 않은 것”은 다르다</td></tr>'+
           '<tr><td><b>패널티 산정</b></td>'+
-          '<td><code>상점 손해액 × 패널티 비율 = 공급가액</code> → <code>+ 부가세 10%</code> → <b>차감액</b>. 비율은 <b>조회 전용</b>으로 명시</td>'+
+          '<td><code>상점 손해액 × 패널티 비율 = 패널티 금액(공급가액)</code>. 비율은 <b>조회 전용</b>. 부가세는 주차 상계 후 정산된다고 명시</td>'+
           '<td>산정식을 드러내야 Q-2(비율 vs 정액·기준금액) 결정이 어디에 꽂히는지 보인다</td></tr>'+
           '<tr><td><b>차감 처리</b></td>'+
           '<td>차감완료 = 차감 일시·금액·귀속월 / 차감실패 = 시도 일시·실패 사유·<b>재시도 예정</b></td>'+
@@ -4742,7 +4856,7 @@
           '<ul>'+
           '<li>취소 건이므로 <b>지도·라이더 정보는 넣지 않는다</b> — 경로도 수행자도 없다</li>'+
           '<li>차감실패 건이 있으면 <b>출금이 막힌다</b>. 상세에 차감액·실패 사유·재시도 예정을 적어 무엇을 해야 풀리는지 알 수 있게 한다</li>'+
-          '<li><b>미결정</b>: 차감 재시도 주기·재시도 횟수 상한, 이의제기 기능 제공 여부 — Q-2</li></ul>']
+          '<li><b>미결정</b>: 차감 재시도 주기·재시도 횟수 상한, 이의제기 기능 제공 여부 \u2014 Q-2</li></ul>']
       ]
     },
     revenue: {
@@ -4794,9 +4908,23 @@
           '<p>사이드 메뉴 배지는 <b>정산 확정 전 주차를 세지 않는다</b> \u2014 공통 규칙 E(조치가 필요한 건수만 센다)를 따른다.</p>'+
           '<p><b>미결정</b>: 주차 경계가 공휴일일 때 확정일을 미룰지 \u2014 Q-3</p>'],
         ['2','정산 요약', '<table class="sp-tbl"><tr><th>항목</th><th>팝빌 필드</th><th>정의</th></tr>'+
-          '<tr><td>공급가액</td><td><code>supplyCostTotal</code></td><td>해당 <b>주차</b>의 관리비 수익 합계 (<code>완료건 x 250원</code>). 완료 건에만 귀속되므로 취소 건 제외</td></tr>'+
-          '<tr><td>부가세</td><td><code>taxTotal</code></td><td><code>공급가액 × 10%</code></td></tr>'+
-          '<tr><td>정산 대상 금액</td><td><code>totalAmount</code></td><td><code>공급가액 + 부가세</code></td></tr></table>'+
+          '<tr><td>관리비 공급가액</td><td>\u2014</td><td>해당 <b>주차</b>의 관리비 수익 합계 (<code>완료건 x 250원</code>). 완료 건에만 귀속되므로 취소 건 제외</td></tr>'+
+          '<tr><td>패널티 상계</td><td>\u2014</td><td>그 주차에 <b>발생한</b> 패널티 공급가액 합계. 차감 성공·실패와 무관하게 발생분 전부를 상계한다</td></tr>'+
+          '<tr><td><b>상계 후 공급가액</b></td><td><code>supplyCostTotal</code></td><td><code>관리비 공급가액 — 패널티 상계</code>. <b>세금계산서에 찍히는 공급가액</b></td></tr>'+
+          '<tr><td>부가세</td><td><code>taxTotal</code></td><td><code>상계 후 공급가액 × 10%</code> \u2014 관리비 전액이 아니라 <b>상계 후 금액</b> 기준이다</td></tr>'+
+          '<tr><td>정산 대상 금액</td><td><code>totalAmount</code></td><td><code>상계 후 공급가액 + 부가세</code> \u2014 발행이 끝나면 이 금액이 출금 가능액으로 풀린다</td></tr></table>'+
+          '<p><b>현금 흐름</b> \u2014 통합머니에는 <b>공급가액만</b> 쌓인다. 주문 완료 시 관리비 공급가액이 적립되고 패널티 발생 시 공급가액이 차감된다. <b>부가세는 세금계산서 발행이 끝나는 시점에 한 번에 지급</b>된다.</p>'+
+          '<p><b>품목은 2~3줄</b>로 적는다 \u2014 <code>배달 관리비(N월 N주차)</code>, <code>미배차 취소 패널티 상계</code>(음수), 이월이 있으면 <code>전기 이월(N월 N주차)</code>(음수). 합계가 상계 후 공급가액이 되게 한다.</p>'+
+          '<p><b>상계 후 공급가액이 0 이하인 주차</b> \u2014 패널티가 관리비보다 큰 주차다. 음수로는 세금계산서를 발행할 수 없으므로 <b>그 주차는 발행하지 않고</b> 부족분을 <b>다음 주차로 이월</b>한다. 다음 주차는 자기 금액에서 이월분을 뺀 <b>합산 금액</b>으로 1장 발행한다.</p>'+
+          '<table class="sp-tbl"><tr><th>주차</th><th>관리비</th><th>패널티</th><th>이월</th><th>발행 공급가액</th><th>상태</th></tr>'+
+          '<tr><td>7월 2주차</td><td>45,500</td><td>62,000</td><td>0</td><td>—</td><td><b>다음 주차 이월</b> (—16,500)</td></tr>'+
+          '<tr><td>7월 3주차</td><td>268,000</td><td>14,000</td><td>—16,500</td><td><b>237,500</b></td><td>발행</td></tr></table>'+
+          '<ul>'+
+          '<li>이월이 계속되면 <b>양수가 될 때까지 누적</b>한다. 2주, 3주를 건너뛸 수 있다</li>'+
+          '<li>이월 주차는 <b>발행 대상이 아니다</b> \u2014 순차 발행을 막지 않고, 사이드 메뉴 미발행 배지에도 세지 않으며, 반기 마감 가산세 대상도 아니다 (발행할 금액 자체가 없다)</li>'+
+          '<li>출금 보류액에도 잡히지 않는다. 그 주차의 음수는 <b>이미 통합머니에서 빠진 뒤</b>이므로 보류로 또 잡으면 이중 차감이 된다</li>'+
+          '<li><b>이월은 반기 경계를 넘어서도 계속 누적된다.</b> 전반기 음수를 후반기 발행분에서 상계한다 \u2014 애초에 음수 주차는 세금계산서를 발행하지 않으므로 전반기 과세기간에 신고된 금액이 없고, 후반기에 양수가 되는 시점에 <b>그때까지 쌓인 이월을 모두 반영한 금액</b>으로 1장 발행한다</li>'+
+          '<li>같은 이유로 <b>이월 주차는 반기 마감 가산세 대상이 아니다</b> \u2014 발행할 금액이 없으므로 미발행 가산세를 매길 근거가 없다 (③ 참조)</li></ul>'+
           '<p>세 값은 <b>정수만</b> 허용된다. 원 단위 반올림 기준을 서버에서 통일할 것.</p>'],
         ['3','반기 마감 · 미발행 가산세', '<p>세금계산서는 <b>반기 단위로 마감신고</b>한다. '+
           '마감신고일까지 발행되지 않은 주차는 <b>더 이상 발행할 수 없고</b>, 보류액이 강제로 정리된다.</p>'+
@@ -4806,15 +4934,14 @@
           '<p>반기 귀속은 <b>주차 종료일(= 작성일자)</b> 기준으로 가른다.</p>'+
           '<p><b>마감신고일 경과 시 처리</b> \u2014 미발행 주차마다 자동 실행한다.</p>'+
           '<table class="sp-tbl"><tr><th>구분</th><th>처리</th></tr>'+
-          '<tr><td>미발행 가산세</td><td><code>공급가액 x 3%</code>를 <b>차감</b></td></tr>'+
-          '<tr><td>부가세</td><td><b>전액 회수</b> \u2014 세금계산서를 발행하지 않았으므로 '+
-          '매출세액이 성립하지 않는다. 지급할 근거가 없다</td></tr>'+
-          '<tr><td>출금 가능액 전환</td><td><code>공급가액 — 가산세</code> = <b>공급가액 x 97%</b>만 풀린다</td></tr>'+
+          '<tr><td>미발행 가산세</td><td><code>상계 후 공급가액 x 3%</code>를 <b>차감</b></td></tr>'+
+          '<tr><td>부가세</td><td><b>지급되지 않는다</b> \u2014 세금계산서를 발행하지 않았으므로 매출세액이 성립하지 않는다. 애초에 지급 전이라 회수할 것도 없다</td></tr>'+
+          '<tr><td>출금 가능액 전환</td><td><code>상계 후 공급가액 — 가산세</code> = <b>상계 후 공급가액 x 97%</b>만 풀린다</td></tr>'+
+          '<tr><td>대상에서 빠지는 주차</td><td><b>이월 주차</b>(상계 후 0 이하). 발행할 금액이 없어 가산세를 매기지 않고, 이월은 반기를 넘어 그대로 살아 다음 양수 주차에서 상계된다</td></tr>'+
           '<tr><td>문서 상태</td><td><b>기한경과</b>. 발행 버튼을 영구 비활성화하고 순차 발행도 막지 않는다 '+
           '(이미 발행 대상이 아니므로 뒤 주차를 붙잡지 않는다)</td></tr></table>'+
-          '<p><b>계산 예</b> \u2014 공급가액 248,000원 · 부가세 24,800원 (보류 272,800원)<br>'+
-          '가산세 7,440원 차감 · 부가세 24,800원 회수 → <b>240,560원</b>만 전환. '+
-          '제때 발행했다면 272,800원 전액이 풀렸으므로 <b>32,240원 손실</b>이다.</p>'+
+          '<p><b>계산 예</b> \u2014 상계 후 공급가액 248,000원 (보류액)<br>'+
+          '가산세 7,440원 차감 · 부가세 24,800원 <b>미지급</b> → <b>240,560원</b>만 전환. 제때 발행했다면 272,800원(공급가액 + 부가세)을 받았으므로 <b>32,240원 손실</b>이다.</p>'+
           '<ul>'+
           '<li>화면 상단에 <b>현재 반기 · 마감신고일 · D-day · 미발행 주차 수 · 예상 손실</b>을 상시 노출한다. '+
           'D-30 이내면 경고색으로 올린다</li>'+
@@ -4892,10 +5019,8 @@
           '<b>재전송 큐</b>를 두고 운영자 알림을 띄운다</li>'+
           '<li><code>sendToNTS</code>는 <b>재호출해도 안전</b>해야 한다 — 재시도 로직을 전제로 설계</li></ul>'+
           '<ul>'+
-          '<li><b>패널티 차감은 공급가액에서 빼지 않는다.</b> 패널티는 용역 대가가 아니라 '+
-          '배차 책임을 다하지 못한 데 대한 <b>제재금</b>이므로, '+
-          '재화·용역의 공급 대가가 아니다. 다만 <b>패널티 자체는 과세거래</b>라 공급가액에 부가세 10%가 붙으며, 이는 <b>방향이 반대인 별개 거래</b>다</li>'+
-          '<li>관리비 수익 <b>전액</b>으로 발행하고 패널티는 지급 단계에서 <b>상계</b>한다 — '+
+          '<li><b>패널티는 공급가액에서 상계한다.</b> 관리비 공급가액에서 그 주차 패널티 공급가액을 빼고, 남은 금액으로 세금계산서를 발행한다. 부가세는 <b>상계 후 금액에만</b> 붙는다</li>'+
+          '<li>세금계산서는 <b>1장</b>이다. 본사가 패널티로 역발행하지 않는다 \u2014 '+
           '<b>세금계산서 합계 ≠ 실지급액</b>이므로 화면에 툴팁으로 근거를 밝힌다</li>'+
           '<li>공급자·공급받는 자 정보를 좌우 2단으로 나란히 보여준다</li>'+
           '<li><b>세금계산서 미리보기</b>로 발행 전 국세청 서식 그대로 확인한다</li>'+
@@ -4945,8 +5070,8 @@
       ref:'기능요건정의서 MNY-005(출금·환급) · AGT-011(지갑 연동·정산 귀속)',
       items:[
         ['1','정산 요약', '<table class="sp-tbl"><tr><th>항목</th><th>정의</th></tr>'+
-          '<tr><td>보유 캐시</td><td><b>현재 지갑 잔액</b>. 주문 완료 시마다 관리비가 실시간 적립되고 패널티 차감과 기출금은 이미 반영돼 있다 (선차감 정산)<br><code>보유 캐시 = 출금 가능액 + 세금계산서 미발행 보류</code></td></tr>'+
-          '<tr><td><b>세금계산서 미발행 보류</b></td><td>세금계산서를 아직 발행하지 않은 <b>주차</b>의 정산액(공급가액 + 부가세) 합계. '+
+          '<tr><td>보유 캐시</td><td><b>현재 지갑 잔액</b>. 주문 완료 시마다 관리비 <b>공급가액</b>이 실시간 적립되고, 패널티 공급가액 차감과 기출금은 이미 반영돼 있다 (선차감 정산). 발행이 끝난 주차의 <b>부가세도 여기 들어온다</b><br><code>보유 캐시 = 출금 가능액 + 세금계산서 미발행 보류</code></td></tr>'+
+          '<tr><td><b>세금계산서 미발행 보류</b></td><td>세금계산서를 아직 발행하지 않은 <b>주차</b>의 <b>상계 후 공급가액</b> 합계. 부가세는 아직 발생하지 않았으므로 포함되지 않는다. '+
           '<b>발행 전에는 출금할 수 없다</b>. 카드 우하단 <b>「발행 하러 가기」</b>로 정산 화면으로 바로 보낸다 — '+
           '막힌 이유와 푸는 수단을 같은 자리에 둔다. 보류액이 0이면 버튼을 숨긴다</td></tr>'+
           '<tr><td>기출금</td><td>이번 달 누적 출금액. <b>보유 캐시에서 이미 빠진 값</b>이라 출금 가능액 계산에 다시 쓰지 않는다</td></tr>'+
@@ -4958,7 +5083,8 @@
           '<table class="sp-tbl"><tr><th>세금계산서 상태</th><th>정산액 처리</th></tr>'+
           '<tr><td>미발행</td><td><b>출금 보류</b> — 출금 가능액에서 제외</td></tr>'+
           '<tr><td>발행중 / 전송중</td><td>보류 유지. 발행·전송이 확정되기 전에는 풀지 않는다</td></tr>'+
-          '<tr><td><b>기한경과</b></td><td>반기 마감신고일까지 미발행 \u2014 <b>가산세(공급가액 3%) 차감 + 부가세 전액 회수</b> 후 나머지만 강제 전환. 전환 내역에서 손실액을 함께 보여준다 (정산 ③ 참조)</td></tr>'+
+          '<tr><td><b>전송완료</b></td><td>보류 해제 \u2014 <b>상계 후 공급가액이 풀리고 그 부가세가 지급</b>된다. 출금 가능액 증가분 = 공급가액 + 부가세</td></tr>'+
+          '<tr><td><b>기한경과</b></td><td>반기 마감신고일까지 미발행 \u2014 <b>가산세(상계 후 공급가액 3%) 차감 + 부가세 미지급</b>으로 나머지만 강제 전환. 전환 내역에서 손실액을 함께 보여준다 (정산 ③ 참조)</td></tr>'+
           '<tr><td>전송완료</td><td><b>출금 가능으로 전환</b> + 전환 기록 생성</td></tr>'+
           '<tr><td>발행취소 / 전송실패</td><td>전환 취소 후 다시 보류. 이미 출금됐으면 차주기 상계 (C-13)</td></tr></table>'+
           '<ul>'+
@@ -5099,8 +5225,10 @@
     ['CSV 다운로드 기간 제한', '제한 없음으로 가정'],
     ['팝빌 연동 계정 체계 (허브별 vs 본사 단일)', '허브별 계정으로 가정'],
     ['세금계산서 발행 수수료 부담 주체', '정과금 — 공급자(허브) 부담'],
-    ['패널티 상계 시 수정세금계산서 발행 여부', '발행하지 않음 (지급단계 상계)'],
-    ['패널티 세금계산서 발행 주체 (본사 → 마스터 역발행) · 시점 · 단위', '미정 (Q-2)'],
+
+    ['패널티 세금계산서 처리', '역발행 없음 · 관리비 공급가액에서 주차 단위 상계 (확정)'],
+    ['상계 후 공급가액이 음수인 주차 처리', '발행하지 않고 다음 주차로 이월해 합산 발행 (확정)'],
+    ['이월이 반기 경계를 넘는 경우', '경계 없이 누적 · 후반기 양수 주차에서 합산 발행 (확정)'],
     ['패널티 차감 실패 시 출금 차단 해제 조건 (자동 재시도 주기)', '미정 (Q-2)'],
     ['공동인증서 발급 비용 부담 주체', '딜리버리 마스터 부담 (확정) · 전자세금용 3년형 40,000원 권장'],
     ['법인 마스터 인증서 신청 시점 (대면 발급 2~5일)', '미정 (Q-3)'],
