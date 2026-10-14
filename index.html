@@ -1203,6 +1203,19 @@
 #v-settle .cvsp{margin-left:8px;font-size:10.5px;color:var(--faint);font-weight:400;font-variant-numeric:tabular-nums}
 #v-settle .st.lap{color:var(--red);background:rgba(229,84,75,.13)}
 #v-settle .st.cry{color:var(--hq);background:rgba(91,141,239,.14)}
+#v-settle .ltab{overflow-x:auto;max-height:420px;overflow-y:auto}
+#v-settle .ltab thead th{position:sticky;top:0;background:var(--panel-2);z-index:1}
+#v-settle .lg{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap}
+#v-settle .lg.earn{color:var(--accent);background:rgba(19,179,166,.13)}
+#v-settle .lg.vat{color:var(--green);background:rgba(63,185,138,.13)}
+#v-settle .lg.pen{color:var(--sales);background:rgba(224,138,60,.14)}
+#v-settle .lg.back{color:var(--red);background:rgba(229,84,75,.13)}
+#v-settle .lg.wd{color:var(--muted);background:rgba(255,255,255,.06)}
+#v-settle .dlt{font-variant-numeric:tabular-nums;font-weight:700}
+#v-settle .dlt.up{color:var(--accent)}
+#v-settle .dlt.dn{color:var(--red)}
+#v-settle .bal{font-variant-numeric:tabular-nums;color:var(--text);font-weight:600}
+#v-settle .lnote{color:var(--muted)}
 #v-settle .st + .tip{margin-left:6px;vertical-align:middle}
 #v-settle .cvdelta b{color:var(--green);font-weight:800}
 #v-settle .blogo{width:42px;height:42px;border-radius:9px;flex:none;overflow:hidden;background:#fff;
@@ -2222,6 +2235,18 @@
         </div>
       </div>
 
+
+      <div class="sec-t"><h2>보유금 이력</h2>
+        <span class="s">보유금이 늘고 준 기록 · 최신순 · 잔액은 각 시점의 보유금</span></div>
+      <div class="card">
+        <div class="ltab">
+          <table>
+            <thead><tr><th>일시</th><th>구분</th><th>내용</th>
+              <th class="r">증감</th><th class="r">잔액</th></tr></thead>
+            <tbody id="ledBody"></tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="wmask" id="wdMask" hidden>
         <div class="wdlg" role="dialog" aria-modal="true" aria-labelledby="wdlgT">
@@ -4638,6 +4663,47 @@
 })();
 
 })();
+/* settle */
+(function(){
+
+(function(){
+  /* 보유금 원장 — 공급가액만 흐른다. 부가세는 세금계산서 발행이 끝날 때 한 번 들어온다.
+     잔액은 현재 보유금에서 거슬러 계산한다(최신순 표시). */
+  var NOW_BAL = 1273750;
+  var L = [
+    {t:'2026-10-07 23:59', k:'earn', d:'10-07 완료 144건 × 250원',                         v: 36000},
+    {t:'2026-10-07 11:48', k:'back', d:'261007104512118 · 맥도날드 논현점 완료 후 취소',      v:  -250},
+    {t:'2026-10-06 23:59', k:'earn', d:'10-06 완료 150건 × 250원',                         v: 37500},
+    {t:'2026-10-05 23:59', k:'earn', d:'10-05 완료 134건 × 250원',                         v: 33500},
+    {t:'2026-10-05 07:34', k:'pen',  d:'261005071233041 · 버거킹 역삼1호점',                 v:-24000},
+    {t:'2026-10-04 23:59', k:'earn', d:'10-04 완료 131건 × 250원',                         v: 32750},
+    {t:'2026-10-04 07:05', k:'pen',  d:'261004064517033 · 삼성동 포케보울',                  v:-18000},
+    {t:'2026-10-03 23:59', k:'earn', d:'10-03 완료 188건 × 250원',                         v: 47000},
+    {t:'2026-10-03 06:24', k:'pen',  d:'261003055902027 · 맥도날드 대치3호점',               v:-30000},
+    {t:'2026-10-02 23:59', k:'earn', d:'10-02 완료 146건 × 250원',                         v: 36500},
+    {t:'2026-10-02 05:32', k:'pen',  d:'261002051346019 · 역삼 정가네 김치찌개',             v:-12000},
+    {t:'2026-10-01 23:59', k:'earn', d:'10-01 완료 135건 × 250원',                         v: 33750},
+    {t:'2026-10-01 11:24', k:'wd',   d:'신한은행 110-432-889301 · 출금 수수료 300원 포함',    v:-2000300},
+    {t:'2026-09-24 09:31', k:'vat',  d:'2026년 9월 4주차 세금계산서 발행완료',                v: 23725}
+  ];
+  var LB = {earn:'관리비 적립', pen:'패널티 차감', back:'취소 회수', wd:'출금', vat:'부가세 지급'};
+
+  function won2(v){ return Math.round(v).toLocaleString() + '원'; }
+
+  var bal = NOW_BAL;
+  document.getElementById('ledBody').innerHTML = L.map(function(x){
+    var row = '<tr><td class="tm">' + x.t + '</td>'
+      + '<td><span class="lg ' + x.k + '">' + LB[x.k] + '</span></td>'
+      + '<td class="lnote">' + x.d + '</td>'
+      + '<td class="r dlt ' + (x.v > 0 ? 'up' : 'dn') + '">'
+      +   (x.v > 0 ? '+ ' : '\u2212 ') + won2(Math.abs(x.v)) + '</td>'
+      + '<td class="r bal">' + won2(bal) + '</td></tr>';
+    bal -= x.v;
+    return row;
+  }).join('');
+})();
+
+})();
 /* register */
 (function(){
 
@@ -4817,7 +4883,7 @@
     completed: [['1','.toolbar'],['2','.otab']],
     penalty:   [['1','.kpis'],['2','.otab'],['3','.rcd']],
     revenue:    [['1','.filters'],['2','.kpis'],['3','.card']],
-    settle:     [['1','.kpis'],['2','.grid'],['3','.card']],
+    settle:     [['1','.kpis'],['2','.grid'],['3','.card'],['4','.ltab']],
     settlement: [['1','.toolbar'],['2','.kpis'],['3','.halfbar'],['4','.certbar'],['5','.issue'],['6','.otab'],['7','.iact']],
     stats:      [['1','.toolbar'],['2','.kpis'],['3','.card']],
     register:   [['1','.fcard'],['2','.grid2'],['3','.actions']],
@@ -5219,7 +5285,20 @@
           '<li>출금액은 가용잔액을 넘을 수 없다. 출금완료 시 차감 + 웰컴/PG 환급(멱등 처리)</li>'+
           '<li>내역에 <b>요청일시 · 금액 · 은행 · 출금계좌 · 예금주 · 상태</b>를 남긴다 — 입금 분쟁 대응용</li>'+
           '<li><b>미결정</b>: 정산주기·마감시각·출금 최소금액·수수료·자동승인 한도 — Q-3</li>'+
-          '<li><b>미결정</b>: 마감 후 취소로 출금완료분을 회수하는 방식 — 차주기 역분개 + 상계 (C-13)</li></ul>']
+          '<li><b>미결정</b>: 마감 후 취소로 출금완료분을 회수하는 방식 — 차주기 역분개 + 상계 (C-13)</li></ul>'],
+        ['4','보유금 이력', '<p>보유금이 <b>언제 왜 늘고 줄었는지</b>를 한 줄씩 남긴다. KPI 보유금만 보면 그 금액이 어떻게 나왔는지 알 수 없다.</p>'+
+          '<table class="sp-tbl"><tr><th>구분</th><th>부호</th><th>발생 시점</th><th>단위</th></tr>'+
+          '<tr><td>관리비 적립</td><td>+</td><td>주문 완료</td><td><b>일자별 집계</b> \u2014 건당 250원이라 건별로 남기면 하루 수백 줄이 된다</td></tr>'+
+          '<tr><td>패널티 차감</td><td>\u2014</td><td>패널티 차감완료</td><td>건별</td></tr>'+
+          '<tr><td><b>취소 회수</b></td><td>\u2014</td><td><b>완료 후 취소</b></td><td>건별 \u2014 완료 시 적립했던 관리비를 되돌린다. 보유금이 줄고 출금 가능액도 함께 줄어든다</td></tr>'+
+          '<tr><td>부가세 지급</td><td>+</td><td>세금계산서 전송완료</td><td>주차별 \u2014 상계 후 공급가액의 10%</td></tr>'+
+          '<tr><td>출금</td><td>\u2014</td><td>출금 요청</td><td>건별 \u2014 출금액 + 수수료 300원</td></tr></table>'+
+          '<ul>'+
+          '<li><b>공급가액만 흐른다.</b> 부가세는 발행이 끝날 때 한 번 들어오는 <code>부가세 지급</code> 한 줄뿐이다</li>'+
+          '<li>잔액은 각 시점의 보유금이다. <b>맨 윗줄 잔액 = 현재 보유금</b>과 반드시 일치해야 한다</li>'+
+          '<li>관리비 적립 합계는 <b>수익 화면의 같은 기간 관리비 수익과 일치</b>해야 한다</li>'+
+          '<li><b>차감 실패한 패널티는 남기지 않는다</b> \u2014 보유금이 실제로 줄지 않았기 때문이다. 성공했을 때만 한 줄 생긴다</li>'+
+          '<li><b>미결정</b>: 보관 기간과 기간 조회·CSV 제공 여부 \u2014 Q-3</li></ul>']
       ]
     },
     stats: {
