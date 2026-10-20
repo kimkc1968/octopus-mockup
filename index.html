@@ -703,6 +703,8 @@
 #v-revenue .dt{font-family:var(--mono);color:var(--text)}
 #v-revenue .dow{color:var(--faint);font-size:11px}
 #v-revenue .num{font-family:var(--mono);color:var(--muted)}
+#v-revenue .vat{font-variant-numeric:tabular-nums;color:var(--muted)}
+#v-revenue .amt.tot{color:var(--accent);font-weight:700}
 #v-revenue .amt{font-family:var(--mono);color:var(--text);font-weight:600}
 #v-revenue .st{font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
 #v-revenue .st.done{color:var(--accent);background:rgba(19,179,166,.13)}
@@ -778,6 +780,8 @@
 #v-penalty .rcpf .p b{color:var(--faint);font-weight:400;font-size:10.5px}
 #v-penalty .rcr{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:12px;color:var(--muted)}
 #v-penalty .rcr b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+#v-penalty .rcr.mid{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
+#v-penalty .rcr.mid b{color:var(--sales);font-weight:700}
 #v-penalty .rcr.sum{border-top:1px solid var(--line);margin-top:6px;padding-top:9px}
 #v-penalty .rcr.sum b{font-size:14.5px;font-weight:800;color:var(--sales)}
 #v-penalty .rclock{font-size:10px;color:var(--faint);margin-left:6px;font-weight:400}
@@ -1203,6 +1207,8 @@
 #v-settle .cvsp{margin-left:8px;font-size:10.5px;color:var(--faint);font-weight:400;font-variant-numeric:tabular-nums}
 #v-settle .st.lap{color:var(--red);background:rgba(229,84,75,.13)}
 #v-settle .st.cry{color:var(--hq);background:rgba(91,141,239,.14)}
+#v-settle td.vat{font-variant-numeric:tabular-nums;color:var(--muted)}
+#v-settle td.vat.nopay{color:var(--faint);text-decoration:line-through}
 #v-settle .ltab{overflow-x:auto;max-height:420px;overflow-y:auto}
 #v-settle .ltab thead th{position:sticky;top:0;background:var(--panel-2);z-index:1}
 #v-settle .lg{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap}
@@ -1679,7 +1685,7 @@
     <div class="navg">운영</div>
     <button class="nav" type="button" data-view="dashboard" title="대시보드"><span class="ic">▤</span><span class="tx">대시보드</span></button>
     <button class="nav" type="button" data-view="zone" title="책임 권역"><span class="ic">◇</span><span class="tx">책임 권역</span></button>
-    <button class="nav" type="button" data-view="orders" title="주문 현황"><span class="ic">◧</span><span class="tx">주문 현황</span></button>
+    <button class="nav" type="button" data-view="orders" title="배달 현황"><span class="ic">◧</span><span class="tx">배달 현황</span></button>
     <div class="navg">정산·수익</div>
     <button class="nav" type="button" data-view="revenue" title="수익"><span class="ic">₩</span><span class="tx">수익</span></button>
     <button class="nav" type="button" data-view="penalty" title="패널티"><span class="ic">⊘</span><span class="tx">패널티</span></button>
@@ -1697,7 +1703,7 @@
   <div class="main">
     <div class="topbar">
       <button class="fold-btn" id="foldBtn" type="button" aria-label="메뉴 접기" aria-expanded="true" title="메뉴 접기 (\)">☰</button>
-      <div class="ptitle" id="ptitle">주문 현황</div>
+      <div class="ptitle" id="ptitle">배달 현황</div>
       <div class="region">강남구 책임권역 <span class="chev">▾</span></div>
       <div class="live"><span class="d"></span>LIVE</div>
       <div class="notiwrap">
@@ -1743,7 +1749,7 @@
     <div class="work">
       <!-- orders -->
       <div class="card">
-        <div class="hd"><h3>주문 현황</h3>
+        <div class="hd"><h3>배달 현황</h3>
           <div class="tabs" id="filters">
             <span class="chipf on" data-f="all">전체</span>
             <span class="chipf" data-f="risk">지연·미배차</span>
@@ -1944,7 +1950,7 @@
       <div class="card">
         <div class="otab">
           <table>
-            <thead><tr><th>일자</th><th class="r">주문건수</th><th class="r">완료건수</th><th class="r">취소건수</th><th class="r">관리비 수익</th></tr></thead>
+            <thead><tr><th>일자</th><th class="r">주문건수</th><th class="r">완료건수</th><th class="r">취소건수</th><th class="r">관리비 수익</th><th class="r">부가세</th><th class="r">합계</th></tr></thead>
             <tbody id="revBody"></tbody>
           </table>
         </div>
@@ -1959,7 +1965,7 @@
       <!-- KPI -->
       <div class="kpis">
         <div class="kpi"><div class="l">이번 달</div><div class="v">6건</div><div class="sub">발생 건수</div></div>
-        <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 84,000원</div><div class="sub">공급가액 기준 · 부가세는 주차 상계</div></div>
+        <div class="kpi deduct"><div class="l">총 차감액</div><div class="v o">− 92,400원</div><div class="sub">공급가액 84,000원 + 부가세 8,400원</div></div>
         <div class="kpi"><div class="l">차감완료</div><div class="v a">4건</div><div class="sub">보유금 자동 차감</div></div>
         <div class="kpi"><div class="l">차감실패</div><div class="v g">2건</div><div class="sub">잔액 부족 · 재시도 예정</div></div>
       </div>
@@ -2228,7 +2234,7 @@
       <div class="card">
         <div class="otab">
           <table>
-            <thead><tr><th>주차</th><th class="r">상계 후 공급가액</th><th>세금계산서</th>
+            <thead><tr><th>주차</th><th class="r">상계 후 공급가액</th><th class="r">세액</th><th>세금계산서</th>
               <th>발행일</th><th>전환일</th><th>상태</th></tr></thead>
             <tbody id="convBody"></tbody>
           </table>
@@ -2278,16 +2284,16 @@
           <table>
             <thead><tr><th>배달 아이디</th><th>브랜드</th><th>상점</th><th class="c">접수</th><th class="c">배차</th><th class="c">픽업</th><th class="c">완료</th><th class="c">취소</th><th>플랫폼</th><th>소속허브</th><th>라이더</th><th class="r">대행료</th><th class="r">관리비</th></tr></thead>
             <tbody>
-              <tr><td class="oid">261007135412187</td><td><span class="bchip"><i><img src="store_logo/oliveyoung.png" alt=""></i>올리브영</span></td><td class="shop">올리브영 역삼점</td><td class="c tm">13:54</td><td class="c tm">13:57</td><td class="c tm">14:05</td><td class="c tm done">14:22</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/moaline.png" alt=""></i>모아라인</span></td><td class="hub">대치허브</td><td class="rider">한지민</td><td class="r fee">3,600원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007133108181</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">논현 돈까스하우스</td><td class="c tm">13:31</td><td class="c tm">13:36</td><td class="c tm">13:46</td><td class="c tm done">14:05</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/dilver.png" alt=""></i>딜버</span></td><td class="hub">논현허브</td><td class="rider">박서준</td><td class="r fee">4,200원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007133402183</td><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 역삼2호점</td><td class="c tm">13:34</td><td class="c tm">13:37</td><td class="c tm">13:43</td><td class="c tm done">13:58</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">강남허브</td><td class="rider">김민수</td><td class="r fee">4,000원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007131620176</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">삼성동 포케보울</td><td class="c tm">13:16</td><td class="c tm">13:20</td><td class="c tm">13:27</td><td class="c tm done">13:40</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/moaline.png" alt=""></i>모아라인</span></td><td class="hub">삼성허브</td><td class="rider">정우성</td><td class="r fee">3,800원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007125835169</td><td><span class="bchip"><i><img src="store_logo/starbucks.jpg" alt=""></i>스타벅스</span></td><td class="shop">스타벅스 대치3호점</td><td class="c tm">12:58</td><td class="c tm">13:01</td><td class="c tm">13:09</td><td class="c tm done">13:22</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/dilver.png" alt=""></i>딜버</span></td><td class="hub">청담허브</td><td class="rider">최유리</td><td class="r fee">4,500원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007123944161</td><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 역삼1호점</td><td class="c tm">12:39</td><td class="c tm">12:42</td><td class="c tm">12:48</td><td class="c tm done">13:01</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">역삼허브</td><td class="rider">이정호</td><td class="r fee">4,000원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007122015154</td><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 대치1호점</td><td class="c tm">12:20</td><td class="c tm">12:25</td><td class="c tm">12:31</td><td class="c tm done">12:47</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/dilver.png" alt=""></i>딜버</span></td><td class="hub">청담허브</td><td class="rider">최유리</td><td class="r fee">4,300원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007120210147</td><td><span class="bchip"><i><img src="store_logo/oliveyoung.png" alt=""></i>올리브영</span></td><td class="shop">올리브영 역삼3호점</td><td class="c tm">12:02</td><td class="c tm">12:06</td><td class="c tm">12:14</td><td class="c tm done">12:29</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">강남허브</td><td class="rider">김민수</td><td class="r fee">3,900원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007114533139</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">역삼 정가네 김치찌개</td><td class="c tm">11:45</td><td class="c tm">11:49</td><td class="c tm">11:56</td><td class="c tm done">12:11</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/moaline.png" alt=""></i>모아라인</span></td><td class="hub">대치허브</td><td class="rider">한지민</td><td class="r fee">4,100원</td><td class="r mgmt">250원</td></tr>
-              <tr><td class="oid">261007112204131</td><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 삼성2호점</td><td class="c tm">11:22</td><td class="c tm">11:26</td><td class="c tm">11:33</td><td class="c tm done">11:50</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">역삼허브</td><td class="rider">이정호</td><td class="r fee">4,400원</td><td class="r mgmt">250원</td></tr>
+              <tr><td class="oid">261007135412187</td><td><span class="bchip"><i><img src="store_logo/oliveyoung.png" alt=""></i>올리브영</span></td><td class="shop">올리브영 역삼점</td><td class="c tm">13:54</td><td class="c tm">13:57</td><td class="c tm">14:05</td><td class="c tm done">14:22</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/moaline.png" alt=""></i>모아라인</span></td><td class="hub">대치허브</td><td class="rider">한지민</td><td class="r fee">3,600원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007133108181</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">논현 돈까스하우스</td><td class="c tm">13:31</td><td class="c tm">13:36</td><td class="c tm">13:46</td><td class="c tm done">14:05</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/dilver.png" alt=""></i>딜버</span></td><td class="hub">논현허브</td><td class="rider">박서준</td><td class="r fee">4,200원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007133402183</td><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 역삼2호점</td><td class="c tm">13:34</td><td class="c tm">13:37</td><td class="c tm">13:43</td><td class="c tm done">13:58</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">강남허브</td><td class="rider">김민수</td><td class="r fee">4,000원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007131620176</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">삼성동 포케보울</td><td class="c tm">13:16</td><td class="c tm">13:20</td><td class="c tm">13:27</td><td class="c tm done">13:40</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/moaline.png" alt=""></i>모아라인</span></td><td class="hub">삼성허브</td><td class="rider">정우성</td><td class="r fee">3,800원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007125835169</td><td><span class="bchip"><i><img src="store_logo/starbucks.jpg" alt=""></i>스타벅스</span></td><td class="shop">스타벅스 대치3호점</td><td class="c tm">12:58</td><td class="c tm">13:01</td><td class="c tm">13:09</td><td class="c tm done">13:22</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/dilver.png" alt=""></i>딜버</span></td><td class="hub">청담허브</td><td class="rider">최유리</td><td class="r fee">4,500원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007123944161</td><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 역삼1호점</td><td class="c tm">12:39</td><td class="c tm">12:42</td><td class="c tm">12:48</td><td class="c tm done">13:01</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">역삼허브</td><td class="rider">이정호</td><td class="r fee">4,000원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007122015154</td><td><span class="bchip"><i><img src="store_logo/burgerking.webp" alt=""></i>버거킹</span></td><td class="shop">버거킹 대치1호점</td><td class="c tm">12:20</td><td class="c tm">12:25</td><td class="c tm">12:31</td><td class="c tm done">12:47</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/dilver.png" alt=""></i>딜버</span></td><td class="hub">청담허브</td><td class="rider">최유리</td><td class="r fee">4,300원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007120210147</td><td><span class="bchip"><i><img src="store_logo/oliveyoung.png" alt=""></i>올리브영</span></td><td class="shop">올리브영 역삼3호점</td><td class="c tm">12:02</td><td class="c tm">12:06</td><td class="c tm">12:14</td><td class="c tm done">12:29</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">강남허브</td><td class="rider">김민수</td><td class="r fee">3,900원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007114533139</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">역삼 정가네 김치찌개</td><td class="c tm">11:45</td><td class="c tm">11:49</td><td class="c tm">11:56</td><td class="c tm done">12:11</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/moaline.png" alt=""></i>모아라인</span></td><td class="hub">대치허브</td><td class="rider">한지민</td><td class="r fee">4,100원</td><td class="r mgmt">275원</td></tr>
+              <tr><td class="oid">261007112204131</td><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 삼성2호점</td><td class="c tm">11:22</td><td class="c tm">11:26</td><td class="c tm">11:33</td><td class="c tm done">11:50</td><td class="c tm mute">—</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">역삼허브</td><td class="rider">이정호</td><td class="r fee">4,400원</td><td class="r mgmt">275원</td></tr>
               <tr class="cxl"><td class="oid">261007121807151</td><td><span class="bchip"><i><img src="store_logo/starbucks.jpg" alt=""></i>스타벅스</span></td><td class="shop">스타벅스 삼성1호점</td><td class="c tm">12:18</td><td class="c tm mute">—</td><td class="c tm mute">—</td><td class="c tm mute">—</td><td class="c tm cx">12:41</td><td><span class="muted">전체 공유</span></td><td class="hub mute">—</td><td class="rider mute">—</td><td class="r fee mute">0원</td><td class="r mgmt mute">0원</td></tr>
               <tr class="cxl"><td class="oid">261007110233124</td><td><span class="bchip"><i><img src="store_logo/yogibaedal.png" alt=""></i>요기배달</span></td><td class="shop">대치 손만두집</td><td class="c tm">11:02</td><td class="c tm mute">—</td><td class="c tm mute">—</td><td class="c tm mute">—</td><td class="c tm cx">11:25</td><td><span class="muted">전체 공유</span></td><td class="hub mute">—</td><td class="rider mute">—</td><td class="r fee mute">0원</td><td class="r mgmt mute">0원</td></tr>
               <tr class="cxl"><td class="oid">261007104512118</td><td><span class="bchip"><i><img src="store_logo/mcdonalds.webp" alt=""></i>맥도날드</span></td><td class="shop">맥도날드 논현점</td><td class="c tm">10:45</td><td class="c tm">10:49</td><td class="c tm">10:56</td><td class="c tm done">11:12</td><td class="c tm cx">11:48</td><td><span class="chc"><i><img src="logo/barogo.png" alt=""></i>바로고</span></td><td class="hub">논현허브</td><td class="rider">박서준</td><td class="r fee mute">0원</td><td class="r mgmt mute">0원</td></tr>
@@ -2601,7 +2607,7 @@
   <div class="spec-h">
     <div>
       <div class="spec-kicker">개발 명세</div>
-      <div class="spec-title" id="specTitle">주문 현황</div>
+      <div class="spec-title" id="specTitle">배달 현황</div>
     </div>
     <button class="x" id="specClose" type="button" aria-label="닫기">✕</button>
   </div>
@@ -2777,6 +2783,16 @@
     renderTable();
   });
 
+  /* 관리비 — 완료건당 공급가 250원에 부가세 10%가 붙는다 */
+  var MGMT = 250, MGMT_VAT = 25, MGMT_TOT = 275;
+  function mgmtSub(cnt){
+    cnt = cnt || 1;
+    return '<div class="subrows">'
+      + '<div class="drow"><span>공급가</span><b>' + (MGMT * cnt).toLocaleString() + '원</b></div>'
+      + '<div class="drow"><span>부가세 (10%)</span><b class="plus">+' + (MGMT_VAT * cnt).toLocaleString() + '원</b></div>'
+      + '</div>';
+  }
+
   /* 할증 내역 — 대행료(총액)의 하위 항목으로 들여쓴다. 없으면 아무것도 내지 않는다 */
   function surchargeHTML(o){
     if(!o.sur || !o.sur.length) return '';
@@ -2862,7 +2878,9 @@
         + '<span class="st '+(r.live.length ? (r.live.length>1?'pick':'assign') : 'none')+'">'
         + (r.live.length ? '진행 중 '+r.live.length+'건' : '진행 중 없음')+'</span>'
         + (r.doneCnt ? '<span class="st done">오늘 완료 '+r.doneCnt+'건</span>' : '')+'</div>'
-        + '<div class="drow"><span>진행분 관리비 귀속</span><b>강남허브 (내 권역) · '+(r.live.length*250).toLocaleString()+'원</b></div>';
+        + '<div class="drow"><span>진행분 관리비 귀속</span><b>강남허브 (내 권역) · '
+        + (r.live.length * MGMT_TOT).toLocaleString() + '원</b></div>'
+        + mgmtSub(r.live.length);
       if(dtab === 'rider'){
         h += riderInfoHTML(r);
       } else if(r.live.length){
@@ -2912,7 +2930,8 @@
           +  '<div class="drow"><span>대행료</span><b>'+o.fee.toLocaleString()+'원</b></div>'
           +  surchargeHTML(o)
           +  '<div class="drow"><span>관리비 귀속</span><b class="wc">'
-          +  '<span class="hub bg">강남허브</span>250원</b></div>';
+          +  '<span class="hub bg">강남허브</span>' + MGMT_TOT.toLocaleString() + '원</b></div>'
+          +  mgmtSub(1);
         if(rd && rd.live.length>1){
           h += '<div class="olist"><div class="oitem" data-r="'+rd.id+'">'
             +  '<span class="bar" style="background:var(--gold)"></span>'
@@ -3674,6 +3693,7 @@
   var custom = {from:new Date(TODAY.getFullYear(), TODAY.getMonth(), 1), to:TODAY};
 
   function won(n){ return n.toLocaleString() + '원'; }
+  function vat(n){ return Math.round(n * 0.1); }   /* 관리비는 과세 대상 */
   function md(d){ return pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
 
   function draw(){
@@ -3688,12 +3708,16 @@
         + '<td class="r num">'+x.v.orders.toLocaleString()+'건</td>'
         + '<td class="r num done">'+x.v.done.toLocaleString()+'건</td>'
         + '<td class="r num'+(x.v.cancel?' cancel':'')+'">'+x.v.cancel.toLocaleString()+'건</td>'
-        + '<td class="r amt">'+won(x.v.fee)+'</td></tr>';
+        + '<td class="r amt">'+won(x.v.fee)+'</td>'
+        + '<td class="r vat">'+won(vat(x.v.fee))+'</td>'
+        + '<td class="r amt tot">'+won(x.v.fee + vat(x.v.fee))+'</td></tr>';
     }).join('') + '<tr class="revsum"><td>합계</td>'
       + '<td class="r num">'+t.orders.toLocaleString()+'건</td>'
       + '<td class="r num done">'+t.done.toLocaleString()+'건</td>'
       + '<td class="r num'+(t.cancel?' cancel':'')+'">'+t.cancel.toLocaleString()+'건</td>'
-      + '<td class="r amt">'+won(t.fee)+'</td></tr>';
+      + '<td class="r amt">'+won(t.fee)+'</td>'
+      + '<td class="r vat">'+won(vat(t.fee))+'</td>'
+      + '<td class="r amt tot">'+won(t.fee + vat(t.fee))+'</td></tr>';
 
     document.getElementById('k1l').textContent = LABEL[cur] + ' 주문건수';
     document.getElementById('k1v').textContent = t.orders.toLocaleString() + '건';
@@ -3784,8 +3808,9 @@
             {nm:'딜버', logo:'logo/dilver.png'}];
 
   function won(v){ return Math.round(v).toLocaleString() + '원'; }
-  /* 건별로는 공급가액(amt)만 차감한다.
-     부가세는 주차 단위로 수익과 상계한 뒤 세금계산서 발행 시 한 번에 정산된다. */
+  /* 패널티도 과세거래다 — 공급가액(amt)에 부가세 10%가 붙고 합계가 차감된다 */
+  function vat(v){ return Math.round(v * 0.1); }
+  function tot(r){ return r.amt + vat(r.amt); }
   function rcv(r){ return r.did.slice(6, 8) + ':' + r.did.slice(8, 10); }   /* 접수 시각 */
 
   var body = document.getElementById('rcBody'), openId = null;
@@ -3814,21 +3839,20 @@
     var calc =
         '<div class="rcr"><span>상점 손해액</span><b>' + won(r.loss) + '</b></div>'
       + '<div class="rcr"><span>패널티 비율<span class="rclock">조회 전용</span></span><b>' + r.rate + '%</b></div>'
-      + '<div class="rcr sum"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>'
-      + '<div class="rcnote">부가세는 건별로 차감하지 않습니다. '
-      + '주차 단위로 <b>관리비 수익 공급가액과 상계</b>한 뒤, '
-      + '세금계산서를 발행할 때 상계된 공급가액에 대한 부가세가 한 번에 지급됩니다.</div>';
+      + '<div class="rcr mid"><span>패널티 금액</span><b>' + won(r.amt) + '</b></div>'
+      + '<div class="rcr"><span>부가세 (10%)</span><b>' + won(vat(r.amt)) + '</b></div>'
+      + '<div class="rcr sum"><span>최종 차감액</span><b>' + won(tot(r)) + '</b></div>';
 
     /* ③ 차감 처리 */
     var deduct = done
       ? '<div class="rcr"><span>차감 일시</span><b>' + r.at + '</b></div>'
-        + '<div class="rcr"><span>차감 금액</span><b>' + won(r.amt) + '</b></div>'
+        + '<div class="rcr"><span>차감 금액</span><b>' + won(tot(r)) + '</b></div>'
         + '<div class="rcr"><span>귀속월</span><b>2026-10</b></div>'
       : '<div class="rcr"><span>시도 일시</span><b>' + r.at + '</b></div>'
         + '<div class="rcr"><span>실패 사유</span><b>보유금 잔액 부족</b></div>'
         + '<div class="rcr"><span>재시도 예정</span><b>' + r.retry + '</b></div>'
-        + '<div class="rcnote bad">차감이 끝날 때까지 <b>출금이 막힙니다.</b> '
-        + '보유금을 충전하면 자동으로 재시도합니다.</div>';
+        + '<div class="rcnote bad"><b>' + won(tot(r)) + '</b>이 아직 차감되지 않았습니다. '
+        + '차감이 끝날 때까지 <b>출금이 막힙니다.</b> 보유금을 충전하면 자동으로 재시도합니다.</div>';
 
     return '<tr class="rcd"><td colspan="9"><div class="rcbox">'
       + '<div class="rcsec"><div class="h">배차 시도 이력</div>'
@@ -3855,7 +3879,7 @@
         + '<td class="c tm">' + rcv(r) + '</td>'
         + '<td class="c tm cx">' + r.cxl + '</td>'
         + '<td class="reason">미배차 취소</td>'
-        + '<td class="r amt">\u2212 ' + won(r.amt) + '</td>'
+        + '<td class="r amt">\u2212 ' + won(tot(r)) + '</td>'
         + '<td><span class="st ' + (r.st === 'done' ? 'done' : 'pend') + '">'
         +   (r.st === 'done' ? '차감완료' : '차감실패') + '</span></td></tr>';
       return row + (open ? detail(r) : '');
@@ -4610,7 +4634,7 @@
         + '<div class="cvr"><span>부가세 지급</span><b>+ ' + won(c.vat) + '</b></div>'
         + '<div class="cvr hi"><span>출금 가능액 전환</span><b>' + won(gain) + '</b></div>';
 
-    return '<tr class="cvd"><td colspan="6"><div class="cvbox">'
+    return '<tr class="cvd"><td colspan="7"><div class="cvbox">'
       + col('', '전환 전', before)
       + '<div class="cvar">\u2192</div>'
       + col('after', '전환 후', after)
@@ -4634,6 +4658,8 @@
       var row = '<tr class="' + (can ? 'cv' : 'nocv') + (open ? ' open' : '') + '" data-k="' + c.k + '">'
         + '<td class="mon">' + mark + c.yl + '<span class="cvsp">' + c.sp + '</span></td>'
         + '<td class="r amt">' + (c.supply < 0 ? '− ' + won(-c.supply) : won(c.supply)) + '</td>'
+        + '<td class="r vat' + (c.st === 'lapsed' ? ' nopay' : '') + '">'
+        +   (c.st === 'carry' ? '\u2014' : won(c.vat)) + '</td>'
         + '<td><span class="st ' + stl + '">' + stt + '</span>'
         +   (c.st === 'carry'
             ? '<span class="tip" tabindex="0" aria-label="발행 불필요 설명">?<span class="tipbox">'
@@ -4823,7 +4849,7 @@
 
 /* ───────── 뷰 라우터 ───────── */
 (function(){
-  var TITLE = {'dashboard':'대시보드','zone':'책임 권역','orders':'주문 현황','revenue':'수익','penalty':'패널티','settlement':'정산','settle':'출금','completed':'완료 주문','stats':'통계','register':'상점 등록','shops':'담당 상점·오픈','subaccount':'서브계정'};
+  var TITLE = {'dashboard':'대시보드','zone':'책임 권역','orders':'배달 현황','revenue':'수익','penalty':'패널티','settlement':'정산','settle':'출금','completed':'완료 주문','stats':'통계','register':'상점 등록','shops':'담당 상점·오픈','subaccount':'서브계정'};
   var navs = Array.prototype.slice.call(document.querySelectorAll('.nav[data-view]'));
   var titleEl = document.getElementById('ptitle');
 
@@ -4893,7 +4919,7 @@
 
   var SPEC = {
     orders: {
-      title:'주문 현황 · 라이더 관제', url:'/orders',
+      title:'배달 현황 · 라이더 관제', url:'/orders',
       goal:'딜리버리 마스터가 <b>“내 책임권역에서 지금 무슨 주문이 어디까지 갔고, 누가 들고 있고, 늦는 건 무엇인지”</b>를 한 화면에서 보고 바로 조치한다.',
       ref:'기능요건정의서 AGT-009(책임오더 모니터링) · STO-005(동시공유 노출·경합) · ORD-005(자율수행·중복방지)',
       items:[
@@ -4964,7 +4990,7 @@
       goal:'딜리버리 마스터 첫 화면. <b>내 권역의 수익과 패널티 차감, 브랜드·상점별 완료율</b>을 한눈에 본다.',
       ref:'기능요건정의서 AGT-012(수익통계·격리) · STO-011',
       items:[
-        ['1','상단 지표', '<p>진행중 오더 · 미배차/지연 · 오늘 완료 · 담당 상점. 주문 현황 화면의 지표와 <b>같은 산식</b>을 써야 한다.</p>'],
+        ['1','상단 지표', '<p>진행중 오더 · 미배차/지연 · 오늘 완료 · 담당 상점. 배달 현황 화면의 지표와 <b>같은 산식</b>을 써야 한다.</p>'],
         ['2','수익 카드', '<ul>'+
           '<li>관리비 귀속 기준 · <b>정산 확정분</b>. 완료 시점에 확정되므로 확정 전/후를 나누지 않는다</li>'+
           '<li>월 순수익 = 관리비 수익 − 패널티 차감</li>'+
@@ -5274,6 +5300,7 @@
           '<tr><td><b>기한경과</b></td><td>반기 마감신고일까지 미발행 \u2014 <b>가산세(상계 후 공급가액 3%) 차감 + 부가세 미지급</b>으로 나머지만 강제 전환. 전환 내역에서 손실액을 함께 보여준다 (정산 ③ 참조)</td></tr>'+
           '<tr><td>전송완료</td><td><b>출금 가능으로 전환</b> + 전환 기록 생성</td></tr>'+
           '<tr><td>발행취소 / 전송실패</td><td>전환 취소 후 다시 보류. 이미 출금됐으면 차주기 상계 (C-13)</td></tr></table>'+
+          '<p>전환 내역 컬럼은 <code>주차 · 상계 후 공급가액 · 세액 · 세금계산서 · 발행일 · 전환일 · 상태</code> 7열이다. <b>세액</b>은 공급가액의 10%이며, <b>이월 주차는 발행이 없어 \u2014</b>, <b>기한경과 주차는 지급되지 않았으므로 취소선</b>으로 구분한다.</p>'+
           '<ul>'+
           '<li>전환 시점은 <b>전송완료</b>로 잡는다 — 발행만 되고 국세청 전송이 실패한 건을 풀어주면 안 된다</li>'+
           '<li>전환 기록에 <b>귀속월 · 정산액 · 세금계산서 상태 · 발행일 · 전환일</b>을 남긴다. '+
@@ -5316,7 +5343,7 @@
           '<li>세그먼트(B2B/B2C)를 분리해 제공한다 (STO-011)</li></ul>'],
         ['3','상점별 통계', '<ul>'+
           '<li><code>브랜드 · 상점 · 세그먼트 · 주문건수 · 완료건수 · 취소건수 · 관리비 수익 · 패널티 · 완료율</code></li>'+
-          '<li>브랜드는 로고 + 브랜드명. 브랜드 미가맹 개별상점은 <b>유입 채널</b>로 묶어 표기 (주문 현황·완료 주문과 동일 규칙)</li>'+
+          '<li>브랜드는 로고 + 브랜드명. 브랜드 미가맹 개별상점은 <b>유입 채널</b>로 묶어 표기 (배달 현황·완료 주문과 동일 규칙)</li>'+
           '<li><b>주문건수 = 완료건수 + 취소건수</b>, <b>완료율 = 완료건수 ÷ 주문건수</b> — 표의 숫자끼리 반드시 맞아떨어져야 한다</li>'+
           '<li>관리비 수익 = <code>완료건수 × 250원</code></li>'+
           '<li>완료율이 낮은 상점은 <b>지연·미배차가 반복되는 곳</b>이므로 권역 운영 점검 대상이 된다</li>'+
