@@ -1940,9 +1940,9 @@
       <!-- KPI -->
       <div class="kpis">
         <div class="kpi"><div class="l" id="k1l">주문건수</div><div class="v" id="k1v">—</div><div class="sub" id="k1s">—</div></div>
-        <div class="kpi"><div class="l">관리비 수익</div><div class="v" id="k2v">—</div><div class="sub">250원 / 완료건</div></div>
+        <div class="kpi"><div class="l">관리비 수익</div><div class="v" id="k2v">—</div><div class="sub" id="k2s">—</div></div>
         <div class="kpi"><div class="l">패널티 차감</div><div class="v o" id="k3v">—</div><div class="sub" id="k3s">—</div></div>
-        <div class="kpi net"><div class="l">순수익</div><div class="v a" id="k4v">—</div><div class="sub">관리비 − 패널티 (공급가액)</div></div>
+        <div class="kpi net"><div class="l">순수익</div><div class="v a" id="k4v">—</div><div class="sub">관리비 − 패널티 · 부가세 포함</div></div>
       </div>
 
       <!-- table -->
@@ -3722,12 +3722,17 @@
     document.getElementById('k1l').textContent = LABEL[cur] + ' 주문건수';
     document.getElementById('k1v').textContent = t.orders.toLocaleString() + '건';
     document.getElementById('k1s').textContent = '완료 ' + t.done.toLocaleString() + ' · 취소 ' + t.cancel.toLocaleString();
-    document.getElementById('k2v').textContent = won(t.fee);
-    document.getElementById('k3v').textContent = '\u2212 ' + won(t.ded);
-    document.getElementById('k3s').textContent = t.ded ? '미배차 취소 패널티 · 공급가액' : '해당 기간 없음';
-    document.getElementById('k4v').textContent = won(t.fee - t.ded);
+    var feeT = t.fee + vat(t.fee), dedT = t.ded + vat(t.ded);   /* 부가세 포함 */
+    document.getElementById('k2v').textContent = won(feeT);
+    document.getElementById('k2s').textContent =
+      '공급가 ' + won(t.fee) + ' + 부가세 ' + won(vat(t.fee));
+    document.getElementById('k3v').textContent = '\u2212 ' + won(dedT);
+    document.getElementById('k3s').textContent = t.ded
+      ? '공급가 ' + won(t.ded) + ' + 부가세 ' + won(vat(t.ded))
+      : '해당 기간 없음';
+    document.getElementById('k4v').textContent = won(feeT - dedT);
     document.getElementById('revCap').textContent =
-      ymd(r.from).replace(/-/g,'.') + ' ~ ' + ymd(r.to).replace(/-/g,'.') + ' · 관리비 250원 / 완료건';
+      ymd(r.from).replace(/-/g,'.') + ' ~ ' + ymd(r.to).replace(/-/g,'.') + ' · 관리비 275원(부가세 포함) / 완료건';
     document.getElementById('revRange').textContent =
       cur === 'custom' ? md(r.from)+'~'+md(r.to) : '';
   }
